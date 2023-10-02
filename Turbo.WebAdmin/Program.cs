@@ -1,5 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using System;
+using Turbo.BLL.Mapping;
+using Turbo.DAL.DbContext;
+using Turbo.WebAdmin.Helper.CookieExtensions;
+using Turbo.WebAdmin.Helper.FlluentExtensions;
+using Turbo.WebAdmin.Helper.LogExtensions;
+using Turbo.WebAdmin.Helper.ServicesExtensions;
 
 namespace Turbo.WebAdmin
 {
@@ -11,11 +17,32 @@ namespace Turbo.WebAdmin
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddDbContext<AppDbContext>(options =>
-            //{
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("RemoteConnectionString"));
-            //    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            //});
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
+
+            //Fluent Validations Extension
+            builder.Services.AddFluentServices();
+
+            //Identity AppRole,AppUser Security 
+            //builder.Services.AddIdentityServices();
+
+            //Cookie Service
+            builder.Services.AddCookieServices();
+
+            //Importand Logger Extensions
+            builder.Services.AddImpotandLogServices();
+
+            //Mapping
+            builder.Services.AddAutoMapper(typeof(CustomMapping));
+
+            //Generic Services Extensions
+            builder.Services.AddServices();
+
+            //Generic Repostory Extensions
+            builder.Services.AddRepositories();
 
             var app = builder.Build();
 
