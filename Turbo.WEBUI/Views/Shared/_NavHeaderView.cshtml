@@ -1,0 +1,91 @@
+﻿<header>
+    <div class="header_bar">
+        <div class="header_bar_left">
+            <div class="link_bar">
+                <a href="https://tap.az/">Tap.az</a>
+                <a href="https://bina.az/">Bina.az</a>
+                <a href="https://boss.az/">Boss.az</a>
+            </div>
+        </div>
+        <div class="header_bar_right">
+            <div class="header_bar_phone">
+                <span>Dəstək:</span>
+                <span>
+                    <a href="#">(012) 505-77-55</a>
+                </span>
+            </div>
+            <a href="">Yardım</a>
+            <a href="">RU</a>
+            <a href=""><i class="fa-solid fa-heart"></i>Seçilmişlər</a>
+            <a href="#" id="openModalBtn"><i class="fa-solid fa-user"></i>Giriş</a>
+
+            <!-- Modal Giris -->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn"><i class="fa-solid fa-xmark"></i></span>
+                    <h2 asp-controller="Home" asp-action="Index">TURBO.AZ</h2>
+                    <span id="text-span">Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</span>
+                    <a class="button-1" id="openModalPhone">Telefon nömrəsi ilə giriş</a>
+                    <a class="button-2" asp-controller="BiznesLogin" asp-action="Index">Biznes hesabınıza giriş</a>
+
+                </div>
+            </div>
+
+            <!-- Modal Phone -->
+            <div id="myModal-phone" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn"><i class="fa-solid fa-xmark"></i></span>
+                    <h4>Kabinetə giriş</h4>
+                    <form>
+                        <label for="phone">Telefon nömrəsi</label><br>
+                        <input type="tel" id="phone" name="phone" value="(0" required>
+                    </form>
+                    <a class="button-phone" id="openModalPhone-message">SMS-kod göndərilsin</a>
+                </div>
+            </div>
+            <!-- Modal SMS Message -->
+            <div id="phone-message" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn"><i class="fa-solid fa-xmark"></i></span>
+                    <!-- Modalın qalan məzmunu -->
+                    <p><i class="fa-solid fa-chevron-left" id="openModalPhone"></i>Nömrənin təsdiqlənməsi</p>
+                    <span id="displayedPhone"></span>
+                    <form>
+                        <label for="sms">SMS-kod</label><br>
+                        <input type="number" id="sms" name="sms" required>
+                    </form>
+                    <a class="sms-code">SMS-kod yenidən göndərilsin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_top_nav">
+        <nav class="navbar">
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                Turbo.az
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">Bütün elanlar</a></li>
+                <li><a asp-controller="CarDealerships" asp-action="Index">Avtosalonlar</a></li></a>
+                <li><a href="#">Moto <span class="new-tag">Yeni</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Ehtiyat hissələr və aksesuarlar</a>
+                    <div class="dropdown-content">
+                        <a href="#">Aksesuarlar</a>
+                        <a href="#">Audio və video texnika</a>
+                        <a href="#">Avtokosmetika və avtokimya</a>
+                        <a href="#">Ehtiyat hissələr</a>
+                        <a href="#">GPS naviqatorlar</a>
+                        <a href="#">Qeydiyyat nişanları</a>
+                        <a href="#">Siqnalizasiyalar</a>
+                        <a href="#">Videoqeydiyyatçılar</a>
+                        <a href="#">Şinlər, disklər və təkərlər</a>
+                        <a href="#">Digər</a>
+                    </div>
+                </li>
+            </ul>
+            <a class="add-ad-btn" asp-controller="Products" asp-action="Create">Yeni Elan</a>
+        </nav>
+
+    </div>
+</header>

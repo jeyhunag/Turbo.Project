@@ -1,0 +1,92 @@
+.car-dealerships {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 170px;
+}
+
+.dealerships {
+    width: 100%;
+    padding: 20px;
+    background-color: #F1F3F7;
+    margin-bottom: 20px;
+}
+
+.dealership {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.auto-card {
+    cursor: pointer;
+    margin-bottom: 16px;
+    width: 49.5%;
+    display: flex;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.5s;
+}
+
+.auto-card:hover {
+    box-shadow: 3px 3px 3px 6px #B92B24;
+   
+}
+
+.img-content {
+    position: relative; 
+    flex: 1;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow: hidden;
+}
+
+.img-content img {
+    width: 100%;
+    height: auto;
+}
+
+.text-content {
+    flex: 1;
+    padding: 0 0 2px 5px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.text-content h5 {
+    margin: 9px 0 3px 14px;
+    font-size: 20px;
+}
+
+.text-content p {
+    margin: 9px 0 3px 14px;
+    color: rgb(121, 119, 119);
+}
+
+.text-content span {
+    margin: 9px 0 3px 14px;
+    color: #C7C7C7;
+}
+
+.text-content a {
+    margin: 9px 0 3px 14px;
+    cursor: pointer;
+    color: #51A5EA;
+}
+
+.fa-phone {
+    color: #51A5EA;
+}
+
+
+.resmi-label {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    background-color: #5189EB;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 14px;
+}
