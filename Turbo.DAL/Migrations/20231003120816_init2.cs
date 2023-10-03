@@ -76,22 +76,6 @@ namespace Turbo.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EnginePowers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InsertDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_EnginePowers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "FuelTypeCategories",
                 columns: table => new
                 {

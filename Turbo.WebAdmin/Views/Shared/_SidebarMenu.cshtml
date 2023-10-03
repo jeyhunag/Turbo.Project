@@ -7,44 +7,32 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" key="t-menu">Menu</li>
-                <li>
-                    <a asp-area="FoltAdmin" asp-controller="UserManagment" asp-action="UserIndex" class="waves-effect">
-                        <i class="bx bx-buildings"></i>
-                        <span key="t-chat">User Managment</span>
-                    </a>
-                </li>
-                <li>
-                    <a asp-area="FoltAdmin" asp-controller="UserManagment" asp-action="RoleIndex" class="waves-effect">
-                        <i class="bx bx-buildings"></i>
-                        <span key="t-chat">Role</span>
-                    </a>
-                </li>
-                <li>
-                    <a asp-area="FoltAdmin" asp-controller="Cities" asp-action="Index" class="waves-effect">
-                        <i class="bx bx-buildings"></i>
-                        <span key="t-chat">Cities</span>
-                    </a>
-                </li>
 
                 <li>
-                    <a asp-area="FoltAdmin" asp-controller="Categories" asp-action="Index" class="waves-effect">
-                        <i class="bx bx-box"></i>
-                        <span key="t-chat">Categories</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-home-circle"></i>
+                        <span key="t-dashboards">Categorys</span>
                     </a>
-                </li>
-                <li>
-                    <a asp-area="FoltAdmin" asp-controller="SocialLinks" asp-action="Index" class="waves-effect">
-                        <i class="bx bx-box"></i>
-                        <span key="t-chat">Social</span>
-                    </a>
-                </li>
-                <li>
-                    <a asp-area="FoltAdmin" asp-controller="Banners" asp-action="Index" class="waves-effect">
-                        <i class="bx bx-box"></i>
-                        <span key="t-chat">Banners</span>
-                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a asp-controller="CityCategory" asp-action="Index">Cities</a></li>
+                        <li><a asp-controller="BanTypeCategory" asp-action="Index">Ban Type</a></li>
+                        <li><a asp-controller="ColorCategory" asp-action="Index">Color</a></li>
+                        <li><a asp-controller="EngineCapacityCategory" asp-action="Index">Engine Capacity</a></li>
+                        <li><a asp-controller="EnginePowerCategory" asp-action="Index">Engine Power</a></li>
+                        <li><a asp-controller="FuelTypeCategory" asp-action="Index">Fuel Type</a></li>
+                        <li><a asp-controller="GearBoxCategory" asp-action="Index">Gear Box</a></li>
+                        <li><a asp-controller="GearCategory" asp-action="Index">Gear</a></li>
+                        <li><a asp-controller="HowManyOwnerCategory" asp-action="Index">How Many Owner</a></li>
+                        <li><a asp-controller="MarkaCategory" asp-action="Index">Marka</a></li>
+                        <li><a asp-controller="MarketAssembledCategory" asp-action="Index">Market Assembled</a></li>
+                        <li><a asp-controller="ModelCategory" asp-action="Index">Model</a></li>
+                        <li><a asp-controller="VehicleSupplyCategory" asp-action="Index">Vehicle Supply</a></li>
+                        <li><a asp-controller="YearCategory" asp-action="Index">Year</a></li>
+                    </ul>
                 </li>
             </ul>
+
+
         </div>
         <!-- Sidebar -->
     </div>

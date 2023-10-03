@@ -18,7 +18,6 @@ namespace Turbo.BLL.Mapping
             CreateMap<CityCategory, CityCategoryDto>().ReverseMap();
             CreateMap<ColorCategory, ColorCategoryDto>().ReverseMap();
             CreateMap<EngineCapacityCategory, EngineCapacityCategoryDto>().ReverseMap();
-            CreateMap<EnginePowerCategory, EnginePowerCategoryDto>().ReverseMap();
             CreateMap<FuelTypeCategory, FuelTypeCategoryDto>().ReverseMap();
             CreateMap<GearBoxCategory, GearBoxCategoryDto>().ReverseMap();
             CreateMap<GearCategory, GearCategoryDto>().ReverseMap();

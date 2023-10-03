@@ -21,7 +21,6 @@ namespace Turbo.DAL.DbContext
         public DbSet<CityCategory> CityCategories { get; set; }
         public DbSet<ColorCategory> ColorCategories { get; set; }
         public DbSet<EngineCapacityCategory> EngineCapacities { get; set; }
-        public DbSet<EnginePowerCategory> EnginePowers { get; set; }
         public DbSet<FuelTypeCategory> FuelTypeCategories { get; set; }
         public DbSet<GearBoxCategory> GearBoxCategories { get; set; }
         public DbSet<GearCategory> GearCategories { get; set; }

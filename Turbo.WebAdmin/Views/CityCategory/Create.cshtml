@@ -1,0 +1,50 @@
+﻿@model CityCategoryDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h2 class=" m-auto">Add Cities</h2>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form asp-action="Create" method="post">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="mb-3">
+                                            <label asp-for="Name">Name</label>
+                                            <input asp-for="Name" class="form-control" placeholder="Name">
+                                            <span asp-validation-for="Name" class="text-danger"></span>
+                                        </div>
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Save Changes</button>
+                                    <a asp-action="Index" class="btn btn-secondary waves-effect waves-light">Back to List</a>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
