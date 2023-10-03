@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turbo.DAL.Data
+namespace Turbo.DAL.Dto
 {
-    public class Category:BaseEntity
+    public class GearBoxCategoryDto : BaseDto
     {
         public string Name { get; set; }
     }

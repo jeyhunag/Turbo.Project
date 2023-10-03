@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using Turbo.BLL.Mapping;
+using Turbo.BLL.Services.Interfaces;
+using Turbo.BLL.Services;
 using Turbo.DAL.DbContext;
 using Turbo.WEBUI.Helper.CookieExtensions;
 using Turbo.WEBUI.Helper.FlluentExtensions;
@@ -14,7 +16,7 @@ namespace Turbo.WEBUI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+           
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(options =>

@@ -1,4 +1,7 @@
-﻿namespace Turbo.WEBUI.Helper.ServicesExtensions
+﻿using Turbo.DAL.Repostory;
+using Turbo.DAL.Repostory.Interface;
+
+namespace Turbo.WEBUI.Helper.ServicesExtensions
 {
     public static class RepositoryExtend
     {
@@ -8,8 +11,7 @@
             {
                 throw new ArgumentNullException(nameof(services));
             }
-            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            //services.AddScoped<IMoviesRepository, MoviesRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             return services;
 
         }

@@ -9,6 +9,7 @@ namespace Turbo.DAL.Data
 {
     public class AppUser: IdentityUser
     {
-
+        public string PhoneNumber { get; set; }
+        public string SmsCode { get; set; }
     }
 }

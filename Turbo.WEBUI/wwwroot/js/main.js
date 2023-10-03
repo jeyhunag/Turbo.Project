@@ -4,12 +4,12 @@ $(document).ready(function () {
     // İlk başda ikinci dropdown listi deaktiv edirik
     $("#secondDropdown input, #secondDropdown i").prop("disabled", true);
 
-    $(".custom-dropdown i, .custom-dropdown input").click(function (e) {
+    $(".custom-dropdown fas, .custom-dropdown input").click(function (e) {
         $(".dropdown-list").not($(this).siblings(".dropdown-list")).hide();
 
         $(this).siblings(".dropdown-list").toggle();
 
-        let icon = $(this).siblings("i");
+        let icon = $(this).siblings("fas");
         if (icon.hasClass("fa-chevron-down")) {
             icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
         } else {
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
             // Əgər bu birinci dropdownsa, ikinci dropdownu deaktiv edirik
             if ($(this).closest(".custom-dropdown").is("#firstDropdown")) {
-                $("#secondDropdown input, #secondDropdown i").prop("disabled", true).val("Model").siblings(".dropdown-list").hide();
+                $("#secondDropdown input, #secondDropdown fas").prop("disabled", true).val("Model").siblings(".dropdown-list").hide();
             }
         } else {
             let selectedValue = $(this).text().trim();  // checkbox-a görə məlumatın ətrafında boşluqlar olacaq, onları təmizləyirik
@@ -41,17 +41,17 @@ $(document).ready(function () {
 
             // Əgər bu birinci dropdownsa, ikinci dropdownu aktiv edirik
             if ($(this).closest(".custom-dropdown").is("#firstDropdown")) {
-                $("#secondDropdown input, #secondDropdown i").prop("disabled", false);
+                $("#secondDropdown input, #secondDropdown fas").prop("disabled", false);
             }
         }
 
         $(this).parent(".dropdown-list").hide();
-        $(this).closest(".custom-dropdown").find("i").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+        $(this).closest(".custom-dropdown").find("fas").removeClass("fa-chevron-up").addClass("fa-chevron-down");
     });
 
     $(document).click(function () {
         $(".dropdown-list").hide();
-        $(".custom-dropdown i").removeClass("fa-chevron-up").addClass("fa-chevron-down");
+        $(".custom-dropdown fas").removeClass("fa-chevron-up").addClass("fa-chevron-down");
     });
 
 });
@@ -137,7 +137,7 @@ $(document).ready(function () {
         $('#myModal-phone').css('display', 'flex');
     });
 
-    // Telefon nömrəsi inputunun formatlanması
+     //Telefon nömrəsi inputunun formatlanması
     $('.button-phone').addClass('deactivated');
     $('#phone').on('input', function () {
         let value = $(this).val().replace(/\D/g, "").substring(0, 10);

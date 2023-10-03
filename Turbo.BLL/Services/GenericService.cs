@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Turbo.BLL.Services.Interfaces;
 using Turbo.DAL.Repostory.Interface;
-using Turbo.DAL.UnitOfWorks;
 
 namespace Turbo.BLL.Services
 {
@@ -15,14 +14,12 @@ namespace Turbo.BLL.Services
     {
         private readonly IGenericRepository<TEntity> _genericRepository;
         protected readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<GenericService<TDto, TEntity>> _logger;
-        public GenericService(IGenericRepository<TEntity> genericRepository, IMapper mapper, ILogger<GenericService<TDto, TEntity>> logger, IUnitOfWork unitOfWork)
+        public GenericService(IGenericRepository<TEntity> genericRepository, IMapper mapper, ILogger<GenericService<TDto, TEntity>> logger)
         {
             _genericRepository = genericRepository;
             _mapper = mapper;
             _logger = logger;
-            _unitOfWork = unitOfWork;
         }
 
         public async Task<TDto> AddAsync(TDto item)

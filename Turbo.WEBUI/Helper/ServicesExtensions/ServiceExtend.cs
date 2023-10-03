@@ -1,4 +1,7 @@
-﻿namespace Turbo.WEBUI.Helper.ServicesExtensions
+﻿using Turbo.BLL.Services;
+using Turbo.BLL.Services.Interfaces;
+
+namespace Turbo.WEBUI.Helper.ServicesExtensions
 {
     public static class ServiceExtend
     {
@@ -8,8 +11,7 @@
             {
                 throw new ArgumentNullException(nameof(services));
             }
-            //services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
-            //services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
 
             return services;
 

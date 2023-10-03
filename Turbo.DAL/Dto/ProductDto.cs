@@ -14,6 +14,7 @@ namespace Turbo.DAL.Dto
         public int Phone { get; set; }
         public string City { get; set; }
         public string BanType { get; set; }
+        public string Img { get; set; }
         public string Color { get; set; }
         public string Engine { get; set; }
         public string March { get; set; }
