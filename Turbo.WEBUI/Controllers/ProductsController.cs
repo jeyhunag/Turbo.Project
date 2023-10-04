@@ -50,25 +50,27 @@ namespace Turbo.WEBUI.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Create(ProductDto product, IFormFile imageFile)
+        public async Task<IActionResult> Create(ProductDto product, List<IFormFile> imageFiles)
         {
-
             if (ModelState.IsValid)
             {
+                product.Img = new List<string>();
 
-                if (imageFile != null && imageFile.Length > 0)
+                if (imageFiles != null && imageFiles.Count > 0)
                 {
-                    var imagePath = _imgPath + imageFile.FileName;
-                    var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    foreach (var imageFile in imageFiles)
                     {
-                        await imageFile.CopyToAsync(stream);
-                        product.Img = imagePath;
+                        var imagePath = _imgPath + imageFile.FileName;
+                        var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                        using (var stream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                            product.Img.Add(imagePath);
+                        }
                     }
                 }
 
                 await _service.AddAsync(product);
-
                 return RedirectToAction("Index");
             }
 
@@ -110,9 +112,8 @@ namespace Turbo.WEBUI.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, ProductDto product, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, ProductDto product, List<IFormFile> imageFiles)
         {
-
             if (id != product.Id)
             {
                 return NotFound();
@@ -120,22 +121,25 @@ namespace Turbo.WEBUI.Controllers
 
             if (ModelState.IsValid)
             {
+                product.Img = new List<string>();
 
-                if (imageFile != null && imageFile.Length > 0)
+                if (imageFiles != null && imageFiles.Count > 0)
                 {
-                    var imagePath = _imgPath + imageFile.FileName;
-                    var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
-                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    foreach (var imageFile in imageFiles)
                     {
-                        await imageFile.CopyToAsync(stream);
-                        product.Img = imagePath;
+                        var imagePath = _imgPath + imageFile.FileName;
+                        var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                        using (var stream = new FileStream(fullPath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                            product.Img.Add(imagePath);
+                        }
                     }
                 }
 
                 _service.Update(product);
                 return RedirectToAction("Index");
             }
-
 
             return View(product);
         }

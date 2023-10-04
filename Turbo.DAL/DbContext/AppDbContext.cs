@@ -16,7 +16,7 @@ namespace Turbo.DAL.DbContext
 
         }
 
-        //public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<BanTypeCategory> BanTypeCategories { get; set; }
         public DbSet<CityCategory> CityCategories { get; set; }
         public DbSet<ColorCategory> ColorCategories { get; set; }

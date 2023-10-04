@@ -148,20 +148,12 @@ namespace Turbo.BLL.Services
             return categoryDtos;
         }
 
-        public async Task<List<ProductDto>> GetProductByCategoryIdAsync(int id)
+        public async Task<List<ProductDto>> GetByCategoryIdAsync(int id)
         {
-            var product = await productRepository.GetProductByCategoryIdAsync(id);
+            var product = await productRepository.GetByCategoryIdAsync(id);
             var productDtos = _mapper.Map<List<ProductDto>>(product);
 
             return productDtos;
-        }
-
-        public async Task<ProductDto> GetProductDetailByIdAsync(int id)
-        {
-            var product = await productRepository.GetByIdAsync(id);
-            var productDto = _mapper.Map<ProductDto>(product);
-
-            return productDto;
         }
 
         public async Task<List<VehicleSupplyCategoryDto>> GetVehicleSupplyCategoriesAsync()

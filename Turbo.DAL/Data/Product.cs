@@ -8,20 +8,21 @@ namespace Turbo.DAL.Data
 {
     public class Product:BaseEntity
     {
-
-        public int Phone { get; set; }
-        public string Img { get; set; }
-
-        public string March { get; set; }
-
-        public string New { get; set; }
-        public string TheSituation { get; set; }
-        public string Description { get; set; }
-        public string ExtrasProduct { get; set; }
-        public char NumberOfSeats { get; set; }
-        public int AdNumber { get; set; }
-        public string PINPassword { get; set; }
-        public float Price { get; set; }
+        public int? Phone { get; set; }
+        public List<string>? Img { get; set; }
+        public string? March { get; set; }
+        public float? Price { get; set; }
+        public int? EnginePower { get; set; }
+        public string? Situation { get; set; }
+        public string? Description { get; set; }
+        public char? NumberOfSeats { get; set; }
+        public string? VINCod { get; set; }
+        public string? CreditBarter { get; set; }
+        public string? Name { get; set; }
+        public string? Email { get; set; }
+        public string? New { get; set; }
+        public string? PINPassword { get; set; }
+        public string? AdvertisementNumber { get; set; }
 
         public int BanTypeCategoryId { get; set; }
         public BanTypeCategory? BanTypeCategory { get; set; }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,21 +20,70 @@ namespace Turbo.DAL.Repostory
 
         public async Task<List<Product>> GetByCategoryIdAsync(int id)
         {
-            //IQueryable<Product> movie = _dbContext.Movies.Where(p => p.CountryCategoryId == id &&
-            //p.LanguageCategoryId == id && p.GenresCategoryId == id && p.TrendId == id);
+            IQueryable<Product> product = _dbContext.Products.Where(p => p.BanTypeCategoryId == id &&
+            p.CityCategoryId == id && p.ColorCategoryId == id && p.EngineCapacityCategoryId == id
+            && p.FuelTypeCategoryId == id && p.GearBoxCategoryId == id && p.GearCategoryId == id
+             && p.HowManyOwnerCategoryId == id && p.MarkaCategoryId == id && p.MarketAssembledCategoryId == id
+             && p.ModelCategoryId == id && p.VehicleSupplyCategoryId == id && p.YearCategoryId == id);
 
-            return movie.ToList();
+            return await product.ToListAsync();
 
         }
 
-        public Task<ProductDto> GetDetailByIdAsync(int id)
+        public async Task<ProductDto> GetDetailByIdAsync(int id)
         {
-            throw new NotImplementedException();
+
+            var productDto = await (from m in _dbContext.Products
+                                    join gc in _dbContext.BanTypeCategories on m.BanTypeCategoryId equals gc.Id
+                                    join c in _dbContext.CityCategories on m.CityCategoryId equals c.Id
+                                    join l in _dbContext.ColorCategories on m.ColorCategoryId equals l.Id
+                                    join a in _dbContext.EngineCapacities on m.EngineCapacityCategoryId equals a.Id
+                                    join b in _dbContext.FuelTypeCategories on m.FuelTypeCategoryId equals b.Id
+                                    join q in _dbContext.GearBoxCategories on m.GearBoxCategoryId equals q.Id
+                                    join z in _dbContext.GearCategories on m.GearCategoryId equals z.Id
+                                    join x in _dbContext.HowManies on m.HowManyOwnerCategoryId equals x.Id
+                                    join r in _dbContext.MarkaCategories on m.MarkaCategoryId equals r.Id
+                                    join n in _dbContext.MarketAssembleds on m.MarketAssembledCategoryId equals n.Id
+                                    join k in _dbContext.ModelCategories on m.ModelCategoryId equals k.Id
+                                    join o in _dbContext.VehicleSupplyCategories on m.VehicleSupplyCategoryId equals o.Id
+                                    join p in _dbContext.YearCategories on m.YearCategoryId equals p.Id
+                                    where m.Id == id
+                                    select new ProductDto
+                                    {
+                                        Id = m.Id,
+                                        Name = m.Name,
+                                        Img = m.Img,
+                                        Phone = m.Phone,
+                                        March = m.March,
+                                        Price = m.Price,
+                                        EnginePower = m.EnginePower,
+                                        Description = m.Description,
+                                        Situation = m.Situation,
+                                        NumberOfSeats = m.NumberOfSeats,
+                                        VINCod = m.VINCod,
+                                        CreditBarter = m.CreditBarter,
+                                        Email = m.Email,
+                                        New = m.New,
+                                        PINPassword = m.PINPassword,
+                                        AdvertisementNumber = m.AdvertisementNumber,
+                                        BanName = gc.Name,
+                                        CityName = c.Name,
+                                        ColorName = l.Name,
+                                        EngineName = a.Name,
+                                        FuelName = b.Name,
+                                        GBoxnName = q.Name,
+                                        GearName = z.Name,
+                                        HowName = x.Name,
+                                        MarkaName = r.Name,
+                                        MarketName = n.Name,
+                                        ModelName = k.Name,
+                                        VehicleName = o.Name,
+                                        YearName = p.Name,
+
+                                    }).FirstOrDefaultAsync();
+
+            return productDto;
         }
 
-        public Task<List<Product>> GetProductByCategoryIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
