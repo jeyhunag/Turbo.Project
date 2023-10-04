@@ -9,5 +9,6 @@ namespace Turbo.DAL.Dto
     public class VehicleSupplyCategoryDto : BaseDto
     {
         public string Name { get; set; }
+        public bool IsChecked { get; set; }
     }
 }

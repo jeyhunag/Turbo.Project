@@ -1,4 +1,5 @@
-﻿@model List<ProductDto>
+﻿@model ProductDto
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -19,73 +20,46 @@
         </ul>
     </div>
     <div class="product-form">
-        <form method="post" enctype="multipart/form-data">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="marka">Marka</label>
-                <select id="marka" name="marka">
+                <label for="Marka" aria-hidden="true">Marka</label>
+                <select id="marka" name="Marka" asp-for="MarkaCategoryId" asp-items="@(new SelectList(Model.MarkaCategoryDtos, nameof(MarkaCategoryDto.Id), nameof(MarkaCategoryDto.Name)))">
                     <option selected disabled>Secin</option>
-                    <option>BMW</option>
-                    <option>NISSAN</option>
-                    <option>Mercedesption</option>
-                    <option>AUDI</option>
-                    <option>Lexus</option>
-                    <option>KIA</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="yanacaq-novu">Yanacaq növü</label>
-                <select id="yanacaq-novu" name="yanacaq-novu">
+                <select id="yanacaq-novu" name="yanacaq-novu" asp-for="FuelTypeCategoryId" asp-items="@(new SelectList(Model.FuelTypeCategoryDtos, nameof(FuelTypeCategoryDto.Id), nameof(FuelTypeCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Benzin</option>
-                    <option>Qaz</option>
-                    <option>Dizel</option>
-                    <option>Marka 3</option>
-                    <option>Marka 3</option>
-                    <option>Marka 3</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="model ">Model </label>
-                <select id="model" name="model">
+                <select id="model" name="model" asp-for="ModelCategoryId" asp-items="@(new SelectList(Model.ModelCategoryDtos, nameof(ModelCategoryDto.Id), nameof(ModelCategoryDto.Name)))">
                     <option selected disabled>Secin</option>
-                    <option>x5</option>
-                    <option>Q7</option>
-                    <option>Seronto</option>
-                    <option>Elantra</option>
-                    <option>E280</option>
-                    <option>Marka 3</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="oturucu">Ötürücü </label>
-                <select id="oturucu" name="oturucu">
+                <select id="oturucu" name="oturucu" asp-for="GearCategoryId" asp-items="@(new SelectList(Model.GearCategoryDtos, nameof(GearCategoryDto.Id), nameof(GearCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Tam</option>
-                    <option>Arxa </option>
-                    <option>On</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="ban">Ban növü</label>
-                <select id="ban" name="ban">
+                <select id="ban" name="ban" asp-for="BanTypeCategoryId" asp-items="@(new SelectList(Model.BanTypeCategoryDtos, nameof(BanTypeCategoryDto.Id), nameof(BanTypeCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Moped</option>
-                    <option>Darti</option>
-                    <option>Cupe</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="suretler-qutusu">Sürətlər qutusu </label>
-                <select id="suretler-qutusu" name="suretler-qutusu">
+                <select id="suretler-qutusu" name="suretler-qutusu" asp-for="GearBoxCategoryId" asp-items="@(new SelectList(Model.GearBoxCategoryDtos, nameof(GearBoxCategoryDto.Id), nameof(GearBoxCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Mexanik</option>
-                    <option>Avtomat</option>
-                    <option>Variator</option>
                 </select>
             </div>
 
@@ -106,40 +80,22 @@
 
             <div class="form-group">
                 <label for="il">İl </label>
-                <select id="il" name="il">
+                <select id="il" name="il" asp-for="YearCategoryId" asp-items="@(new SelectList(Model.YearCategoryDtos, nameof(YearCategoryDto.Id), nameof(YearCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>2023</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="Rəng ">Rəng </label>
-                <select id="Rəng " name="Rəng ">
+                <select id="Rəng " name="Rəng" asp-for="ColorCategoryId" asp-items="@(new SelectList(Model.ColorCategoryDtos, nameof(ColorCategoryDto.Id), nameof(ColorCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Sari</option>
-                    <option>Qirmizi</option>
-                    <option>Yasil</option>
-                    <option>Qara</option>
-                    <option>Goy</option>
-                    <option>Ag</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="Mühərrik">Mühərrikin həcmi, sm3 </label>
-                <select id="Mühərrik" name="Mühərrik">
+                <select id="Mühərrik" name="Mühərrik" asp-for="EngineCapacityCategoryId" asp-items="@(new SelectList(Model.EngineCapacityCategoryDtos, nameof(EngineCapacityCategoryDto.Id), nameof(EngineCapacityCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>2023</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
                 </select>
             </div>
 
@@ -157,39 +113,22 @@
                 <input type="number" name="Qiymət " id="Qiymət ">
             </div>
 
-            <div class="form-group">
+            <div class="form-group ">
                 <label for="Mühərrik">Mühərrikin gücü, a.g.</label>
-                <select id="Mühərrik" name="Mühərrik">
-                    <option selected disabled></option>
-                    <option>2023</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
-                </select>
+                <input type="number" name="Yürüş" id="engine-power">
             </div>
 
             <div class="form-group">
                 <label for="necenci-sahibisiniz">Neçənci sahibisiniz?</label>
-                <select id="necenci-sahibisiniz" name="necenci-sahibisiniz">
+                <select id="necenci-sahibisiniz" name="necenci-sahibisiniz" asp-for="HowManyOwnerCategoryId" asp-items="@(new SelectList(Model.HowManyOwnerCategoryDtos, nameof(HowManyOwnerCategoryDto.Id), nameof(HowManyOwnerCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Birinci</option>
-                    <option>Ikinci</option>
-                    <option>Ucuncu</option>
-                    <option>Dorduncu ve daha cox</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="bazar">Hansı bazar üçün yığılıb</label>
-                <select id="bazar" name="bazar">
+                <select id="bazar" name="bazar" asp-for="MarketAssembledCategoryId" asp-items="@(new SelectList(Model.MarketAssembledCategoryDtos, nameof(MarketAssembledCategoryDto.Id), nameof(MarketAssembledCategoryDto.Name)))">
                     <option selected disabled></option>
-                    <option>Cin</option>
-                    <option>Amerika</option>
-                    <option>Germany</option>
-                    <option>Avropa</option>
-                    <option>Russia</option>
                 </select>
             </div>
         </form>
@@ -281,62 +220,29 @@
     </div>
     <div class="vin-kod">
         <div class=" vin-group">
-            <label for="vin-kod">VIN-kod</label>
-            <input type="number" name="vin-kod" id="vin-kod">
+            <label asp-for="VINCod" for="vin-kod">VIN-kod</label>
+            <input asp-for="VINCod" type="text" name="vin-kod" id="vin-kod">
             <a href="#">VIN-kodu haradan tapmaq olar?</a>
         </div>
     </div>
     <div class="additional-info">
         <div class="additional">
-            <label for="info">Əlavə məlumat</label>
-            <textarea name="info" id="info" cols="130" rows="8"></textarea>
-
+            <label asp-for="Description" for="info">Əlavə məlumat</label>
+            <textarea asp-for="Description" name="info" id="info" cols="130" rows="8"></textarea>
         </div>
         <span>telefon nömrələri qeyd etmək qadağandır</span>
     </div>
     <div class="vehicle-supply">
         <h3>Avtomobilin təchizatı</h3>
         <div class="supply">
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Yüngül lehimli disklər
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                ABS
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Mərkəzi qapanma
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Lyuk
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Kondisioner
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Yağış sensoru
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Yan pərdələr
-            </label>
-            <label class="supply-container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-                Arxa görüntü kamerası
-            </label>
+            @foreach (var supply in Model.VehicleSupplyCategoryDtos)
+            {
+                <label class="supply-container">
+                    <input type="checkbox" asp-for="@supply.IsChecked">
+                    <span class="checkmark"></span>
+                    @Html.DisplayFor(modelItem => supply.Name)
+                </label>
+            }
         </div>
     </div>
     <div class="crate-new-image">
@@ -368,28 +274,22 @@
             keçirilmir.
         </span>
         <div class="contact">
-            <label for="Adınız" id="star">Adınız</label>
-            <input type="text" name="Adınız" id="Adınız">
+            <label asp-for="Name" for="Adınız" id="star">Adınız</label>
+            <input asp-for="Name" type="text" name="Adınız" id="Adınız">
         </div>
         <div class="contact">
             <label for="Şəhər" id="star">Şəhər</label>
-            <select id="Şəhər" name="Şəhər">
-                <option selected disabled>Bakı</option>
-                <option>Qazax</option>
-                <option>Quba</option>
-                <option>Sumqayit</option>
-                <option>Qusar</option>
-                <option>Seki</option>
-                <option>Lenkeran</option>
+            <select id="Şəhər" name="Şəhər" asp-for="CityCategoryId" asp-items="@(new SelectList(Model.CityCategoryDtos, nameof(CityCategoryDto.Id), nameof(CityCategoryDto.Name)))">
+                <option selected disabled></option>
             </select>
         </div>
         <div class="contact">
-            <label for="Email" id="star">Email</label>
-            <input type="email" name="Email" id="Email">
+            <label asp-for="Email" for="Email" id="star">Email</label>
+            <input asp-for="Email" type="email" name="Email" id="Email">
         </div>
         <div class="contact">
-            <label for="phone" id="phone">Telefon nömrəsi </label>
-            <input type="number" name="phone" id="phone-contact" placeholder="(000)000-00-00">
+            <label asp-for="Phone" for="phone" id="phone">Telefon nömrəsi </label>
+            <input asp-for="Phone" type="number" name="phone" id="phone-contact" placeholder="(000)000-00-00">
         </div>
         <button>Davam Et</button>
         <span>

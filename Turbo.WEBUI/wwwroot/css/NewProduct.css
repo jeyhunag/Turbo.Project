@@ -85,14 +85,13 @@
     font-size: 16px;
 }
 
-.form-group-checbox input[type="number"] {
-    width: 251px;
-    padding: 8px 0;
-    border-radius: 5px;
-    margin-left: auto;
-    border-color: #aeaeae;
-
-}
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 251px;
+        padding: 8px 0;
+        border-radius: 5px;
+        margin-left: auto;
+        border-color: #aeaeae;
+    }
 
 .form-group-checbox>label {
     font-size: 16px;
@@ -212,7 +211,7 @@
     font-size: 16px;
 }
 
-.vin-group input[type="number"] {
+.vin-group input[type="text"] {
     width: 251px;
     padding: 8px 0;
     border-radius: 5px;

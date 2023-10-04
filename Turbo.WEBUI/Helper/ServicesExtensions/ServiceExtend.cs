@@ -12,7 +12,7 @@ namespace Turbo.WEBUI.Helper.ServicesExtensions
                 throw new ArgumentNullException(nameof(services));
             }
             services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
-
+            services.AddScoped<IProductService, ProductService>();
             return services;
 
         }

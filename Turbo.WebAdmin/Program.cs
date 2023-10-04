@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 using System;
 using Turbo.BLL.Mapping;
 using Turbo.DAL.DbContext;
@@ -22,6 +23,8 @@ namespace Turbo.WebAdmin
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString"));
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
+
+            builder.Host.UseSerilog();
 
             //Fluent Validations Extension
             builder.Services.AddFluentServices();

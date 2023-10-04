@@ -8,6 +8,8 @@ using Turbo.WEBUI.Helper.CookieExtensions;
 using Turbo.WEBUI.Helper.FlluentExtensions;
 using Turbo.WEBUI.Helper.LogExtensions;
 using Turbo.WEBUI.Helper.ServicesExtensions;
+using Serilog;
+using Turbo.WEBUI.Helper.IdentityExtensions;
 
 namespace Turbo.WEBUI
 {
@@ -25,11 +27,13 @@ namespace Turbo.WEBUI
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
+            builder.Host.UseSerilog();
+
             //Fluent Validations Extension
             builder.Services.AddFluentServices();
 
             //Identity AppRole,AppUser Security 
-            //builder.Services.AddIdentityServices();
+           // builder.Services.AddIdentityServices();
 
             //Cookie Service
             builder.Services.AddCookieServices();
@@ -61,6 +65,7 @@ namespace Turbo.WEBUI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
