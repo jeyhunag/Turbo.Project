@@ -54,7 +54,7 @@ namespace Turbo.WEBUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.Img = new List<string>();
+                List<ProductImages> imagesList = new List<ProductImages>();
 
                 if (imageFiles != null && imageFiles.Count > 0)
                 {
@@ -65,11 +65,12 @@ namespace Turbo.WEBUI.Controllers
                         using (var stream = new FileStream(fullPath, FileMode.Create))
                         {
                             await imageFile.CopyToAsync(stream);
-                            product.Img.Add(imagePath);
+                            imagesList.Add(new ProductImages { ImagePath = imagePath });
                         }
                     }
                 }
 
+                product.ProductImages = imagesList;
                 await _service.AddAsync(product);
                 return RedirectToAction("Index");
             }
@@ -121,7 +122,7 @@ namespace Turbo.WEBUI.Controllers
 
             if (ModelState.IsValid)
             {
-                product.Img = new List<string>();
+                List<ProductImages> imagesList = new List<ProductImages>();
 
                 if (imageFiles != null && imageFiles.Count > 0)
                 {
@@ -132,11 +133,12 @@ namespace Turbo.WEBUI.Controllers
                         using (var stream = new FileStream(fullPath, FileMode.Create))
                         {
                             await imageFile.CopyToAsync(stream);
-                            product.Img.Add(imagePath);
+                            imagesList.Add(new ProductImages { ImagePath = imagePath });
                         }
                     }
                 }
 
+                product.ProductImages = imagesList;
                 _service.Update(product);
                 return RedirectToAction("Index");
             }

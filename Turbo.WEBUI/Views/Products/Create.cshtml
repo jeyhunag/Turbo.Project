@@ -1,4 +1,4 @@
-﻿
+﻿@model List<ProductDto>
 @{
     ViewData["Title"] = "Create";
 }
@@ -7,397 +7,399 @@
     <link rel="stylesheet" href="~/css/NewProduct.css" asp-append-version="true">
 }
 
-       <section class=" new-product">
-            <div class=" new-product-title">
-                <h4>ELAN YERLƏŞDİRMƏK</h4>
-            </div>
-            <div class="new-prouduct-not">
-                <ul>
-                    <li>Üç ay ərzində bir nəqliyyat vasitəsi yalnız bir dəfə pulsuz dərc oluna bilər.</li>
-                    <li>Üç ay ərzində təkrar və ya oxşar elanlar (marka/model, rəng) ödənişlidir.</li>
-                    <li>Elanınızı saytın ön sıralarında görmək üçün "İrəli çək" xidmətindən istifadə edin.</li>
-                </ul>
-            </div>
-            <div class="product-form">
-                <form>
-                    <div class="form-group">
-                        <label for="marka">Marka</label>
-                        <select id="marka" name="marka">
-                            <option selected disabled>Secin</option>
-                            <option>BMW</option>
-                            <option>NISSAN</option>
-                            <option>Mercedesption</option> 
-                            <option>AUDI</option>
-                            <option>Lexus</option>
-                            <option>KIA</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="yanacaq-novu">Yanacaq növü</label>
-                        <select id="yanacaq-novu" name="yanacaq-novu">
-                            <option selected disabled></option>
-                            <option>Benzin</option>
-                            <option>Qaz</option>
-                            <option>Dizel</option>
-                            <option>Marka 3</option>
-                            <option>Marka 3</option>
-                            <option>Marka 3</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="model ">Model </label>
-                        <select id="model" name="model">
-                            <option selected disabled>Secin</option>
-                            <option>x5</option>
-                            <option>Q7</option>
-                            <option>Seronto</option>
-                            <option>Elantra</option>
-                            <option>E280</option>
-                            <option>Marka 3</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="oturucu">Ötürücü </label>
-                        <select id="oturucu" name="oturucu">
-                            <option selected disabled></option>
-                            <option>Tam</option>
-                            <option>Arxa </option>
-                            <option>On</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ban">Ban növü</label>
-                        <select id="ban" name="ban">
-                            <option selected disabled></option>
-                            <option>Moped</option>
-                            <option>Darti</option>
-                            <option>Cupe</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="suretler-qutusu">Sürətlər qutusu </label>
-                        <select id="suretler-qutusu" name="suretler-qutusu">
-                            <option selected disabled></option>
-                            <option>Mexanik</option>
-                            <option>Avtomat</option>
-                            <option>Variator</option>
-                        </select>
-                    </div>
-
-                    <div class=" form-group-checbox">
-                        <label for="Yürüş" id="star">Yürüş </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="AZN"> AZN
-                        </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="USD"> USD
-                        </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="EUR"> EUR
-                        </label>
-                        <input type="number" name="Yürüş" id="Yürüş">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="il">İl </label>
-                        <select id="il" name="il">
-                            <option selected disabled></option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
-                            <option>2019</option>
-                            <option>2018</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Rəng ">Rəng </label>
-                        <select id="Rəng " name="Rəng ">
-                            <option selected disabled></option>
-                            <option>Sari</option>
-                            <option>Qirmizi</option>
-                            <option>Yasil</option>
-                            <option>Qara</option>
-                            <option>Goy</option>
-                            <option>Ag</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Mühərrik">Mühərrikin həcmi, sm3 </label>
-                        <select id="Mühərrik" name="Mühərrik">
-                            <option selected disabled></option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
-                            <option>2019</option>
-                            <option>2018</option>
-                        </select>
-                    </div>
-
-                    <div class=" form-group-checbox">
-                        <label for="Qiymət" id="star">Qiymət </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="AZN"> AZN
-                        </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="USD"> USD
-                        </label>
-                        <label>
-                            <input type="radio" name="valyuta" value="EUR"> EUR
-                        </label>
-                        <input type="number" name="Qiymət " id="Qiymət ">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Mühərrik">Mühərrikin gücü, a.g.</label>
-                        <select id="Mühərrik" name="Mühərrik">
-                            <option selected disabled></option>
-                            <option>2023</option>
-                            <option>2022</option>
-                            <option>2021</option>
-                            <option>2020</option>
-                            <option>2019</option>
-                            <option>2018</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="necenci-sahibisiniz">Neçənci sahibisiniz?</label>
-                        <select id="necenci-sahibisiniz" name="necenci-sahibisiniz">
-                            <option selected disabled></option>
-                            <option>Birinci</option>
-                            <option>Ikinci</option>
-                            <option>Ucuncu</option>
-                            <option>Dorduncu ve daha cox</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bazar">Hansı bazar üçün yığılıb</label>
-                        <select id="bazar" name="bazar">
-                            <option selected disabled></option>
-                            <option>Cin</option>
-                            <option>Amerika</option>
-                            <option>Germany</option>
-                            <option>Avropa</option>
-                            <option>Russia</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="product-form-checbox">
-                <label for="Vəziyyəti">Vəziyyəti</label>
-                <div class="form-group-situation">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="check1" name="check1">
-                        <div class="label-container">
-                            <label for="check1">Vuruğu var</label>
-                            <span>Bir və ya bir neçə detalı dəyişdirilib və ya təmir olunub.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group-situation">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="check2" name="check2">
-                        <div class="label-container">
-                            <label for="check1">Rənglənib</label>
-                            <span>Bir və ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group-situation">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="check3" name="check3">
-                        <div class="label-container">
-                            <label for="check1">Qəzalı və ya ehtiyat hissələr üçün</label>
-                            <span>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəziyyətdədir.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-checbox-inline">
-                <div class="checbox-inline">
-                    <label>Yerlərin sayı</label>
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>1
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>2
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>3
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>4
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>5
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>6
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>7
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>8+
-                    <label class="container">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>Qeyd olunmasın
-                </div>
-            </div>
-            <div class="kredit-checbox">
-                <label class="container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>Kreditdədir
-            </div>
-            <div class="barter-checbox">
-                <label class="container">
-                    <input type="checkbox">
-                    <span class="checkmark"></span>
-                </label>Barter mümkündür
-            </div>
-            <div class="vin-kod">
-                <div class=" vin-group">
-                    <label for="vin-kod">VIN-kod</label>
-                    <input type="number" name="vin-kod" id="vin-kod">
-                    <a href="#">VIN-kodu haradan tapmaq olar?</a>
-                </div>
-            </div>
-            <div class="additional-info">
-                <div class="additional">
-                    <label for="info">Əlavə məlumat</label>
-                    <textarea name="info" id="info" cols="130" rows="8"></textarea>
-
-                </div>
-                <span>telefon nömrələri qeyd etmək qadağandır</span>
-            </div>
-            <div class="vehicle-supply">
-                <h3>Avtomobilin təchizatı</h3>
-                <div class="supply">
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Yüngül lehimli disklər
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        ABS
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Mərkəzi qapanma
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Lyuk
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Kondisioner
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Yağış sensoru
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Yan pərdələr
-                    </label>
-                    <label class="supply-container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                        Arxa görüntü kamerası
-                    </label>
-                </div>
-            </div>
-            <div class="crate-new-image">
-                <h3>Şəkillər</h3>
-                <div class="new-image">
-                    <div class="new-description">
-                        <span>- Minimum – 3 şəkil (ön, arxa və bütöv ön panelin görüntüsü mütləqdir).</span>
-                        <span>- Maksimum – 21 şəkil.</span>
-                        <span>- Optimal ölçü – 1024x768 piksel.</span>
-                    </div>
-                    <form class="image-form">
-                        <label for="image-1" class="image-1" style="background: url(/img/car1.svg);"></label>
-                        <input id="image-1" type="file" name="image" class="custom-file-input">
-                        <label for="image-2" class="image-2" style="background: url(/img/car2.svg);"></label>
-                        <input id="image-2" type="file" name="image" class="custom-file-input">
-                        <label for="image-3" class="image-3" style="background: url(/img/car3.svg);"></label>
-                        <input id="image-3" type="file" name="image" class="custom-file-input">
-                    </form>
-                    <div class="for-plus">
-                        <label for="plus" class="plus-button"><span><i class="fa-solid fa-plus"></i></span></label>
-                        <input id="plus" type="file" name="image">
-                    </div>
-                </div>
-            </div>
-            <div class="new-contact">
-                <h3>Əlaqə</h3>
-                <span>Elan dərc olunduqdan sonra əlaqə məlumatları ilə bağlı heç bir dəyişiklik həyata
-                    keçirilmir.</span>
-                <div class="contact">
-                    <label for="Adınız" id="star">Adınız</label>
-                    <input type="text" name="Adınız" id="Adınız">
-                </div>
-                <div class="contact">
-                    <label for="Şəhər" id="star">Şəhər</label>
-                    <select id="Şəhər" name="Şəhər">
-                        <option selected disabled>Bakı</option>
-                        <option>Qazax</option>
-                        <option>Quba</option>
-                        <option>Sumqayit</option>
-                        <option>Qusar</option>
-                        <option>Seki</option>
-                        <option>Lenkeran</option>
-                    </select>
-                </div>
-                <div class="contact">
-                    <label for="Email" id="star">Email</label>
-                    <input type="email" name="Email" id="Email">
-                </div>
-                <div class="contact">
-                    <label for="phone" id="phone">Telefon nömrəsi </label>
-                    <input type="number" name="phone" id="phone-contact" placeholder="(000)000-00-00">
-                </div>
-                <button>Davam Et</button>
-                <span>
-                    Elan yerləşdirərək, siz <a href="#">Turbo.az-ın İstifadəçi razılaşması</a>
-                    və <a href="#">Qaydaları</a> ilə razı olduğunuzu təsdiq edirsiniz.
-                </span>
-
+<section class=" new-product">
+    <div class=" new-product-title">
+        <h4>ELAN YERLƏŞDİRMƏK</h4>
+    </div>
+    <div class="new-prouduct-not">
+        <ul>
+            <li>Üç ay ərzində bir nəqliyyat vasitəsi yalnız bir dəfə pulsuz dərc oluna bilər.</li>
+            <li>Üç ay ərzində təkrar və ya oxşar elanlar (marka/model, rəng) ödənişlidir.</li>
+            <li>Elanınızı saytın ön sıralarında görmək üçün "İrəli çək" xidmətindən istifadə edin.</li>
+        </ul>
+    </div>
+    <div class="product-form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="marka">Marka</label>
+                <select id="marka" name="marka">
+                    <option selected disabled>Secin</option>
+                    <option>BMW</option>
+                    <option>NISSAN</option>
+                    <option>Mercedesption</option>
+                    <option>AUDI</option>
+                    <option>Lexus</option>
+                    <option>KIA</option>
+                </select>
             </div>
 
-        </section>
+            <div class="form-group">
+                <label for="yanacaq-novu">Yanacaq növü</label>
+                <select id="yanacaq-novu" name="yanacaq-novu">
+                    <option selected disabled></option>
+                    <option>Benzin</option>
+                    <option>Qaz</option>
+                    <option>Dizel</option>
+                    <option>Marka 3</option>
+                    <option>Marka 3</option>
+                    <option>Marka 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="model ">Model </label>
+                <select id="model" name="model">
+                    <option selected disabled>Secin</option>
+                    <option>x5</option>
+                    <option>Q7</option>
+                    <option>Seronto</option>
+                    <option>Elantra</option>
+                    <option>E280</option>
+                    <option>Marka 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="oturucu">Ötürücü </label>
+                <select id="oturucu" name="oturucu">
+                    <option selected disabled></option>
+                    <option>Tam</option>
+                    <option>Arxa </option>
+                    <option>On</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ban">Ban növü</label>
+                <select id="ban" name="ban">
+                    <option selected disabled></option>
+                    <option>Moped</option>
+                    <option>Darti</option>
+                    <option>Cupe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="suretler-qutusu">Sürətlər qutusu </label>
+                <select id="suretler-qutusu" name="suretler-qutusu">
+                    <option selected disabled></option>
+                    <option>Mexanik</option>
+                    <option>Avtomat</option>
+                    <option>Variator</option>
+                </select>
+            </div>
+
+            <div class=" form-group-checbox">
+                <label for="Yürüş" id="star">Yürüş </label>
+                <label>
+                    <input type="radio" name="valyuta" value="AZN"> AZN
+                </label>
+                <label>
+                    <input type="radio" name="valyuta" value="USD"> USD
+                </label>
+                <label>
+                    <input type="radio" name="valyuta" value="EUR"> EUR
+                </label>
+                <input type="number" name="Yürüş" id="Yürüş">
+            </div>
+
+
+            <div class="form-group">
+                <label for="il">İl </label>
+                <select id="il" name="il">
+                    <option selected disabled></option>
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                    <option>2020</option>
+                    <option>2019</option>
+                    <option>2018</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Rəng ">Rəng </label>
+                <select id="Rəng " name="Rəng ">
+                    <option selected disabled></option>
+                    <option>Sari</option>
+                    <option>Qirmizi</option>
+                    <option>Yasil</option>
+                    <option>Qara</option>
+                    <option>Goy</option>
+                    <option>Ag</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Mühərrik">Mühərrikin həcmi, sm3 </label>
+                <select id="Mühərrik" name="Mühərrik">
+                    <option selected disabled></option>
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                    <option>2020</option>
+                    <option>2019</option>
+                    <option>2018</option>
+                </select>
+            </div>
+
+            <div class=" form-group-checbox">
+                <label for="Qiymət" id="star">Qiymət </label>
+                <label>
+                    <input type="radio" name="valyuta" value="AZN"> AZN
+                </label>
+                <label>
+                    <input type="radio" name="valyuta" value="USD"> USD
+                </label>
+                <label>
+                    <input type="radio" name="valyuta" value="EUR"> EUR
+                </label>
+                <input type="number" name="Qiymət " id="Qiymət ">
+            </div>
+
+            <div class="form-group">
+                <label for="Mühərrik">Mühərrikin gücü, a.g.</label>
+                <select id="Mühərrik" name="Mühərrik">
+                    <option selected disabled></option>
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                    <option>2020</option>
+                    <option>2019</option>
+                    <option>2018</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="necenci-sahibisiniz">Neçənci sahibisiniz?</label>
+                <select id="necenci-sahibisiniz" name="necenci-sahibisiniz">
+                    <option selected disabled></option>
+                    <option>Birinci</option>
+                    <option>Ikinci</option>
+                    <option>Ucuncu</option>
+                    <option>Dorduncu ve daha cox</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bazar">Hansı bazar üçün yığılıb</label>
+                <select id="bazar" name="bazar">
+                    <option selected disabled></option>
+                    <option>Cin</option>
+                    <option>Amerika</option>
+                    <option>Germany</option>
+                    <option>Avropa</option>
+                    <option>Russia</option>
+                </select>
+            </div>
+        </form>
+    </div>
+    <div class="product-form-checbox">
+        <label for="Vəziyyəti">Vəziyyəti</label>
+        <div class="form-group-situation">
+            <div class="checkbox-item">
+                <input type="checkbox" id="check1" name="check1">
+                <div class="label-container">
+                    <label for="check1">Vuruğu var</label>
+                    <span>Bir və ya bir neçə detalı dəyişdirilib və ya təmir olunub.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group-situation">
+            <div class="checkbox-item">
+                <input type="checkbox" id="check2" name="check2">
+                <div class="label-container">
+                    <label for="check1">Rənglənib</label>
+                    <span>Bir və ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group-situation">
+            <div class="checkbox-item">
+                <input type="checkbox" id="check3" name="check3">
+                <div class="label-container">
+                    <label for="check1">Qəzalı və ya ehtiyat hissələr üçün</label>
+                    <span>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəziyyətdədir.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-checbox-inline">
+        <div class="checbox-inline">
+            <label>Yerlərin sayı</label>
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>1
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>2
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>3
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>4
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>5
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>6
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>7
+            <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>8+
+            <label class="container">
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>Qeyd olunmasın
+        </div>
+    </div>
+    <div class="kredit-checbox">
+        <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>Kreditdədir
+    </div>
+    <div class="barter-checbox">
+        <label class="container">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+        </label>Barter mümkündür
+    </div>
+    <div class="vin-kod">
+        <div class=" vin-group">
+            <label for="vin-kod">VIN-kod</label>
+            <input type="number" name="vin-kod" id="vin-kod">
+            <a href="#">VIN-kodu haradan tapmaq olar?</a>
+        </div>
+    </div>
+    <div class="additional-info">
+        <div class="additional">
+            <label for="info">Əlavə məlumat</label>
+            <textarea name="info" id="info" cols="130" rows="8"></textarea>
+
+        </div>
+        <span>telefon nömrələri qeyd etmək qadağandır</span>
+    </div>
+    <div class="vehicle-supply">
+        <h3>Avtomobilin təchizatı</h3>
+        <div class="supply">
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Yüngül lehimli disklər
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                ABS
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Mərkəzi qapanma
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Lyuk
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Kondisioner
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Yağış sensoru
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Yan pərdələr
+            </label>
+            <label class="supply-container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                Arxa görüntü kamerası
+            </label>
+        </div>
+    </div>
+    <div class="crate-new-image">
+        <h3>Şəkillər</h3>
+        <div class="new-image">
+            <div class="new-description">
+                <span>- Minimum – 3 şəkil (ön, arxa və bütöv ön panelin görüntüsü mütləqdir).</span>
+                <span>- Maksimum – 21 şəkil.</span>
+                <span>- Optimal ölçü – 1024x768 piksel.</span>
+            </div>
+            <form class="image-form">
+                <label for="image-1" class="image-1" style="background: url(/img/car1.svg);"></label>
+                <input id="image-1" type="file" name="image" class="custom-file-input">
+                <label for="image-2" class="image-2" style="background: url(/img/car2.svg);"></label>
+                <input id="image-2" type="file" name="image" class="custom-file-input">
+                <label for="image-3" class="image-3" style="background: url(/img/car3.svg);"></label>
+                <input id="image-3" type="file" name="image" class="custom-file-input">
+            </form>
+            <div class="for-plus">
+                <label for="plus" class="plus-button"><span><i class="fa-solid fa-plus"></i></span></label>
+                <input id="plus" type="file" name="image">
+            </div>
+        </div>
+    </div>
+    <div class="new-contact">
+        <h3>Əlaqə</h3>
+        <span>
+            Elan dərc olunduqdan sonra əlaqə məlumatları ilə bağlı heç bir dəyişiklik həyata
+            keçirilmir.
+        </span>
+        <div class="contact">
+            <label for="Adınız" id="star">Adınız</label>
+            <input type="text" name="Adınız" id="Adınız">
+        </div>
+        <div class="contact">
+            <label for="Şəhər" id="star">Şəhər</label>
+            <select id="Şəhər" name="Şəhər">
+                <option selected disabled>Bakı</option>
+                <option>Qazax</option>
+                <option>Quba</option>
+                <option>Sumqayit</option>
+                <option>Qusar</option>
+                <option>Seki</option>
+                <option>Lenkeran</option>
+            </select>
+        </div>
+        <div class="contact">
+            <label for="Email" id="star">Email</label>
+            <input type="email" name="Email" id="Email">
+        </div>
+        <div class="contact">
+            <label for="phone" id="phone">Telefon nömrəsi </label>
+            <input type="number" name="phone" id="phone-contact" placeholder="(000)000-00-00">
+        </div>
+        <button>Davam Et</button>
+        <span>
+            Elan yerləşdirərək, siz <a href="#">Turbo.az-ın İstifadəçi razılaşması</a>
+            və <a href="#">Qaydaları</a> ilə razı olduğunuzu təsdiq edirsiniz.
+        </span>
+
+    </div>
+
+</section>
 
 @section Scripts{
     <script src="~/js/NewProduct.js" asp-append-version="true"></script>

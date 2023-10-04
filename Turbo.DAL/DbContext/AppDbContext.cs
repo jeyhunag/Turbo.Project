@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,18 @@ namespace Turbo.DAL.DbContext
         public DbSet<ModelCategory> ModelCategories { get; set; }
         public DbSet<VehicleSupplyCategory> VehicleSupplyCategories { get; set; }
         public DbSet<YearCategory> YearCategories { get; set; }
+        public DbSet<ProductImages> ProductImages { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<IdentityUserLogin<string>>()
+                .HasKey(login => new { login.LoginProvider, login.ProviderKey });
+
+            modelBuilder.Entity<ProductImages>().HasKey(pi => pi.Id);
+        }
 
     }
 }

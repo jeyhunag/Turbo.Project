@@ -9,7 +9,6 @@ namespace Turbo.DAL.Data
     public class Product:BaseEntity
     {
         public int? Phone { get; set; }
-        public List<string>? Img { get; set; }
         public string? March { get; set; }
         public float? Price { get; set; }
         public int? EnginePower { get; set; }
@@ -23,6 +22,8 @@ namespace Turbo.DAL.Data
         public string? New { get; set; }
         public string? PINPassword { get; set; }
         public string? AdvertisementNumber { get; set; }
+
+        public ICollection<ProductImages>? ProductImages { get; set; }
 
         public int BanTypeCategoryId { get; set; }
         public BanTypeCategory? BanTypeCategory { get; set; }

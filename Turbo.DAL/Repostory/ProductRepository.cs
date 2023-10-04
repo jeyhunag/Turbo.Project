@@ -52,7 +52,7 @@ namespace Turbo.DAL.Repostory
                                     {
                                         Id = m.Id,
                                         Name = m.Name,
-                                        Img = m.Img,
+                                        ProductImages = m.ProductImages,
                                         Phone = m.Phone,
                                         March = m.March,
                                         Price = m.Price,

@@ -11,7 +11,6 @@ namespace Turbo.DAL.Dto
     {
 
         public int? Phone { get; set; }
-        public List<string>? Img { get; set; }
         public string? March { get; set; }
         public float? Price { get; set; }
         public int? EnginePower { get; set; }
@@ -25,8 +24,8 @@ namespace Turbo.DAL.Dto
         public string? New { get; set; }
         public string? PINPassword { get; set; }
         public string? AdvertisementNumber { get; set; }
-      
 
+        public ICollection<ProductImages>? ProductImages { get; set; }
 
         public int? BanTypeCategoryId { get; set; }
         public string? BanName { get; set; }

@@ -12,6 +12,7 @@ namespace Turbo.WebAdmin.Helper.ServicesExtensions
                 throw new ArgumentNullException(nameof(services));
             }
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IProductRepository, ProductRepository>();
             return services;
 
         }

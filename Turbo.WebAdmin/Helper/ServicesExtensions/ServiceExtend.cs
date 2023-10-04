@@ -1,5 +1,7 @@
 ﻿using Turbo.BLL.Services;
 using Turbo.BLL.Services.Interfaces;
+using Turbo.DAL.Repostory.Interface;
+using Turbo.DAL.Repostory;
 
 namespace Turbo.WebAdmin.Helper.ServicesExtensions
 {
@@ -12,7 +14,7 @@ namespace Turbo.WebAdmin.Helper.ServicesExtensions
                 throw new ArgumentNullException(nameof(services));
             }
             services.AddScoped(typeof(IGenericService<,>), typeof(GenericService<,>));
-
+            services.AddScoped<IProductService, ProductService>();
             return services;
 
         }
