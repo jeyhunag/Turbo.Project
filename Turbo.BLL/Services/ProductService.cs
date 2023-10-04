@@ -1,0 +1,181 @@
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Turbo.BLL.Services.Interfaces;
+using Turbo.DAL.Data;
+using Turbo.DAL.Dto;
+using Turbo.DAL.Repostory;
+using Turbo.DAL.Repostory.Interface;
+
+namespace Turbo.BLL.Services
+{
+    public class ProductService : GenericService<ProductDto, Product>, IProductService
+    {
+        private readonly IProductRepository productRepository;
+        private readonly IGenericRepository<BanTypeCategory> banTypeRepository;
+        private readonly IGenericRepository<CityCategory> cityRepository;
+        private readonly IGenericRepository<ColorCategory> colorRepository;
+        private readonly IGenericRepository<EngineCapacityCategory> engineCapacityRepository;
+        private readonly IGenericRepository<GearBoxCategory> gearBoxRepository;
+        private readonly IGenericRepository<GearCategory> gearRepository;
+        private readonly IGenericRepository<HowManyOwnerCategory> howManyOwnerRepository;
+        private readonly IGenericRepository<MarkaCategory> markaRepository;
+        private readonly IGenericRepository<MarketAssembledCategory> marketAssembledRepository;
+        private readonly IGenericRepository<ModelCategory> modelRepository;
+        private readonly IGenericRepository<VehicleSupplyCategory> vehicleSupplyRepository;
+        private readonly IGenericRepository<YearCategory> yearRepository;
+        private readonly IGenericRepository<FuelTypeCategory> fuelTypeRepository;
+
+        public ProductService(IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
+            IProductRepository _productRepository,
+            IGenericRepository<BanTypeCategory> _BanTypeRepository,
+            IGenericRepository<CityCategory> _CityRepository,
+            IGenericRepository<ColorCategory> _ColorRepository,
+            IGenericRepository<EngineCapacityCategory> _EngineCapacityRepository,
+            IGenericRepository<GearBoxCategory> _GearBoxRepository,
+            IGenericRepository<GearCategory> _GearRepository,
+            IGenericRepository<HowManyOwnerCategory> _HowManyOwnerRepository,
+            IGenericRepository<MarkaCategory> _MarkaRepository,
+            IGenericRepository<MarketAssembledCategory> _MarketAssembledRepository,
+            IGenericRepository<ModelCategory> _ModelRepository,
+            IGenericRepository<VehicleSupplyCategory> _VehicleSupplyRepository,
+            IGenericRepository<YearCategory> _YearRepository,
+            IGenericRepository<FuelTypeCategory> fuelTypeRepository
+            ) : base(genericRepository, mapper, logger)
+        {
+            this.fuelTypeRepository = fuelTypeRepository;
+            this.productRepository = _productRepository;
+            this.banTypeRepository = _BanTypeRepository;
+            this.cityRepository = _CityRepository;
+            this.colorRepository = _ColorRepository;
+            this.engineCapacityRepository = _EngineCapacityRepository;
+            this.gearBoxRepository = _GearBoxRepository;
+            this.gearRepository = _GearRepository;
+            this.howManyOwnerRepository = _HowManyOwnerRepository;
+            this.markaRepository = _MarkaRepository;
+            this.marketAssembledRepository = _MarketAssembledRepository;
+            this.modelRepository = _ModelRepository;
+            this.vehicleSupplyRepository = _VehicleSupplyRepository;
+            this.yearRepository = _YearRepository;
+        }
+
+
+
+        public async Task<List<BanTypeCategoryDto>> GetBanTypeCategoriesAsync()
+        {
+            var Categories = await banTypeRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<BanTypeCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<CityCategoryDto>> GetCityCategoriesAsync()
+        {
+            var Categories = await cityRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<CityCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<ColorCategoryDto>> GetColorCategoriesAsync()
+        {
+            var Categories = await colorRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<ColorCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<ProductDto> GetDetailByIdAsync(int id)
+        {
+            var product = await productRepository.GetDetailByIdAsync(id);
+            return product;
+        }
+
+        public async Task<List<EngineCapacityCategoryDto>> GetEngineCapacityCategoriesAsync()
+        {
+            var Categories = await engineCapacityRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<EngineCapacityCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<FuelTypeCategoryDto>> GetFuelTypeCategoriesAsync()
+        {
+            var Categories = await fuelTypeRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<FuelTypeCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<GearBoxCategoryDto>> GetGearBoxCategoriesAsync()
+        {
+            var Categories = await gearBoxRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<GearBoxCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<GearCategoryDto>> GetGearCategoriesAsync()
+        {
+            var Categories = await gearRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<GearCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<HowManyOwnerCategoryDto>> GetHowManyOwnerCategoriesAsync()
+        {
+            var Categories = await howManyOwnerRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<HowManyOwnerCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<MarkaCategoryDto>> GetMarkaCategoriesAsync()
+        {
+            var Categories = await markaRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<MarkaCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<MarketAssembledCategoryDto>> GetMarketAssembledCategoriesAsync()
+        {
+            var Categories = await marketAssembledRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<MarketAssembledCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<ModelCategoryDto>> GetModelCategoriesAsync()
+        {
+            var Categories = await modelRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<ModelCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<ProductDto>> GetProductByCategoryIdAsync(int id)
+        {
+            var product = await productRepository.GetProductByCategoryIdAsync(id);
+            var productDtos = _mapper.Map<List<ProductDto>>(product);
+
+            return productDtos;
+        }
+
+        public async Task<ProductDto> GetProductDetailByIdAsync(int id)
+        {
+            var product = await productRepository.GetByIdAsync(id);
+            var productDto = _mapper.Map<ProductDto>(product);
+
+            return productDto;
+        }
+
+        public async Task<List<VehicleSupplyCategoryDto>> GetVehicleSupplyCategoriesAsync()
+        {
+            var Categories = await vehicleSupplyRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<VehicleSupplyCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<YearCategoryDto>> GeTYearCapacityCategoriesAsync()
+        {
+            var Categories = await yearRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<YearCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+    }
+}

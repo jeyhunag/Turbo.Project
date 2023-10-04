@@ -1,22 +1,187 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Turbo.BLL.Services.Interfaces;
+using Turbo.DAL.Data;
+using Turbo.DAL.Dto;
 
 namespace Turbo.WEBUI.Controllers
 {
     public class ProductsController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _service;
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly string _imgPath = @"img/";
+
+        public ProductsController(IProductService service, IWebHostEnvironment webHostEnvironment)
         {
-            return View();
+            _webHostEnvironment = webHostEnvironment;
+            _service = service;
         }
 
-        public IActionResult Create()
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var movie = await _service.GetListAsync();
+            return View(movie);
         }
 
-        public IActionResult Details()
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
         {
-            return View();
+            ProductDto model = new()
+            {
+                BanTypeCategoryDtos = await _service.GetBanTypeCategoriesAsync(),
+                CityCategoryDtos = await _service.GetCityCategoriesAsync(),
+                ColorCategoryDtos = await _service.GetColorCategoriesAsync(),
+                EngineCapacityCategoryDtos = await _service.GetEngineCapacityCategoriesAsync(),
+                FuelTypeCategoryDtos = await _service.GetFuelTypeCategoriesAsync(),
+                GearBoxCategoryDtos = await _service.GetGearBoxCategoriesAsync(),
+                GearCategoryDtos = await _service.GetGearCategoriesAsync(),
+                HowManyOwnerCategoryDtos = await _service.GetHowManyOwnerCategoriesAsync(),
+                MarkaCategoryDtos = await _service.GetMarkaCategoriesAsync(),
+                MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync(),
+                ModelCategoryDtos = await _service.GetModelCategoriesAsync(),
+                YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync(),
+                VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync(),
+            };
+            return View(model);
         }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductDto product, IFormFile imageFile)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var imagePath = _imgPath + imageFile.FileName;
+                    var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                        product.Img = imagePath;
+                    }
+                }
+
+                await _service.AddAsync(product);
+
+                return RedirectToAction("Index");
+            }
+
+            return View(product);
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _service.GetByIdAsync(id.Value);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.BanTypeCategoryDtos = await _service.GetBanTypeCategoriesAsync();
+            product.CityCategoryDtos = await _service.GetCityCategoriesAsync();
+            product.ColorCategoryDtos = await _service.GetColorCategoriesAsync();
+            product.EngineCapacityCategoryDtos = await _service.GetEngineCapacityCategoriesAsync();
+            product.FuelTypeCategoryDtos = await _service.GetFuelTypeCategoriesAsync();
+            product.GearBoxCategoryDtos = await _service.GetGearBoxCategoriesAsync();
+            product.GearCategoryDtos = await _service.GetGearCategoriesAsync();
+            product.HowManyOwnerCategoryDtos = await _service.GetHowManyOwnerCategoriesAsync();
+            product.MarkaCategoryDtos = await _service.GetMarkaCategoriesAsync();
+            product.MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync();
+            product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
+            product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
+            product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+
+            return View(product);
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, ProductDto product, IFormFile imageFile)
+        {
+
+            if (id != product.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var imagePath = _imgPath + imageFile.FileName;
+                    var fullPath = Path.Combine(_webHostEnvironment.WebRootPath, imagePath);
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                        product.Img = imagePath;
+                    }
+                }
+
+                _service.Update(product);
+                return RedirectToAction("Index");
+            }
+
+
+            return View(product);
+        }
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _service.GetDetailByIdAsync(id.Value);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            product.BanTypeCategoryDtos = await _service.GetBanTypeCategoriesAsync();
+            product.CityCategoryDtos = await _service.GetCityCategoriesAsync();
+            product.ColorCategoryDtos = await _service.GetColorCategoriesAsync();
+            product.EngineCapacityCategoryDtos = await _service.GetEngineCapacityCategoriesAsync();
+            product.FuelTypeCategoryDtos = await _service.GetFuelTypeCategoriesAsync();
+            product.GearBoxCategoryDtos = await _service.GetGearBoxCategoriesAsync();
+            product.GearCategoryDtos = await _service.GetGearCategoriesAsync();
+            product.HowManyOwnerCategoryDtos = await _service.GetHowManyOwnerCategoriesAsync();
+            product.MarkaCategoryDtos = await _service.GetMarkaCategoriesAsync();
+            product.MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync();
+            product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
+            product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
+            product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+
+
+            return View(product);
+        }
+
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var product = await _service.GetByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            _service.Delete(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

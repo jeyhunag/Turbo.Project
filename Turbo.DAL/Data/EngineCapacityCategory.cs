@@ -9,5 +9,6 @@ namespace Turbo.DAL.Data
     public class EngineCapacityCategory:BaseEntity
     {
         public string Name { get; set; }
+        public virtual ICollection<Product>? Products { get; set; }
     }
 }

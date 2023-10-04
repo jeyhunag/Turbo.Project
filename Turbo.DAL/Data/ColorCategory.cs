@@ -9,5 +9,6 @@ namespace Turbo.DAL.Data
     public class ColorCategory:BaseEntity
     {
         public string Name { get; set; }
+        public virtual ICollection<Product>? Products { get; set; }
     }
 }
