@@ -10,6 +10,7 @@ using Turbo.WEBUI.Helper.LogExtensions;
 using Turbo.WEBUI.Helper.ServicesExtensions;
 using Serilog;
 using Turbo.WEBUI.Helper.IdentityExtensions;
+using Turbo.WEBUI.Provider;
 
 namespace Turbo.WEBUI
 {
@@ -28,6 +29,12 @@ namespace Turbo.WEBUI
             });
 
             builder.Host.UseSerilog();
+
+            //Boolean 
+            builder.Services.AddControllersWithViews(cfg =>
+            {
+                cfg.ModelBinderProviders.Insert(0, new BooleanBinderProvider());
+            });
 
             //Fluent Validations Extension
             builder.Services.AddFluentServices();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Turbo.DAL.Data;
+using Turbo.DAL.Enum;
 
 namespace Turbo.DAL.Dto
 {
@@ -12,14 +13,18 @@ namespace Turbo.DAL.Dto
 
         public int? Phone { get; set; }
         public string? March { get; set; }
+        public bool IsMarch { get; set; }
         public float? Price { get; set; }
-        public int? EnginePower { get; set; }
-        public string? Situation { get; set; }
+        public string? Valyuta { get; set; }
+        public int? EnginePower { get; set; }      
+        public string? VehicleSituation { get; set; }
         public string? Description { get; set; }
-        public char? NumberOfSeats { get; set; }
         public string? VINCod { get; set; }
         public string? CreditBarter { get; set; }
+        public bool IsCredit { get; set; }
+        public bool IsBarter { get; set; }
         public string? Name { get; set; }
+        public bool IsChecked { get; set; }
         public string? Email { get; set; }
         public string? New { get; set; }
         public string? PINPassword { get; set; }
@@ -29,6 +34,8 @@ namespace Turbo.DAL.Dto
 
         public int? BanTypeCategoryId { get; set; }
         public string? BanName { get; set; }
+        public int NumberOfSeatsCategoryId { get; set; }
+        public string? NumberOfSeatsName { get; set; }
         public int? CityCategoryId { get; set; }
         public string? CityName { get; set; }
         public int? ColorCategoryId { get; set; }
@@ -55,6 +62,7 @@ namespace Turbo.DAL.Dto
         public string? YearName { get; set; }
 
         public List<BanTypeCategoryDto>? BanTypeCategoryDtos { get; set; }
+        public List<NumberOfSeatsCategoryDto>? NumberOfSeatsCategoryDtos { get; set; }
         public List<CityCategoryDto>? CityCategoryDtos { get; set; }
         public List<ColorCategoryDto>? ColorCategoryDtos { get; set; }
         public List<EngineCapacityCategoryDto>? EngineCapacityCategoryDtos { get; set; }

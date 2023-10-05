@@ -24,7 +24,8 @@ namespace Turbo.DAL.Repostory
             p.CityCategoryId == id && p.ColorCategoryId == id && p.EngineCapacityCategoryId == id
             && p.FuelTypeCategoryId == id && p.GearBoxCategoryId == id && p.GearCategoryId == id
              && p.HowManyOwnerCategoryId == id && p.MarkaCategoryId == id && p.MarketAssembledCategoryId == id
-             && p.ModelCategoryId == id && p.VehicleSupplyCategoryId == id && p.YearCategoryId == id);
+             && p.ModelCategoryId == id && p.VehicleSupplyCategoryId == id && p.YearCategoryId == id
+             && p.NumberOfSeatsCategoryId == id);
 
             return await product.ToListAsync();
 
@@ -47,6 +48,7 @@ namespace Turbo.DAL.Repostory
                                     join k in _dbContext.ModelCategories on m.ModelCategoryId equals k.Id
                                     join o in _dbContext.VehicleSupplyCategories on m.VehicleSupplyCategoryId equals o.Id
                                     join p in _dbContext.YearCategories on m.YearCategoryId equals p.Id
+                                    join s in _dbContext.NumberOfSeatsCategories on m.NumberOfSeatsCategoryId equals s.Id
                                     where m.Id == id
                                     select new ProductDto
                                     {
@@ -58,8 +60,8 @@ namespace Turbo.DAL.Repostory
                                         Price = m.Price,
                                         EnginePower = m.EnginePower,
                                         Description = m.Description,
-                                        Situation = m.Situation,
-                                        NumberOfSeats = m.NumberOfSeats,
+                                        VehicleSituation = m.VehicleSituation,
+                                        Valyuta = m.Valyuta,
                                         VINCod = m.VINCod,
                                         CreditBarter = m.CreditBarter,
                                         Email = m.Email,
@@ -79,6 +81,7 @@ namespace Turbo.DAL.Repostory
                                         ModelName = k.Name,
                                         VehicleName = o.Name,
                                         YearName = p.Name,
+                                        NumberOfSeatsName = s.Name,
 
                                     }).FirstOrDefaultAsync();
 

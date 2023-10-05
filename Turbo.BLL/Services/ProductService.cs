@@ -29,6 +29,7 @@ namespace Turbo.BLL.Services
         private readonly IGenericRepository<VehicleSupplyCategory> vehicleSupplyRepository;
         private readonly IGenericRepository<YearCategory> yearRepository;
         private readonly IGenericRepository<FuelTypeCategory> fuelTypeRepository;
+        private readonly IGenericRepository<NumberOfSeatsCategory> numberOfSeatsRepository;
 
         public ProductService(IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
             IProductRepository _productRepository,
@@ -44,10 +45,12 @@ namespace Turbo.BLL.Services
             IGenericRepository<ModelCategory> _ModelRepository,
             IGenericRepository<VehicleSupplyCategory> _VehicleSupplyRepository,
             IGenericRepository<YearCategory> _YearRepository,
-            IGenericRepository<FuelTypeCategory> fuelTypeRepository
+            IGenericRepository<FuelTypeCategory> fuelTypeRepository,
+            IGenericRepository<NumberOfSeatsCategory> _numberOfSeatsRepository
             ) : base(genericRepository, mapper, logger)
         {
             this.fuelTypeRepository = fuelTypeRepository;
+            this.numberOfSeatsRepository = _numberOfSeatsRepository;
             this.productRepository = _productRepository;
             this.banTypeRepository = _BanTypeRepository;
             this.cityRepository = _CityRepository;
@@ -167,6 +170,13 @@ namespace Turbo.BLL.Services
         {
             var Categories = await yearRepository.GetListAsync();
             var categoryDtos = _mapper.Map<List<YearCategoryDto>>(Categories);
+            return categoryDtos;
+        }
+
+        public async Task<List<NumberOfSeatsCategoryDto>> GeTNumberOfSeatsCategoriesAsync()
+        {
+            var Categories = await numberOfSeatsRepository.GetListAsync();
+            var categoryDtos = _mapper.Map<List<NumberOfSeatsCategoryDto>>(Categories);
             return categoryDtos;
         }
     }

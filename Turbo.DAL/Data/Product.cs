@@ -10,23 +10,29 @@ namespace Turbo.DAL.Data
     {
         public int? Phone { get; set; }
         public string? March { get; set; }
+        public bool IsMarch { get; set; }
         public float? Price { get; set; }
+        public string? Valyuta { get; set; }
+        public string? VehicleSituation { get; set; }
         public int? EnginePower { get; set; }
-        public string? Situation { get; set; }
         public string? Description { get; set; }
-        public char? NumberOfSeats { get; set; }
         public string? VINCod { get; set; }
         public string? CreditBarter { get; set; }
+        public bool IsCredit { get; set; }
+        public bool IsBarter { get; set; }
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string? New { get; set; }
         public string? PINPassword { get; set; }
         public string? AdvertisementNumber { get; set; }
+        public bool IsChecked { get; set; }
 
         public ICollection<ProductImages>? ProductImages { get; set; }
 
         public int BanTypeCategoryId { get; set; }
         public BanTypeCategory? BanTypeCategory { get; set; }
+        public int NumberOfSeatsCategoryId { get; set; }
+        public NumberOfSeatsCategory? NumberOfSeatsCategory { get; set; }
         public int CityCategoryId { get; set; }
         public CityCategory? CityCategory { get; set; }
         public int ColorCategoryId { get; set; }

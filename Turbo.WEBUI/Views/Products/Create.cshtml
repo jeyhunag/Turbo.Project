@@ -1,4 +1,5 @@
-﻿@model ProductDto
+﻿@using Turbo.DAL.Enum;
+@model ProductDto
 
 @{
     ViewData["Title"] = "Create";
@@ -63,18 +64,18 @@
                 </select>
             </div>
 
-            <div class=" form-group-checbox">
+            <div class="form-group-checbox">
                 <label for="Yürüş" id="star">Yürüş </label>
+
                 <label>
-                    <input type="radio" name="valyuta" value="AZN"> AZN
+                    <input asp-for ="IsMarch" type="radio" value="true"> Km
                 </label>
+
                 <label>
-                    <input type="radio" name="valyuta" value="USD"> USD
+                    <input asp-for="IsMarch" type="radio" value="false"> Mi
                 </label>
-                <label>
-                    <input type="radio" name="valyuta" value="EUR"> EUR
-                </label>
-                <input type="number" name="Yürüş" id="Yürüş">
+
+                <input asp-for="March" type="number" name="Yürüş" id="Yürüş">
             </div>
 
 
@@ -99,23 +100,22 @@
                 </select>
             </div>
 
-            <div class=" form-group-checbox">
-                <label for="Qiymət" id="star">Qiymət </label>
-                <label>
-                    <input type="radio" name="valyuta" value="AZN"> AZN
-                </label>
-                <label>
-                    <input type="radio" name="valyuta" value="USD"> USD
-                </label>
-                <label>
-                    <input type="radio" name="valyuta" value="EUR"> EUR
-                </label>
-                <input type="number" name="Qiymət " id="Qiymət ">
+            <div class="form-group-checbox">
+                <label for="Qiymət" id="star">Qiymət</label>
+
+                @foreach (Currency currency in Enum.GetValues(typeof(Currency)))
+                {
+                    <label>
+                        <input type="radio" asp-for="Valyuta" value="@currency"> @currency
+                    </label>
+                }
+
+                <input asp-for="Price" type="number" name="Qiymət" id="Qiymət">
             </div>
 
             <div class="form-group ">
-                <label for="Mühərrik">Mühərrikin gücü, a.g.</label>
-                <input type="number" name="Yürüş" id="engine-power">
+                <label asp-for="EnginePower" for="Mühərrik">Mühərrikin gücü, a.g.</label>
+                <input asp-for="EnginePower" type="number" name="Yürüş" id="engine-power">
             </div>
 
             <div class="form-group">
@@ -135,9 +135,10 @@
     </div>
     <div class="product-form-checbox">
         <label for="Vəziyyəti">Vəziyyəti</label>
+
         <div class="form-group-situation">
             <div class="checkbox-item">
-                <input type="checkbox" id="check1" name="check1">
+                <input type="checkbox" id="check1" name="VehicleSituation" value="@((int)VehicleCondition.VuruğuVar)">
                 <div class="label-container">
                     <label for="check1">Vuruğu var</label>
                     <span>Bir və ya bir neçə detalı dəyişdirilib və ya təmir olunub.</span>
@@ -147,9 +148,9 @@
 
         <div class="form-group-situation">
             <div class="checkbox-item">
-                <input type="checkbox" id="check2" name="check2">
+                <input type="checkbox" id="check2" name="VehicleSituation" value="@((int)VehicleCondition.Rənglənib)">
                 <div class="label-container">
-                    <label for="check1">Rənglənib</label>
+                    <label for="check2">Rənglənib</label>
                     <span>Bir və ya bir neçə detalı rənglənib və ya kosmetik işlər görülüb.</span>
                 </div>
             </div>
@@ -157,67 +158,41 @@
 
         <div class="form-group-situation">
             <div class="checkbox-item">
-                <input type="checkbox" id="check3" name="check3">
+                <input type="checkbox" id="check3" name="VehicleSituation" value="@((int)VehicleCondition.Qəzalı)">
                 <div class="label-container">
-                    <label for="check1">Qəzalı və ya ehtiyat hissələr üçün</label>
+                    <label for="check3">Qəzalı və ya ehtiyat hissələr üçün</label>
                     <span>Təmirə ehtiyacı var və ya ümumiyyətlə yararsız vəziyyətdədir.</span>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="product-checbox-inline">
         <div class="checbox-inline">
             <label>Yerlərin sayı</label>
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>1
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>2
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>3
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>4
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>5
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>6
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>7
-            <label class="container">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-            </label>8+
-            <label class="container">
-                <input type="checkbox" checked="checked">
-                <span class="checkmark"></span>
-            </label>Qeyd olunmasın
+            @foreach (var item in Model.NumberOfSeatsCategoryDtos)
+            {
+                <label class="container">
+                    <input type="radio" value="Qeyd olunmasın" asp-for="@item.IsNumberOfSeats">
+                    <span class="checkmark"></span>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </label>
+            }
         </div>
     </div>
     <div class="kredit-checbox">
         <label class="container">
-            <input type="checkbox">
+            <input asp-for="IsCredit" type="checkbox">
             <span class="checkmark"></span>
         </label>Kreditdədir
     </div>
     <div class="barter-checbox">
         <label class="container">
-            <input type="checkbox">
+            <input asp-for="IsBarter" type="checkbox">
             <span class="checkmark"></span>
         </label>Barter mümkündür
     </div>
+
     <div class="vin-kod">
         <div class=" vin-group">
             <label asp-for="VINCod" for="vin-kod">VIN-kod</label>
@@ -291,7 +266,7 @@
             <label asp-for="Phone" for="phone" id="phone">Telefon nömrəsi </label>
             <input asp-for="Phone" type="number" name="phone" id="phone-contact" placeholder="(000)000-00-00">
         </div>
-        <button>Davam Et</button>
+        <button type="submit" value="Create" id="sbm">Davam Et</button>
         <span>
             Elan yerləşdirərək, siz <a href="#">Turbo.az-ın İstifadəçi razılaşması</a>
             və <a href="#">Qaydaları</a> ilə razı olduğunuzu təsdiq edirsiniz.

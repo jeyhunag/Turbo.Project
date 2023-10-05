@@ -28,6 +28,7 @@ namespace Turbo.BLL.Mapping
             CreateMap<VehicleSupplyCategory, VehicleSupplyCategoryDto>().ReverseMap();
             CreateMap<YearCategory, YearCategoryDto>().ReverseMap();
             CreateMap<ProductImages, ProductImagesDto>().ReverseMap();
+            CreateMap<NumberOfSeatsCategory, NumberOfSeatsCategoryDto>().ReverseMap();
         }
     }
 }

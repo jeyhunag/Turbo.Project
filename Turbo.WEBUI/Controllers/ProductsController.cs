@@ -43,6 +43,7 @@ namespace Turbo.WEBUI.Controllers
                 ModelCategoryDtos = await _service.GetModelCategoriesAsync(),
                 YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync(),
                 VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync(),
+                NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync(),
             };
             return View(model);
         }
@@ -106,6 +107,7 @@ namespace Turbo.WEBUI.Controllers
             product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
             product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
             product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+            product.NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync();
 
             return View(product);
 
@@ -172,6 +174,7 @@ namespace Turbo.WEBUI.Controllers
             product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
             product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
             product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+            product.NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync();
 
 
             return View(product);
