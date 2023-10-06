@@ -12,7 +12,7 @@ using Turbo.DAL.DbContext;
 namespace Turbo.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231005143603_init5")]
+    [Migration("20231005184400_init5")]
     partial class init5
     {
         /// <inheritdoc />
@@ -562,9 +562,6 @@ namespace Turbo.DAL.Migrations
 
                     b.Property<int>("ColorCategoryId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreditBarter")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");

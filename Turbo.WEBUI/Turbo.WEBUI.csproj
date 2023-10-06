@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Turbo.BLL\Turbo.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Log\" />
+  </ItemGroup>
+
 </Project>
