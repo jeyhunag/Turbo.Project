@@ -12,5 +12,6 @@ namespace Turbo.DAL.Repostory.Interface
     {
         public Task<List<Product>> GetByCategoryIdAsync(int id);
         public Task<ProductDto> GetDetailByIdAsync(int id);
+        bool CheckIfAdvertisementNumberExists(string advertisementNumber);
     }
 }

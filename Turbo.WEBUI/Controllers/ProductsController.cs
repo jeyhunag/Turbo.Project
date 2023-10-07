@@ -67,10 +67,11 @@ namespace Turbo.WEBUI.Controllers
                         {
                             await imageFile.CopyToAsync(stream);
                             imagesList.Add(new ProductImages { ImagePath = imagePath });
+                            product.Image = imagePath;
                         }
                     }
                 }
-
+                product.AdvertisementNumber = _service.GenerateUniqueAdvertisementNumber();
                 product.ProductImages = imagesList;
                 await _service.AddAsync(product);
                 return RedirectToAction("Index", "Home");
@@ -136,6 +137,7 @@ namespace Turbo.WEBUI.Controllers
                         {
                             await imageFile.CopyToAsync(stream);
                             imagesList.Add(new ProductImages { ImagePath = imagePath });
+                            product.Image = imagePath;
                         }
                     }
                 }

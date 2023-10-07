@@ -27,6 +27,6 @@ namespace Turbo.BLL.Services.Interfaces
 
         public Task<List<ProductDto>> GetByCategoryIdAsync(int id);
         public Task<ProductDto> GetDetailByIdAsync(int id);
-
+        public string GenerateUniqueAdvertisementNumber();
     }
 }

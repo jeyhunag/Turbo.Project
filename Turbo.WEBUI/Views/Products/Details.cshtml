@@ -19,7 +19,7 @@
         <ul>
             <li>@Model.MarkaName</li>
             <li>@Model.ModelName</li>
-            <li>Elan № 7753105</li>
+            <li>Elan N: @Model.AdvertisementNumber</li>
         </ul>
         <hr>
     </div>
@@ -39,15 +39,7 @@
         </div>
         <div class="product-foto">
             <div class="fotorama" data-width="100%">
-                <img src="~/img/15363_hVbkAZEk1bugaj6f1J-Xhw.jpg">
-                <img src="~/img/3619_br0u-yUgGs_JHQItPsCCng.jpg">
-                <img src="~/img/33285__r-9TmyWUlvDqkEGR9EQRQ.jpg">
-                <img src="~/img/40043_evkqVd8fSdCs_OhlysVRRw.jpg">
-                <img src="~/img/3627_Th8VsYetMakG9SNW1JYMHA.jpg">
-                <img src="~/img/40043_evkqVd8fSdCs_OhlysVRRw.jpg">
-                <img src="~/img/88089_z7SjKEszOXYSVGYGx3dcfA.jpg">
-                <img src="~/img/88120_w1y8UwWsDIdhSUXt2tTx8w.jpg">
-                <img src="~/img/3635_gGrutt6UsDS9GsxAuYiK5g.jpg">
+                    <img src="~/@Model.Image">
             </div>
         </div>
         <section class="product-properties">
@@ -174,7 +166,7 @@
                     <a asp-action="Delete" asp-route-id="@Model.Id">Elanı sil</a>
                 </div>
                 <div class="text-end-right">
-                    <span>Elanın nömrəsi: 7753105</span>
+                    <span>Elanın nömrəsi: @Model.AdvertisementNumber</span>
                 </div>
             </div>
         </section>

@@ -18,6 +18,11 @@ namespace Turbo.DAL.Repostory
         {
         }
 
+        public bool CheckIfAdvertisementNumberExists(string advertisementNumber)
+        {
+            return _dbContext.Products.Any(p => p.AdvertisementNumber == advertisementNumber);
+        }
+
         public async Task<List<Product>> GetByCategoryIdAsync(int id)
         {
             IQueryable<Product> product = _dbContext.Products.Where(p => p.BanTypeCategoryId == id &&
@@ -62,6 +67,7 @@ namespace Turbo.DAL.Repostory
                                         IsColor = m.IsColor,
                                         IsHis = m.IsHis,
                                         EnginePower = m.EnginePower,
+                                        Image = m.Image,
                                         Description = m.Description,
                                         Valyuta = m.Valyuta,
                                         VINCod = m.VINCod,

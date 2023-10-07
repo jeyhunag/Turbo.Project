@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -179,5 +180,20 @@ namespace Turbo.BLL.Services
             var categoryDtos = _mapper.Map<List<NumberOfSeatsCategoryDto>>(Categories);
             return categoryDtos;
         }
+
+        public string GenerateUniqueAdvertisementNumber()
+        {
+            string number;
+            bool numberExists;
+
+            do
+            {
+                number = new Random().Next(10000, 100000).ToString();
+                numberExists = productRepository.CheckIfAdvertisementNumberExists(number);
+            } while (numberExists);
+
+            return number;
+        }
+
     }
 }
