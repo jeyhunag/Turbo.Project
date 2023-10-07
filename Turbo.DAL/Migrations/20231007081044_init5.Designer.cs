@@ -12,7 +12,7 @@ using Turbo.DAL.DbContext;
 namespace Turbo.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231005184400_init5")]
+    [Migration("20231007081044_init5")]
     partial class init5
     {
         /// <inheritdoc />
@@ -593,13 +593,22 @@ namespace Turbo.DAL.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsAccident")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsBarter")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsChecked")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsColor")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsCredit")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsHis")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsMarch")
@@ -644,10 +653,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<string>("Valyuta")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("VehicleSituation")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("VehicleSupplyCategoryId")
+                    b.Property<int?>("VehicleSupplyCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("YearCategoryId")
@@ -731,7 +737,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsChecked")
+                    b.Property<bool>("IsVehicle")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -897,11 +903,9 @@ namespace Turbo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", "VehicleSupplyCategory")
+                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", null)
                         .WithMany("Products")
-                        .HasForeignKey("VehicleSupplyCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VehicleSupplyCategoryId");
 
                     b.HasOne("Turbo.DAL.Data.YearCategory", "YearCategory")
                         .WithMany("Products")
@@ -932,8 +936,6 @@ namespace Turbo.DAL.Migrations
                     b.Navigation("ModelCategory");
 
                     b.Navigation("NumberOfSeatsCategory");
-
-                    b.Navigation("VehicleSupplyCategory");
 
                     b.Navigation("YearCategory");
                 });

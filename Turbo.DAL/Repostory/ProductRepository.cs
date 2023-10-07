@@ -24,7 +24,7 @@ namespace Turbo.DAL.Repostory
             p.CityCategoryId == id && p.ColorCategoryId == id && p.EngineCapacityCategoryId == id
             && p.FuelTypeCategoryId == id && p.GearBoxCategoryId == id && p.GearCategoryId == id
              && p.HowManyOwnerCategoryId == id && p.MarkaCategoryId == id && p.MarketAssembledCategoryId == id
-             && p.ModelCategoryId == id && p.VehicleSupplyCategoryId == id && p.YearCategoryId == id
+             && p.ModelCategoryId == id && /*p.VehicleSupplyCategoryId == id &&*/ p.YearCategoryId == id
              && p.NumberOfSeatsCategoryId == id);
 
             return await product.ToListAsync();
@@ -46,7 +46,7 @@ namespace Turbo.DAL.Repostory
                                     join r in _dbContext.MarkaCategories on m.MarkaCategoryId equals r.Id
                                     join n in _dbContext.MarketAssembleds on m.MarketAssembledCategoryId equals n.Id
                                     join k in _dbContext.ModelCategories on m.ModelCategoryId equals k.Id
-                                    join o in _dbContext.VehicleSupplyCategories on m.VehicleSupplyCategoryId equals o.Id
+                                    //join o in _dbContext.VehicleSupplyCategories on m.VehicleSupplyCategoryId equals o.Id
                                     join p in _dbContext.YearCategories on m.YearCategoryId equals p.Id
                                     join s in _dbContext.NumberOfSeatsCategories on m.NumberOfSeatsCategoryId equals s.Id
                                     where m.Id == id
@@ -77,7 +77,7 @@ namespace Turbo.DAL.Repostory
                                         MarkaName = r.Name,
                                         MarketName = n.Name,
                                         ModelName = k.Name,
-                                        VehicleName = o.Name,
+                                        //VehicleName = o.Name,
                                         YearName = p.Name,
                                         NumberOfSeatsName = s.Name,
 

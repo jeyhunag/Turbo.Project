@@ -381,7 +381,7 @@
     font-size: 15px;
 }
 
-.new-image form {
+.new-image .image-form {
     width: 70%;
     display: flex;
     align-items: center;
@@ -389,25 +389,25 @@
     flex-wrap: wrap;
 }
 
-.new-image form>label,
-.for-plus {
-    width: 110px !important;
-    height: 110px !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    margin: 10px;
-}
+    .new-image .image-form > label,
+    .for-plus {
+        width: 110px !important;
+        height: 110px !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        margin: 10px;
+    }
 
 .for-plus label {
     width: 100%;
     height: 100%;
 }
 
-.new-image form>input,
-.for-plus input {
-    display: none;
-}
+        .new-image .image-form > input,
+        .for-plus input {
+            display: none;
+        }
 
 .plus-button {
     display: flex;

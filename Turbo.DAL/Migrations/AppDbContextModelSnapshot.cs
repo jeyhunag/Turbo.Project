@@ -650,7 +650,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<string>("Valyuta")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VehicleSupplyCategoryId")
+                    b.Property<int?>("VehicleSupplyCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("YearCategoryId")
@@ -734,7 +734,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsChecked")
+                    b.Property<bool>("IsVehicle")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -900,11 +900,9 @@ namespace Turbo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", "VehicleSupplyCategory")
+                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", null)
                         .WithMany("Products")
-                        .HasForeignKey("VehicleSupplyCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VehicleSupplyCategoryId");
 
                     b.HasOne("Turbo.DAL.Data.YearCategory", "YearCategory")
                         .WithMany("Products")
@@ -935,8 +933,6 @@ namespace Turbo.DAL.Migrations
                     b.Navigation("ModelCategory");
 
                     b.Navigation("NumberOfSeatsCategory");
-
-                    b.Navigation("VehicleSupplyCategory");
 
                     b.Navigation("YearCategory");
                 });

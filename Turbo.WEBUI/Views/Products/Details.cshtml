@@ -1,4 +1,4 @@
-﻿
+﻿@model ProductDto
 @{
     ViewData["Title"] = "Details";
 }
@@ -17,8 +17,8 @@
 <section class="product-container">
     <div class="tx-container">
         <ul>
-            <li>Mercedes</li>
-            <li>GLE 53 AMG Coupe</li>
+            <li>@Model.MarkaName</li>
+            <li>@Model.ModelName</li>
             <li>Elan № 7753105</li>
         </ul>
         <hr>
@@ -26,11 +26,11 @@
     <div class="page-content">
         <div class="product-heading-container">
             <h1 class="product-title">
-                <span>Mercedes, </span>
-                <span>GLE 53 AMG Coupe,</span>
-                <span>3.0 L,</span>
-                <span>2021 il,</span>
-                <span>37 800 km</span>
+                <span>@Model.MarkaName, </span>
+                <span>@Model.ModelName,</span>
+                <span>@Model.EngineName L,</span>
+                <span>@Model.YearName il,</span>
+                <span>@Model.March km</span>
             </h1>
             <div class="product-heading-right">
                 <a href="#"><i class="fa-regular fa-heart"></i>Seçilmişlərdə saxla</a>
@@ -61,23 +61,23 @@
             <article class="body-text-content">
                 <div class="text-content">
                     <label>Şəhər</label>
-                    <span>Bakı</span>
+                    <span>@Model.CityName</span>
                 </div>
                 <div class="text-content">
                     <label>Sürətlər qutusu</label>
-                    <span>Avtomat</span>
+                    <span>@Model.GBoxnName</span>
                 </div>
                 <div class="text-content">
                     <label>Marka</label>
-                    <span>Mercedes</span>
+                    <span>@Model.MarkaName</span>
                 </div>
                 <div class="text-content">
                     <label>Ötürücü</label>
-                    <span>Tam</span>
+                    <span>@Model.GearName</span>
                 </div>
                 <div class="text-content">
                     <label>Model</label>
-                    <span>GLE 53 AMG Coupe</span>
+                    <span>@Model.ModelName</span>
                 </div>
                 <div class="text-content">
                     <label>Yeni</label>
@@ -85,36 +85,36 @@
                 </div>
                 <div class="text-content">
                     <label>Buraxılış ili</label>
-                    <span>2023</span>
+                    <span>@Model.YearName</span>
                 </div>
                 <div class="text-content">
                     <label>Sahiblər</label>
-                    <span>1</span>
+                    <span>@Model.HowName</span>
                 </div>
                 <div class="text-content">
                     <label>Ban növü</label>
-                    <span>Offroader / SUV</span>
+                    <span>@Model.BanName</span>
                 </div>
                 <div class="text-content">
                     <label>Vəziyyəti</label>
-                    <span>Vuruğu yoxdur, rənglənməyib</span>
+                    <span>@Model.IsHis,@Model.IsColor,@Model.IsAccident</span>
                 </div>
                 <div class="text-content">
                     <label>Rəng</label>
-                    <span> Qara</span>
+                    <span> @Model.ColorName</span>
 
                 </div>
                 <div class="text-content">
                     <label>Mühərrik</label>
-                    <span>3.0 L/435 a.g./Benzin</span>
+                    <span>@Model.EngineName L/@Model.EnginePower/@Model.FuelName</span>
                 </div>
                 <div class="text-content">
                     <label>Hansı bazar üçün yığılıb</label>
-                    <span>Rəsmi diler</span>
+                    <span>@Model.MarketName</span>
                 </div>
                 <div class="text-content">
                     <label>Yürüş</label>
-                    <span>37 800 km</span>
+                    <span>@Model.March km</span>
                 </div>
 
             </article>
@@ -122,9 +122,9 @@
             <article class="product-description-content">
                 <div class="description-content">
                     <p>
-                        Rəsmi servisdən alinib <br>
-                        Orada qulluq olunub <br>
-                        Obyektle barter olunur (mərkəzi yerlərdə)<br>
+                        @Model.Description <br>
+                        @* Orada qulluq olunub <br>
+                        Obyektle barter olunur (mərkəzi yerlərdə)<br> *@
                     </p>
                 </div>
             </article>
@@ -149,8 +149,8 @@
             <hr>
             <div class="footer-text-end">
                 <div class="text-end-left">
-                    <a>Düzəliş et</a>
-                    <a>Elanı sil</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Düzəliş et</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id">Elanı sil</a>
                 </div>
                 <div class="text-end-right">
                     <span>Elanın nömrəsi: 7753105</span>
@@ -160,7 +160,7 @@
         <article class="product-sidebar-container">
             <div>
                 <div class="product-price">
-                    <div id="usd">112 000 USD</div>
+                    <div id="usd">@Model.Price USD</div>
                     <div>190 400 AZN</div>
                     <hr>
                 </div>
@@ -178,7 +178,7 @@
                     <a href="#">
                         Nömrəni göstər <br>
                         <i class="fa-solid fa-phone"></i>
-                        070-881-23-22
+                        @Model.Phone
                     </a>
                 </div>
             </div>

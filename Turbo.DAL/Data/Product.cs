@@ -56,8 +56,8 @@ namespace Turbo.DAL.Data
         public MarketAssembledCategory? MarketAssembledCategory { get; set; }
         public int ModelCategoryId { get; set; }
         public ModelCategory? ModelCategory { get; set; }
-        public int VehicleSupplyCategoryId { get; set; }
-        public VehicleSupplyCategory? VehicleSupplyCategory { get; set; }
+        //public int VehicleSupplyCategoryId { get; set; }
+        //public VehicleSupplyCategory? VehicleSupplyCategory { get; set; }
         public int YearCategoryId { get; set; }
         public YearCategory? YearCategory { get; set; }
 
