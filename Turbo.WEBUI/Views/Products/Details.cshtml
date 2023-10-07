@@ -97,7 +97,11 @@
                 </div>
                 <div class="text-content">
                     <label>Vəziyyəti</label>
-                    <span>@Model.IsHis,@Model.IsColor,@Model.IsAccident</span>
+                   @*  <span>@Model.IsHis,@Model.IsColor,@Model.IsAccident</span> *@
+                    <span>@(Model.IsHis ? "Vuruğu var" : ""),
+                        @(Model.IsColor ? "Rənglənib" : ""),
+                        @(Model.IsAccident ? "Qəzalı və ya ehtiyat hissələr üçün" : "")
+                    </span>
                 </div>
                 <div class="text-content">
                     <label>Rəng</label>

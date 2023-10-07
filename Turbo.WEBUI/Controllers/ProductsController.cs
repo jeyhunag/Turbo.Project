@@ -73,7 +73,7 @@ namespace Turbo.WEBUI.Controllers
 
                 product.ProductImages = imagesList;
                 await _service.AddAsync(product);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(product);
@@ -142,7 +142,7 @@ namespace Turbo.WEBUI.Controllers
 
                 product.ProductImages = imagesList;
                 _service.Update(product);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(product);
@@ -189,7 +189,7 @@ namespace Turbo.WEBUI.Controllers
                 return NotFound();
             }
             _service.Delete(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
     }
