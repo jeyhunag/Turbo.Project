@@ -296,11 +296,10 @@ a {
 }
 
 .custom-dropdown {
-    position: relative;
-    display: inline-block;
+    display: inline-flex;
 }
 
-    .custom-dropdown input {
+  /*  .custom-dropdown input {
         padding: 13px 42px;
         border-radius: 5px;
         border: #8E94AB;
@@ -313,29 +312,27 @@ a {
         right: 10px;
         transform: translateY(-50%);
         cursor: pointer;
-    }
+    }*/
 
-.dropdown-list {
-    display: none;
+/*.filter-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
     border: 1px solid #ccc;
     background-color: white;
-    position: absolute;
     width: 100%;
     z-index: 1;
 }
 
-    .dropdown-list li {
+    .filter-list option {
         padding: 8px;
         cursor: pointer;
     }
 
-        .dropdown-list li:hover {
+        .filter-list option:hover {
             background-color: #eee;
         }
-
+*/
 /* ... digər stil kodları ... */
 
 .fa-solid.fa-trash {
@@ -355,15 +352,15 @@ a {
     color: #B92B24;
 }
 
-.checkbox-list li {
+/*.checkbox-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+}*/
 
-.checkbox-list input[type="checkbox"] {
+/*.checkbox-list input[type="checkbox"] {
     margin-left: 10px;
-}
+}*/
 
 .input-group {
     display: inline-flex;
@@ -792,3 +789,9 @@ a {
 /*  Modal Phone message end */
 
 /* Giris Modal End */
+
+
+.filter-list {
+    padding: 15px 15px 15px 25px;
+    font-size: 16px
+}

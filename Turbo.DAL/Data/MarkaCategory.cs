@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace Turbo.DAL.Data
     {
         public string Name { get; set; }
         public virtual ICollection<Product>? Products { get; set; }
+        public virtual ICollection<ModelCategory>? Modelss { get; set; }
     }
 }

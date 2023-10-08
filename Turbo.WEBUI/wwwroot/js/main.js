@@ -161,9 +161,7 @@ $(document).ready(function () {
             $('.button-phone').addClass('deactivated');
         }
     });
-
 });
-
 
 
 

@@ -1,0 +1,286 @@
+﻿@model FilterViewModel
+
+<form asp-controller="Home" asp-action="Index" method="get">
+    <div class="floor-1">
+        <div class="custom-dropdown" id="firstDropdown">
+            <select asp-for="MarKaId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.MarkaCategories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="custom-dropdown" id="secondDropdown">
+            <select asp-for="ModelId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.Models)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label>
+                <input type="radio" name="choice" value="all" data-default="all" checked>
+                <span>Hamısı</span>
+            </label>
+            <label>
+                <input type="radio" name="choice" value="new" data-default="new">
+                <span>Yeni</span>
+            </label>
+            <label>
+                <input type="radio" name="choice" value="used" data-default="used">
+                <span>Sürülmüş</span>
+            </label>
+        </div>
+
+
+        <div class="custom-dropdown">
+            <select asp-for="CityId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.CityCategories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="floor-2">
+        <div class="price">
+            <input type="number" value="minPrice" data-default="minPrice" id="minPrice" name="minPrice"
+                   placeholder="Qiymət, min">
+
+            <input type="number" value="maxPrice" data-default="maxPrice" id="maxPrice" name="maxPrice"
+                   placeholder="Maks">
+        </div>
+
+        <div class="custom-dropdown">
+            <select class="filter-list valyuta">
+                <option>AZN</option>
+                <option>EUR</option>
+                <option>USD</option>
+            </select>
+        </div>
+
+        <div class="kredit-barter">
+            <label class="credit-input" for="isKredit">Credit</label>
+            <input id="isKredit" type="checkbox" asp-for="IsCredit"  class="credit-input" style="display:none;">
+            <label class="credit-input" for="isBarter">Barter</label>
+            <input id="isBarter" type="checkbox" asp-for="IsBarter"  class="credit-input" style="display:none;">
+
+        </div>
+
+        <div class="custom-dropdown">
+            <select asp-for="BanTypeId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.BanTypes)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="custom-dropdown">
+            <select asp-for="YearId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.Years)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="custom-dropdown">
+            <select asp-for="YearId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.Years)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="custom-dropdown">
+            <select asp-for="ColorId" class="filter-list">
+                <option class="def">Sıfırla</option>
+                @foreach (var item in Model.Colors)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <div class="floor-3">
+
+            <div class="custom-dropdown">
+                <select asp-for="FuelTypeId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.FuelTypes)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="GearId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.Gears)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="GearBoxId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.GearBoxes)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="NumberOfId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.NumberOfSeats)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="floor-4">
+            <div class="custom-dropdown">
+                <select asp-for="EngineCapasityId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach  (var item in Model.EngineCapacities)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="EngineCapasityId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.EngineCapacities)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class=" power-maks">
+                <input asp-for="minEngine" type="number"  data-default="min" id="min" placeholder="Güc(a. g.), min." >
+                      
+
+                <input asp-for="maxEngine" type="number" data-default="maks" id="maks" placeholder="maks">
+                      
+            </div>
+
+            <div class=" march-maks">
+                <input type="number" value="Yürüş (km), min." data-default="Yürüş (km), min."
+                       id="Yürüş (km), min." name="Yürüş (km), min." placeholder="Yürüş (km), min.">
+
+                <input type="number" value="maks." data-default="maks." id="maks." name="maks."
+                       placeholder="maks.">
+            </div>
+        </div>
+
+        <div class="floor-5">
+            <div class="input-group">
+                <label>
+                    <input type="radio" name="secondChoice" value="all-2" data-default="all-2" checked>
+                    <span>Hamısı</span>
+                </label>
+                <label>
+                    <input type="radio" name="secondChoice" value="Avtosalonlar"
+                           data-default="Avtosalonlar">
+                    <span>Avtosalonlar</span>
+                </label>
+                <label>
+                    <input type="radio" name="secondChoice" value="Personal" data-default="Personal">
+                    <span>Şəxsi</span>
+                </label>
+            </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="HowManyOwnerId" class="filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.HowManyOwners)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+
+            <div class="custom-dropdown">
+                <select asp-for="MarkedId" class="@* dropdown-list *@ filter-list">
+                    <option class="def">Sıfırla</option>
+                    @foreach (var item in Model.MarkaCategories)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="floor-6">
+            <div class="kredit-barter">
+                <input type="text" value="Vuruğu yoxdur" class="credit-input" name="Vuruğu yoxdur" readonly>
+                <input type="text" value="Rənglənməyib" class="credit-input" name="Rənglənməyib" readonly>
+                <input type="text" value="Yalnız qəzalı avtomobillər" class="credit-input"
+                       name="Yalnız qəzalı avtomobillər" readonly>
+
+            </div>
+        </div>
+        <div class="floor-7">
+            <div class="main-search-title">
+                <span>
+                    Avtomobilin təchizatı
+                    <hr>
+                </span>
+            </div>
+
+            <div class="kredit-barter">
+                <input type="text" value="ABS" class="credit-input" name="ABS" readonly>
+                <input type="text" value="Lyuk" class="credit-input" name="Lyuk" readonly>
+                <input type="text" value="Deri salon" class="credit-input" name="Deri salon" readonly>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main-search-footer">
+        <div class="main-search-footer-left">
+            <div class="search-count">
+                Bu gün:
+                <a href="#"> 1670 Yeni elan</a>
+            </div>
+        </div>
+        <div class="main-search-footer-right">
+            <div class="conut-zero">
+                <span>Sıfırla</span>
+            </div>
+            <div class="all-filtr">
+                <span class="toggle-filters">
+                    Daha çox filtr
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </div>
+
+            <div>
+                <button type="submit">Elanları göstər</button>
+            </div>
+        </div>
+    </div>
+</form>

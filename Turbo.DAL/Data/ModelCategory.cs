@@ -9,6 +9,8 @@ namespace Turbo.DAL.Data
     public class ModelCategory:BaseEntity
     {
         public string Name { get; set; }
+        public int? MarkaId { get; set; }
+        public MarkaCategory Marka { get; set; }
         public virtual ICollection<Product>? Products { get; set; }
     }
 }

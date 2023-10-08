@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Turbo.DAL.ViewModel;
 using Turbo.WEBUI.Models;
 
 namespace Turbo.WEBUI.Controllers
@@ -13,8 +14,10 @@ namespace Turbo.WEBUI.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(FilterViewModel vm )
         {
+            TempData["Filter"] = vm;
+
             return View();
         }
 
