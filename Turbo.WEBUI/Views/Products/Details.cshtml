@@ -160,8 +160,54 @@
             <hr>
             <div class="footer-text-end">
                 <div class="text-end-left">
-                    <a asp-action="Edit" asp-route-id="@Model.Id">Düzəliş et</a>
-                    <a asp-action="Delete" asp-route-id="@Model.Id">Elanı sil</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id" id="correct">Düzəliş et</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" id="delete-ad">Elanı sil</a>
+                </div>
+                <!-- Modal -->
+                <div class="correcmodal" id="correctModal">
+                    <div class="correct-modal-content">
+
+                        <div class="correct-modal-header">
+                            Şəxsiyyətinizi təsdiqləyin
+                            <button class="correct-closeModal">X</button>
+                        </div>
+                        <div class="correct-modal-body">
+                            <p>
+                                Davam etmək üçün elanınızın PIN-şifrəsini qeyd edin. PIN-şifrəni, elan saytda
+                                dərc edilərkən Turbo.Az-dan Sizə göndərilən məktubdan götürə bilərsiniz.
+                            </p>
+                            <label>Elanın PIN-şifrəsi:</label>
+                            <div class="correct-input-section">
+                                <input type="text" />
+                                <button>Təsdiq et</button>
+                            </div>
+                            <a href="#">PIN-şifrəni unutmusuz?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="deletemodal" id="delete-the-ad">
+                    <div class="delete-modal-content">
+
+                        <div class="delete-modal-header">
+                            Elanı silmək
+                            <button class="delete-closeModal">X</button>
+                        </div>
+                        <div class="delete-modal-body">
+                            <p>
+                                Zəhmət olmasa, elanın silinməsini təsdiqləmək üçün PIN-şifrəni daxil edin.
+                                PIN-şifrəni, elan saytda dərc olunan zaman Turbo.az-dan Sizə göndərilən məktubda
+                                tapa bilərsiniz.
+                            </p>
+                            <label>Elanın PIN-şifrəsi:</label>
+                            <div class="delete-input-section">
+                                <input type="text" />
+                                <button>Təsdiq et</button>
+                            </div>
+                            <a href="#">PIN-şifrəni unutmusuz?</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-end-right">
                     <span>Elanın nömrəsi: @Model.AdvertisementNumber</span>
@@ -433,6 +479,31 @@
             } else {
                 $('.product-sidebar-container').removeClass('fixed');
             }
+
+        });
+
+        $(document).ready(function () {
+
+            // Düzəliş et linkinə klik edildikdə modalı göstər
+            $('#correct').on('click', function () {
+                $('#correctModal').css('display', 'flex');
+            });
+
+            // Düzəliş et modalının bağlama düyməsinə klik edildikdə modalı gizlət
+            $('.correct-closeModal').on('click', function () {
+                $('#correctModal').css('display', 'none');
+            });
+
+            // Elanı sil linkinə klik edildikdə modalı göstər
+            $('#delete-ad').on('click', function () {
+                $('#delete-the-ad').css('display', 'flex');
+            });
+
+            // Elanı sil modalının bağlama düyməsinə klik edildikdə modalı gizlət
+            $('.delete-closeModal').on('click', function () {
+                $('#delete-the-ad').css('display', 'none');
+            });
+
         });
     </script>
 }
