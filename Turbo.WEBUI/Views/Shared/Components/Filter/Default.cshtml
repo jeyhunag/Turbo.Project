@@ -3,8 +3,9 @@
 <form asp-controller="Home" asp-action="Index" method="get">
     <div class="floor-1">
         <div class="custom-dropdown" id="firstDropdown">
-            <select asp-for="MarKaId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="MarKaId" class="filter-list dynamic-label" >
+                <option class="default-option" value="" >Marka</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.MarkaCategories)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -12,9 +13,12 @@
             </select>
         </div>
 
+
+
         <div class="custom-dropdown" id="secondDropdown">
-            <select asp-for="ModelId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="ModelId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Model</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Models)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -39,8 +43,9 @@
 
 
         <div class="custom-dropdown">
-            <select asp-for="CityId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="CityId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Şəhər</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.CityCategories)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -57,7 +62,7 @@
                    placeholder="Maks">
         </div>
 
-        <div class="custom-dropdown">
+        <div class="custom-dropdown-val">
             <select class="filter-list valyuta">
                 <option>AZN</option>
                 <option>EUR</option>
@@ -66,7 +71,7 @@
         </div>
 
         <div class="kredit-barter">
-            <label class="credit-input" for="isKredit">Credit</label>
+            <label class="credit-input" for="isKredit" style="margin-right:10px;">Credit</label>
             <input id="isKredit" type="checkbox" asp-for="IsCredit"  class="credit-input" style="display:none;">
             <label class="credit-input" for="isBarter">Barter</label>
             <input id="isBarter" type="checkbox" asp-for="IsBarter"  class="credit-input" style="display:none;">
@@ -74,8 +79,9 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="BanTypeId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="BanTypeId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Ban Növü</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.BanTypes)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -84,8 +90,9 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="YearId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="YearId" class="filter-list dynamic-label">
+                <option class="default-option" value="">İl,min</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Years)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -94,8 +101,9 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="YearId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="YearId" class="filter-list dynamic-label">
+                <option class="default-option" value="">İl,maks.</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Years)
                 {
                     <option value="@item.Id">@item.Name</option>
@@ -104,42 +112,45 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="ColorId" class="filter-list">
-                <option class="def">Sıfırla</option>
+            <select asp-for="ColorId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Rəng</option>
+                <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Colors)
                 {
                     <option value="@item.Id">@item.Name</option>
                 }
             </select>
         </div>
-    </div>
 
-    <div>
+        <div class="custom-dropdown">
+            <select asp-for="FuelTypeId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Yanacaq növü</option>
+                <option class="zero def" value="">X Sıfırla</option>
+                @foreach (var item in Model.FuelTypes)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+
+        <div class="custom-dropdown">
+            <select asp-for="GearId" class="filter-list dynamic-label">
+                <option class="default-option" value="">Ötürücü</option>
+                <option class="zero def" value="">X Sıfırla</option>
+                @foreach (var item in Model.Gears)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+    <div class="extrems-form">
         <div class="floor-3">
 
             <div class="custom-dropdown">
-                <select asp-for="FuelTypeId" class="filter-list">
-                    <option class="def">Sıfırla</option>
-                    @foreach (var item in Model.FuelTypes)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-            <div class="custom-dropdown">
-                <select asp-for="GearId" class="filter-list">
-                    <option class="def">Sıfırla</option>
-                    @foreach (var item in Model.Gears)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
-            </div>
-
-            <div class="custom-dropdown">
-                <select asp-for="GearBoxId" class="filter-list">
-                    <option class="def">Sıfırla</option>
+                <select asp-for="GearBoxId" class="filter-list dynamic-label">
+                    <option class="default-option" value="">Sürətlər qutusu</option>
+                    <option class="zero def" value="">X Sıfırla</option>
                     @foreach (var item in Model.GearBoxes)
                     {
                         <option value="@item.Id">@item.Name</option>
@@ -148,20 +159,10 @@
             </div>
 
             <div class="custom-dropdown">
-                <select asp-for="NumberOfId" class="filter-list">
-                    <option class="def">Sıfırla</option>
+                <select asp-for="NumberOfId" class="filter-list dynamic-label">
+                    <option class="default-option" value="">Yerlərin sayı</option>
+                    <option class="zero def" value="">X Sıfırla</option>
                     @foreach (var item in Model.NumberOfSeats)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
-            </div>
-        </div>
-        <div class="floor-4">
-            <div class="custom-dropdown">
-                <select asp-for="EngineCapasityId" class="filter-list">
-                    <option class="def">Sıfırla</option>
-                    @foreach  (var item in Model.EngineCapacities)
                     {
                         <option value="@item.Id">@item.Name</option>
                     }
@@ -169,14 +170,29 @@
             </div>
 
             <div class="custom-dropdown">
-                <select asp-for="EngineCapasityId" class="filter-list">
-                    <option class="def">Sıfırla</option>
+                <select asp-for="EngineCapasityId" class="filter-list dynamic-label">
+                    <option class="default-option" value="">Həcm,min </option>
+                    <option class="zero def" value="">X Sıfırla</option>
                     @foreach (var item in Model.EngineCapacities)
                     {
                         <option value="@item.Id">@item.Name</option>
                     }
                 </select>
             </div>
+
+            <div class="custom-dropdown">
+                <select asp-for="EngineCapasityId" class="filter-list dynamic-label">
+                    <option class="default-option" value="">maks</option>
+                    <option class="zero def" value="">X Sıfırla</option>
+                    @foreach (var item in Model.EngineCapacities)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="floor-4">
+
 
             <div class=" power-maks">
                 <input asp-for="minEngine" type="number"  data-default="min" id="min" placeholder="Güc(a. g.), min." >
@@ -192,6 +208,29 @@
 
                 <input type="number" value="maks." data-default="maks." id="maks." name="maks."
                        placeholder="maks.">
+            </div>
+
+            <div class="custom-dropdown-how-many">
+                <select asp-for="HowManyOwnerId" class="filter-list dynamic-label">
+                    <option class="default-option" value="">Sahiblərinin sayı</option>
+                    <option class="zero def" value="">X Sıfırla</option>
+                    @foreach (var item in Model.HowManyOwners)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+
+
+            <div class="custom-dropdown-how-many">
+                <select asp-for="MarkedId" class="dropdown-list filter-list dynamic-label">
+                    <option class="default-option" value="">Hansı bazar üçün yığılıb</option>
+                    <option class="zero def" value="">X Sıfırla</option>
+                    @foreach (var item in Model.MarketAssembleds)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
             </div>
         </div>
 
@@ -212,26 +251,7 @@
                 </label>
             </div>
 
-            <div class="custom-dropdown">
-                <select asp-for="HowManyOwnerId" class="filter-list">
-                    <option class="def">Sıfırla</option>
-                    @foreach (var item in Model.HowManyOwners)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
-            </div>
 
-
-            <div class="custom-dropdown">
-                <select asp-for="MarkedId" class="@* dropdown-list *@ filter-list">
-                    <option class="def">Sıfırla</option>
-                    @foreach (var item in Model.MarkaCategories)
-                    {
-                        <option value="@item.Id">@item.Name</option>
-                    }
-                </select>
-            </div>
         </div>
 
         <div class="floor-6">

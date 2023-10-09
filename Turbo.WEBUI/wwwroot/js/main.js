@@ -1,60 +1,69 @@
 
+//Select list Sıfırla click edildikdə sıfırla sözü yerinə Default  söz yazdırmaq.
 $(document).ready(function () {
-
-    // İlk başda ikinci dropdown listi deaktiv edirik
-    $("#secondDropdown input, #secondDropdown i").prop("disabled", true);
-
-    $(".custom-dropdown fas, .custom-dropdown input").click(function (e) {
-        $(".dropdown-list").not($(this).siblings(".dropdown-list")).hide();
-
-        $(this).siblings(".dropdown-list").toggle();
-
-        let icon = $(this).siblings("fas");
-        if (icon.hasClass("fa-chevron-down")) {
-            icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
-        } else {
-            icon.removeClass("fa-chevron-up").addClass("fa-chevron-down");
+    $('.dynamic-label').on('focus', function () {
+        $(this).find('.default-option').hide();
+    }).on('blur', function () {
+        if ($(this).val() === "") {
+            $(this).find('.default-option').show();
         }
-
-        e.stopPropagation();
+    }).on('change', function () {
+        if ($(this).find(':selected').hasClass('zero')) {
+            $(this).val("");
+            $(this).blur();
+        }
     });
+});
 
+//Sifirla icon deyisilmesi
+$(document).ready(function () {
+    $(".extrems-form").hide();
+    $(".toggle-filters .fas.fa-chevron-up").hide();
 
-    $(".dropdown-list li").click(function () {
-        if ($(this).hasClass("def")) {
-            $(this).closest(".custom-dropdown").find("input[type='text']").val($(this).closest(".custom-dropdown").find("input[type='text']").attr("value"));
-            $(this).siblings("li").find("input[type='checkbox']").prop("checked", false);
-
-            // Əgər bu birinci dropdownsa, ikinci dropdownu deaktiv edirik
-            if ($(this).closest(".custom-dropdown").is("#firstDropdown")) {
-                $("#secondDropdown input, #secondDropdown fas").prop("disabled", true).val("Model").siblings(".dropdown-list").hide();
-            }
-        } else {
-            let selectedValue = $(this).text().trim();  // checkbox-a görə məlumatın ətrafında boşluqlar olacaq, onları təmizləyirik
-            $(this).closest(".custom-dropdown").find("input[type='text']").val(selectedValue);
-
-            // Eyni zamanda, əgər li elementində checkbox varsa, onun statusunu dəyiş
-            let checkbox = $(this).find("input[type='checkbox']");
-            if (checkbox.length) {
-                checkbox.prop("checked", !checkbox.prop("checked"));
-            }
-
-            // Əgər bu birinci dropdownsa, ikinci dropdownu aktiv edirik
-            if ($(this).closest(".custom-dropdown").is("#firstDropdown")) {
-                $("#secondDropdown input, #secondDropdown fas").prop("disabled", false);
-            }
-        }
+    $(".toggle-filters").click(function () {
+        $(".extrems-form").slideToggle();
 
         $(this).parent(".dropdown-list").hide();
         $(this).closest(".custom-dropdown").find("fas").removeClass("fa-chevron-up").addClass("fa-chevron-down");
     });
-
-    $(document).click(function () {
-        $(".dropdown-list").hide();
-        $(".custom-dropdown fas").removeClass("fa-chevron-up").addClass("fa-chevron-down");
-    });
-
 });
+
+//Form melumatlarinin sifirlanmasi
+$(document).ready(function () {
+    $('.conut-zero').click(function (e) {
+        e.preventDefault();
+
+        $('form select').each(function () {
+            $(this).prop('selectedIndex', 0).trigger('change');
+        });
+
+
+        $('form input[type="checkbox"]:not(.kredit-barter input)').each(function () {
+            $(this).prop('checked', false);
+        });
+
+        $('form input[type="number"]').each(function () {
+            const defaultVal = $(this).data('default');
+            if (defaultVal) {
+                $(this).val(defaultVal);
+            } else {
+                $(this).val('');
+            }
+        });
+
+        $('form input[type="radio"]').each(function () {
+            var defaultValue = $(this).data('default');
+            $(this).prop('checked', $(this).val() === defaultValue);
+        });
+
+        $('.valyuta').css('color', 'black');
+        $('.valyuta option:first').css('color', 'black');
+
+    });
+});
+
+
+
 
 $(document).ready(function () {
     $('.credit-input').on('click', function () {
@@ -103,7 +112,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    
+
     // giris modalının açılması
     $('#openModalBtn').on('click', function (e) {
         e.preventDefault();
@@ -137,7 +146,7 @@ $(document).ready(function () {
         $('#myModal-phone').css('display', 'flex');
     });
 
-     //Telefon nömrəsi inputunun formatlanması
+    //Telefon nömrəsi inputunun formatlanması
     $('.button-phone').addClass('deactivated');
     $('#phone').on('input', function () {
         let value = $(this).val().replace(/\D/g, "").substring(0, 10);

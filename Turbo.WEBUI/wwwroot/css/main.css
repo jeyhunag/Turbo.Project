@@ -282,7 +282,9 @@ a {
 .floor-5 {
     margin: 10px 0px;
 }
-
+.floor-5{
+    margin:21px 0;
+}
 .floor-3 {
     display: flex;
     justify-content: space-between;
@@ -295,72 +297,49 @@ a {
     margin-right: 10px;
 }
 
-.custom-dropdown {
+.custom-dropdown,
+.custom-dropdown-val,
+.custom-dropdown-how-many {
     display: inline-flex;
 }
 
-  /*  .custom-dropdown input {
-        padding: 13px 42px;
+    .custom-dropdown select {
+        padding: 13px 155px 13px 3px;
         border-radius: 5px;
-        border: #8E94AB;
+        border: 1px solid #dfe3e9;
         font-size: 15px;
+        cursor:pointer;
     }
 
-    .custom-dropdown > .fa-chevron-down {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
+    .custom-dropdown-val select {
+        padding: 13px 42px 13px 3px;
+        border-radius: 5px;
+        border: 1px solid #dfe3e9;
+        font-size: 15px;
         cursor: pointer;
-    }*/
-
-/*.filter-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid #ccc;
-    background-color: white;
-    width: 100%;
-    z-index: 1;
+    }
+    .custom-dropdown-how-many select {
+        padding: 13px 68px 13px 3px;
+        border-radius: 5px;
+        border: 1px solid #dfe3e9;
+        font-size: 15px;
+        cursor: pointer;
+    }
+/* Hover və Focus üçün select elementinin stili */
+.default-option {
+    color: #8E94AB;
 }
 
-    .filter-list option {
-        padding: 8px;
-        cursor: pointer;
-    }
 
-        .filter-list option:hover {
-            background-color: #eee;
-        }
-*/
-/* ... digər stil kodları ... */
 
 .fa-solid.fa-trash {
     color: #B92B24;
     margin-right: 10px;
 }
 
-.scroll-bar {
-    /* ... digər stil kodları ... */
-    max-height: 100px;
-    /* Yaxşı görünməsi üçün maksimal hündürlük təyin etdim */
-    overflow-y: auto;
-    /* Vertikal scroll aktivləşdir */
-}
-
 .def {
     color: #B92B24;
 }
-
-/*.checkbox-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}*/
-
-/*.checkbox-list input[type="checkbox"] {
-    margin-left: 10px;
-}*/
 
 .input-group {
     display: inline-flex;
@@ -418,7 +397,7 @@ a {
     border-radius: 5px;
     border: #8E94AB;
     font-size: 15px;
-    height: 42px;
+    padding:16px;
     background-color: white;
     text-align: center;
     cursor: pointer;
@@ -500,7 +479,7 @@ a {
 }
 
 .announcements h4 {
-    font-size:19px;
+    font-size: 19px;
     margin-bottom: 24px;
 }
 

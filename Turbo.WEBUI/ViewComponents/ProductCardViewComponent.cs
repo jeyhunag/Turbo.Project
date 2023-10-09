@@ -15,98 +15,28 @@ namespace Turbo.WEBUI.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync(FilterViewModel filter)
         {
 
-            var modell = db.Products.Include(p => p.MarkaCategory).
-                Include(p => p.ModelCategory).Include(p => p.YearCategory).
-                Include(p => p.EngineCapacityCategory).Include(p => p.CityCategory).ToList();
-
-
-
-            if (filter.MarKaId > 0)
-            {
-                modell = modell.Where(p=>p.MarkaCategoryId==filter.MarKaId).ToList();
-            }
-
-            if (filter.ModelId > 0)
-            {
-                modell = modell.Where(p => p.ModelCategoryId == filter.ModelId).ToList();
-            }
-
-            if (filter.BanTypeId > 0)
-            {
-                modell = modell.Where(p => p.BanTypeCategoryId == filter.BanTypeId).ToList();
-            }
-
-            if (filter.NumberOfId > 0)
-            {
-                modell = modell.Where(p => p.NumberOfSeatsCategoryId == filter.NumberOfId).ToList();
-            }
-
-            if (filter.CityId > 0)
-            {
-                modell = modell.Where(p => p.CityCategoryId == filter.CityId).ToList();
-            }
-
-            if (filter.ColorId > 0)
-            {
-                modell = modell.Where(p => p.ColorCategoryId == filter.ColorId).ToList();
-            }
-
-            if (filter.EngineCapasityId > 0)
-            {
-                modell = modell.Where(p => p.EngineCapacityCategoryId == filter.EngineCapasityId).ToList();
-            }
-
-            if (filter.FuelTypeId > 0)
-            {
-                modell = modell.Where(p => p.FuelTypeCategoryId == filter.FuelTypeId).ToList();
-            }
-
-            if (filter.GearBoxId > 0)
-            {
-                modell = modell.Where(p => p.GearBoxCategoryId == filter.GearBoxId).ToList();
-            }
-
-            if (filter.GearId > 0)
-            {
-                modell = modell.Where(p => p.GearCategoryId == filter.GearId).ToList();
-            }
-
-            if (filter.MarkedId > 0)
-            {
-                modell = modell.Where(p => p.MarketAssembledCategoryId == filter.MarkedId).ToList();
-            }
-
-            if (filter.YearId > 0)
-            {
-                modell = modell.Where(p => p.YearCategoryId == filter.YearId).ToList();
-            }
-
-            if (filter.HowManyOwnerId > 0)
-            {
-                modell = modell.Where(p => p.HowManyOwnerCategoryId == filter.HowManyOwnerId).ToList();
-            }
-
-            if (filter.IsCredit == true)
-            {
-                modell = modell.Where(p => p.IsCredit == filter.IsCredit).ToList();
-            }
-
-            if (filter.IsBarter == true)
-            {
-                modell = modell.Where(p => p.IsBarter == filter.IsBarter).ToList();
-            }
-
-            if (filter.minEngine > 0)
-            {
-                modell = modell.Where(p => p.EnginePower <= filter.minEngine).ToList();
-
-            }
-
-            if (filter.maxEngine > 0)
-            {
-                modell = modell.Where(p => p.EnginePower <= filter.maxEngine).ToList();
-            }
-
+            var modell = db.Products.
+                   Where(p => filter.MarKaId <= 0 || p.MarkaCategoryId == filter.MarKaId)
+                  .Where(p => filter.ModelId <= 0 || p.ModelCategoryId == filter.ModelId)
+                  .Where(p => filter.BanTypeId <= 0 || p.BanTypeCategoryId == filter.BanTypeId)
+                  .Where(p => filter.NumberOfId <= 0 || p.NumberOfSeatsCategoryId == filter.NumberOfId)
+                  .Where(p => filter.CityId <= 0 || p.CityCategoryId == filter.CityId)
+                  .Where(p => filter.ColorId <= 0 || p.ColorCategoryId == filter.ColorId)
+                  .Where(p => filter.EngineCapasityId <= 0 || p.EngineCapacityCategoryId == filter.EngineCapasityId)
+                  .Where(p => filter.FuelTypeId <= 0 || p.FuelTypeCategoryId == filter.FuelTypeId)
+                  .Where(p => filter.GearBoxId <= 0 || p.GearBoxCategoryId == filter.GearBoxId)
+                  .Where(p => filter.GearId <= 0 || p.GearCategoryId == filter.GearId)
+                  .Where(p => filter.MarkedId <= 0 || p.MarketAssembledCategoryId == filter.MarkedId)
+                  .Where(p => filter.YearId <= 0 || p.YearCategoryId == filter.YearId)
+                  .Where(p => filter.HowManyOwnerId <= 0 || p.HowManyOwnerCategoryId == filter.HowManyOwnerId)
+                  .Where(p => !filter.IsCredit || p.IsCredit == filter.IsCredit)
+                  .Where(p => !filter.IsBarter || p.IsBarter == filter.IsBarter)
+                  .Where(p => filter.minEngine <= 0 || p.EnginePower <= filter.minEngine)
+                  .Where(p => filter.maxEngine <= 0 || p.EnginePower <= filter.maxEngine)
+                  .Include(p => p.MarkaCategory).
+                  Include(p => p.ModelCategory).Include(p => p.YearCategory).
+                  Include(p => p.EngineCapacityCategory).Include(p => p.CityCategory).ToList();
+            
             return View(modell);
 
         }

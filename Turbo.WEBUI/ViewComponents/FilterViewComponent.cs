@@ -28,6 +28,7 @@ namespace Turbo.WEBUI.ViewComponents
             vm.MarkaCategories = await db.MarkaCategories.ToListAsync();
             vm.Years = await db.YearCategories.ToListAsync();
             vm.HowManyOwners = await db.HowManies.ToListAsync();
+            vm.MarketAssembleds = await db.MarketAssembleds.ToListAsync();
             return View(vm);
         }
     }

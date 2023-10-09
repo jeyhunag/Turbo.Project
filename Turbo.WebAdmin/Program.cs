@@ -3,7 +3,6 @@ using Serilog;
 using System;
 using Turbo.BLL.Mapping;
 using Turbo.DAL.DbContext;
-using Turbo.WebAdmin.Helper.CookieExtensions;
 using Turbo.WebAdmin.Helper.FlluentExtensions;
 using Turbo.WebAdmin.Helper.LogExtensions;
 using Turbo.WebAdmin.Helper.ServicesExtensions;
@@ -32,8 +31,6 @@ namespace Turbo.WebAdmin
             //Identity AppRole,AppUser Security 
             //builder.Services.AddIdentityServices();
 
-            //Cookie Service
-            builder.Services.AddCookieServices();
 
             //Importand Logger Extensions
             builder.Services.AddImpotandLogServices();

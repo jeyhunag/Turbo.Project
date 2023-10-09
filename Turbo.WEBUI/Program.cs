@@ -4,7 +4,6 @@ using Turbo.BLL.Mapping;
 using Turbo.BLL.Services.Interfaces;
 using Turbo.BLL.Services;
 using Turbo.DAL.DbContext;
-using Turbo.WEBUI.Helper.CookieExtensions;
 using Turbo.WEBUI.Helper.FlluentExtensions;
 using Turbo.WEBUI.Helper.LogExtensions;
 using Turbo.WEBUI.Helper.ServicesExtensions;
@@ -42,8 +41,6 @@ namespace Turbo.WEBUI
             //Identity AppRole,AppUser Security 
            // builder.Services.AddIdentityServices();
 
-            //Cookie Service
-            builder.Services.AddCookieServices();
 
             //Importand Logger Extensions
             builder.Services.AddImpotandLogServices();
