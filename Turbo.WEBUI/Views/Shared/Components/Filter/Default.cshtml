@@ -1,9 +1,10 @@
 ﻿@model FilterViewModel
 
+
 <form asp-controller="Home" asp-action="Index" method="get">
     <div class="floor-1">
         <div class="custom-dropdown" id="firstDropdown">
-            <select asp-for="MarKaId" class="filter-list dynamic-label" >
+            <select asp-for="MarKaId" class="filter-list dynamic-label scroll-bar">
                 <option class="default-option" value="" >Marka</option>
                 <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.MarkaCategories)

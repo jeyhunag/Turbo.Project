@@ -170,14 +170,23 @@
 }
 
 .product-sidebar-container {
-    display: flex;
-    width: 28%;
+    width: 22%;
     border-radius: 5px;
     background-color: #f6f7fa;
     height: 300px;
     padding: 10px;
     margin: 10px;
-    flex-direction: column;
+    top: 28%;
+    right: 11%;
+    position: fixed;
+    z-index: 9999;
+}
+
+.fixed {
+    position: absolute;
+    top: 0;
+    width: 22%;
+    z-index: 9999;
 }
 
 .product-price {
@@ -241,7 +250,7 @@
 }
 
 .product-button-phone a {
-    padding: 11px 72px;
+    padding: 11px 81px;
     color: white;
     border: none;
     border-radius: 5px;

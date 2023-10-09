@@ -1,7 +1,9 @@
+
 .biznes-login {
     display: flex;
     width: 100%;
-    padding: 0 170px;
+    margin-left: 163px;
+    margin-bottom: 22px;
     flex-direction: column;
 }
 
@@ -47,10 +49,14 @@
     margin-left: 140px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .login-submit a {
     text-decoration: underline !important;
     color: #959292;
+    margin-left:92px;
+}
+
+.footer_main {
+    padding: 36px 170px !important;
 }

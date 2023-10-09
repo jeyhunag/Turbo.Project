@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="product-foto">
-            <div class="fotorama" data-width="100%">
+            <div class="fotorama" data-allowfullscreen="true" data-nav="thumbs" data-width="800" data-height="300">
                     <img src="~/@Model.Image">
             </div>
         </div>
@@ -424,3 +424,15 @@
 </section>
 
 
+@section Scripts{
+    <script>
+        $(document).scroll(function () {
+            var y = $(this).scrollTop();
+            if (y > 700) {
+                $('.product-sidebar-container').addClass('fixed');
+            } else {
+                $('.product-sidebar-container').removeClass('fixed');
+            }
+        });
+    </script>
+}
