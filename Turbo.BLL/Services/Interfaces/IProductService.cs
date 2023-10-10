@@ -24,7 +24,6 @@ namespace Turbo.BLL.Services.Interfaces
         public Task<List<VehicleSupplyCategoryDto>> GetVehicleSupplyCategoriesAsync();
         public Task<List<YearCategoryDto>> GeTYearCapacityCategoriesAsync();
         public Task<List<NumberOfSeatsCategoryDto>> GeTNumberOfSeatsCategoriesAsync();
-
         public Task<List<ProductDto>> GetByCategoryIdAsync(int id);
         public Task<ProductDto> GetDetailByIdAsync(int id);
         public string GenerateUniqueAdvertisementNumber();

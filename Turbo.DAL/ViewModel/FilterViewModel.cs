@@ -23,6 +23,8 @@ namespace Turbo.DAL.ViewModel
         public IEnumerable<MarketAssembledCategory> MarketAssembleds { get; set; }
         public IEnumerable<YearCategory> Years { get; set; }
         public IEnumerable<HowManyOwnerCategory> HowManyOwners { get; set; }
+        public IEnumerable<CurrencyCategory> CurrencyCategories { get; set; }
+        public IEnumerable<VehicleSupplyCategory> VehicleSupplyCategories { get; set; }
 
          public int MarKaId { get; set; }
          public int ModelId { get; set; }
@@ -37,6 +39,8 @@ namespace Turbo.DAL.ViewModel
          public int MarkedId { get; set; }
          public int YearId { get; set; }
          public int HowManyOwnerId { get; set; }
+         //public int VehicleSupplyId { get; set; }
+         //public int CurrencyId { get; set; }
 
 
         public bool IsCredit { get; set; }
@@ -46,14 +50,23 @@ namespace Turbo.DAL.ViewModel
         public bool IsHis { get; set; }
         public bool IsColor { get; set; }
         public bool IsAccident { get; set; }
-        public string Valyuta { get; set; }
+        public string? Valyuta { get; set; }
 
         public int? EnginePower { get; set; }
         public int minEngine { get; set; }
         public int maxEngine { get; set; }
         public string? March { get; set; }
 
+
         public float? Price { get; set; }
+        public float minPrice { get; set; }
+        public float maxPrice { get; set; }
+        public int minYear { get; set; }
+        public int maxYear { get; set; }
+        public int minEngineCapacity { get; set; }
+        public int maxEngineCapacity { get; set; }
+        public int minMarch { get; set; }
+        public int maxMarch { get; set; }
 
     }
 }

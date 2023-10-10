@@ -303,6 +303,35 @@ namespace Turbo.DAL.Migrations
                     b.ToTable("ColorCategories");
                 });
 
+            modelBuilder.Entity("Turbo.DAL.Data.CurrencyCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsCurrency")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CurrencyCategories");
+                });
+
             modelBuilder.Entity("Turbo.DAL.Data.EngineCapacityCategory", b =>
                 {
                     b.Property<int>("Id")
@@ -565,6 +594,9 @@ namespace Turbo.DAL.Migrations
                     b.Property<int>("ColorCategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CurrencyCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
@@ -619,8 +651,8 @@ namespace Turbo.DAL.Migrations
                     b.Property<bool>("IsMarch")
                         .HasColumnType("bit");
 
-                    b.Property<string>("March")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("March")
+                        .HasColumnType("int");
 
                     b.Property<int>("MarkaCategoryId")
                         .HasColumnType("int");
@@ -658,7 +690,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<string>("Valyuta")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("VehicleSupplyCategoryId")
+                    b.Property<int>("VehicleSupplyCategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("YearCategoryId")
@@ -671,6 +703,8 @@ namespace Turbo.DAL.Migrations
                     b.HasIndex("CityCategoryId");
 
                     b.HasIndex("ColorCategoryId");
+
+                    b.HasIndex("CurrencyCategoryId");
 
                     b.HasIndex("EngineCapacityCategoryId");
 
@@ -863,6 +897,12 @@ namespace Turbo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Turbo.DAL.Data.CurrencyCategory", "CurrencyCategory")
+                        .WithMany("Products")
+                        .HasForeignKey("CurrencyCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Turbo.DAL.Data.EngineCapacityCategory", "EngineCapacityCategory")
                         .WithMany("Products")
                         .HasForeignKey("EngineCapacityCategoryId")
@@ -917,9 +957,11 @@ namespace Turbo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", null)
+                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", "VehicleSupplyCategory")
                         .WithMany("Products")
-                        .HasForeignKey("VehicleSupplyCategoryId");
+                        .HasForeignKey("VehicleSupplyCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Turbo.DAL.Data.YearCategory", "YearCategory")
                         .WithMany("Products")
@@ -932,6 +974,8 @@ namespace Turbo.DAL.Migrations
                     b.Navigation("CityCategory");
 
                     b.Navigation("ColorCategory");
+
+                    b.Navigation("CurrencyCategory");
 
                     b.Navigation("EngineCapacityCategory");
 
@@ -950,6 +994,8 @@ namespace Turbo.DAL.Migrations
                     b.Navigation("ModelCategory");
 
                     b.Navigation("NumberOfSeatsCategory");
+
+                    b.Navigation("VehicleSupplyCategory");
 
                     b.Navigation("YearCategory");
                 });
@@ -976,6 +1022,11 @@ namespace Turbo.DAL.Migrations
                 });
 
             modelBuilder.Entity("Turbo.DAL.Data.ColorCategory", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Turbo.DAL.Data.CurrencyCategory", b =>
                 {
                     b.Navigation("Products");
                 });

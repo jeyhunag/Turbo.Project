@@ -10,7 +10,7 @@ namespace Turbo.DAL.Data
     public class Product:BaseEntity
     {
         public int? Phone { get; set; }
-        public string? March { get; set; }
+        public int? March { get; set; }
         public float? Price { get; set; }
         public string? Valyuta { get; set; }
         public int? EnginePower { get; set; }
@@ -57,8 +57,8 @@ namespace Turbo.DAL.Data
         public MarketAssembledCategory? MarketAssembledCategory { get; set; }
         public int ModelCategoryId { get; set; }
         public ModelCategory? ModelCategory { get; set; }
-        //public int VehicleSupplyCategoryId { get; set; }
-        //public VehicleSupplyCategory? VehicleSupplyCategory { get; set; }
+        public int VehicleSupplyCategoryId { get; set; }
+        public VehicleSupplyCategory? VehicleSupplyCategory { get; set; }
         public int YearCategoryId { get; set; }
         public YearCategory? YearCategory { get; set; }
 

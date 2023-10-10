@@ -4,7 +4,7 @@
 <form asp-controller="Home" asp-action="Index" method="get">
     <div class="floor-1">
         <div class="custom-dropdown" id="firstDropdown">
-            <select asp-for="MarKaId" class="filter-list dynamic-label scroll-bar">
+            <select asp-for="MarKaId" class="filter-list dynamic-label">
                 <option class="default-option" value="" >Marka</option>
                 <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.MarkaCategories)
@@ -56,27 +56,24 @@
     </div>
     <div class="floor-2">
         <div class="price">
-            <input type="number" value="minPrice" data-default="minPrice" id="minPrice" name="minPrice"
-                   placeholder="Qiymət, min">
-
-            <input type="number" value="maxPrice" data-default="maxPrice" id="maxPrice" name="maxPrice"
-                   placeholder="Maks">
+            <input type="number" asp-for="minPrice" value="minPrice" data-default="minPrice" id="minPrice" placeholder="Qiymət, min">
+                   
+            <input type="number" asp-for="maxPrice" value="maxPrice" data-default="maxPrice" id="maxPrice" placeholder="Maks">
         </div>
 
-        <div class="custom-dropdown-val">
-            <select class="filter-list valyuta">
-                <option>AZN</option>
-                <option>EUR</option>
-                <option>USD</option>
-            </select>
-        </div>
+        <select class="filter-list valyuta" asp-for="Valyuta">
+            <option value="">Hamısı</option>
+            <option value="AZN">AZN</option>
+            <option value="EUR">EUR</option>
+            <option value="USD">USD</option>
+        </select>
+
 
         <div class="kredit-barter">
             <label class="credit-input" for="isKredit" style="margin-right:10px;">Credit</label>
             <input id="isKredit" type="checkbox" asp-for="IsCredit"  class="credit-input" style="display:none;">
             <label class="credit-input" for="isBarter">Barter</label>
             <input id="isBarter" type="checkbox" asp-for="IsBarter"  class="credit-input" style="display:none;">
-
         </div>
 
         <div class="custom-dropdown">
@@ -91,7 +88,7 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="YearId" class="filter-list dynamic-label">
+            <select asp-for="minYear" class="filter-list dynamic-label">
                 <option class="default-option" value="">İl,min</option>
                 <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Years)
@@ -102,7 +99,7 @@
         </div>
 
         <div class="custom-dropdown">
-            <select asp-for="YearId" class="filter-list dynamic-label">
+            <select asp-for="maxYear" class="filter-list dynamic-label">
                 <option class="default-option" value="">İl,maks.</option>
                 <option class="zero def" value="">X Sıfırla</option>
                 @foreach (var item in Model.Years)
@@ -171,7 +168,7 @@
             </div>
 
             <div class="custom-dropdown">
-                <select asp-for="EngineCapasityId" class="filter-list dynamic-label">
+                <select asp-for="minEngineCapacity" class="filter-list dynamic-label">
                     <option class="default-option" value="">Həcm,min </option>
                     <option class="zero def" value="">X Sıfırla</option>
                     @foreach (var item in Model.EngineCapacities)
@@ -182,7 +179,7 @@
             </div>
 
             <div class="custom-dropdown">
-                <select asp-for="EngineCapasityId" class="filter-list dynamic-label">
+                <select asp-for="maxEngineCapacity" class="filter-list dynamic-label">
                     <option class="default-option" value="">maks</option>
                     <option class="zero def" value="">X Sıfırla</option>
                     @foreach (var item in Model.EngineCapacities)
@@ -196,19 +193,17 @@
 
 
             <div class=" power-maks">
-                <input asp-for="minEngine" type="number"  data-default="min" id="min" placeholder="Güc(a. g.), min." >
+                <input asp-for="minEngine" value="minPower" placeholder="Güc, min." type="number" data-default="min" id="min">
                       
-
-                <input asp-for="maxEngine" type="number" data-default="maks" id="maks" placeholder="maks">
-                      
+                <input asp-for="maxEngine" value="minPower" placeholder="Güc, maks." type="number" data-default="maks" id="maks">
             </div>
 
             <div class=" march-maks">
-                <input type="number" value="Yürüş (km), min." data-default="Yürüş (km), min."
-                       id="Yürüş (km), min." name="Yürüş (km), min." placeholder="Yürüş (km), min.">
+                <input asp-for="minMarch" type="number" value="minMarch" data-default="min" id="min" placeholder="Yürüş,min.">
+                       
 
-                <input type="number" value="maks." data-default="maks." id="maks." name="maks."
-                       placeholder="maks.">
+                <input asp-for="maxMarch" type="number" value="maxMarch" data-default="maks" id="maks" placeholder="maks.">
+                       
             </div>
 
             <div class="custom-dropdown-how-many">
@@ -257,11 +252,12 @@
 
         <div class="floor-6">
             <div class="kredit-barter">
-                <input type="text" value="Vuruğu yoxdur" class="credit-input" name="Vuruğu yoxdur" readonly>
-                <input type="text" value="Rənglənməyib" class="credit-input" name="Rənglənməyib" readonly>
-                <input type="text" value="Yalnız qəzalı avtomobillər" class="credit-input"
-                       name="Yalnız qəzalı avtomobillər" readonly>
-
+                <label class="credit-input" for="IsHis" style="margin-right:10px;">Vuruğu yoxdur</label>
+                <input type="checkbox" asp-for="IsHis" id="IsHis" class="credit-input" style="display:none;">
+                <label class="credit-input" for="IsColor" style="margin-right:10px;">Rənglənməyib</label>
+                <input type="checkbox" asp-for="IsColor" id="IsColor" class="credit-input" style="display:none;">
+                <label class="credit-input" for="IsAccident" style="margin-right:10px;">Yalnız qəzalı avtomobillər</label>
+                <input type="checkbox" asp-for="IsAccident" id="IsAccident" class="credit-input" style="display:none;">
             </div>
         </div>
         <div class="floor-7">

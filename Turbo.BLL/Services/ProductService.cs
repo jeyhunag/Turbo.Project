@@ -47,8 +47,7 @@ namespace Turbo.BLL.Services
             IGenericRepository<VehicleSupplyCategory> _VehicleSupplyRepository,
             IGenericRepository<YearCategory> _YearRepository,
             IGenericRepository<FuelTypeCategory> fuelTypeRepository,
-            IGenericRepository<NumberOfSeatsCategory> _numberOfSeatsRepository
-            ) : base(genericRepository, mapper, logger)
+            IGenericRepository<NumberOfSeatsCategory> _numberOfSeatsRepository) : base(genericRepository, mapper, logger)
         {
             this.fuelTypeRepository = fuelTypeRepository;
             this.numberOfSeatsRepository = _numberOfSeatsRepository;
@@ -194,6 +193,5 @@ namespace Turbo.BLL.Services
 
             return number;
         }
-
     }
 }

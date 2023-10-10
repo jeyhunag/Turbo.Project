@@ -31,8 +31,20 @@ namespace Turbo.WEBUI.ViewComponents
                   .Where(p => filter.HowManyOwnerId <= 0 || p.HowManyOwnerCategoryId == filter.HowManyOwnerId)
                   .Where(p => !filter.IsCredit || p.IsCredit == filter.IsCredit)
                   .Where(p => !filter.IsBarter || p.IsBarter == filter.IsBarter)
+                   .Where(p => !filter.IsHis || p.IsHis == filter.IsHis)
+                  .Where(p => !filter.IsColor || p.IsColor == filter.IsColor)
+                  .Where(p => !filter.IsAccident || p.IsAccident == filter.IsAccident)
                   .Where(p => filter.minEngine <= 0 || p.EnginePower <= filter.minEngine)
                   .Where(p => filter.maxEngine <= 0 || p.EnginePower <= filter.maxEngine)
+                   .Where(p => filter.minPrice <= 0 || p.Price <= filter.minPrice)
+                  .Where(p => filter.maxPrice <= 0 || p.Price <= filter.maxPrice)
+                  .Where(p => filter.minYear <= 0 || p.YearCategoryId <= filter.minYear)
+                  .Where(p => filter.maxYear <= 0 || p.YearCategoryId <= filter.maxYear)
+                  .Where(p => filter.minEngineCapacity <= 0 || p.EngineCapacityCategoryId <= filter.minEngineCapacity)
+                  .Where(p => filter.maxEngineCapacity <= 0 || p.EngineCapacityCategoryId <= filter.maxEngineCapacity)
+                  .Where(p => filter.minMarch <= 0 || p.March <= filter.maxMarch)
+                  .Where(p => filter.maxMarch <= 0 || p.March <= filter.maxMarch)
+                  .Where(p => string.IsNullOrEmpty(filter.Valyuta) || p.Valyuta == filter.Valyuta)
                   .Include(p => p.MarkaCategory).
                   Include(p => p.ModelCategory).Include(p => p.YearCategory).
                   Include(p => p.EngineCapacityCategory).Include(p => p.CityCategory).ToList();

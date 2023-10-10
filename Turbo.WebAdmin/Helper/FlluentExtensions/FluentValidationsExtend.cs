@@ -25,7 +25,7 @@ namespace Turbo.WebAdmin.Helper.FlluentExtensions
                typeof(MarketAssembledValidation),
                typeof(ModelValidation),
                typeof(VehicleSupplyValidation),
-                 typeof(YearValidation)
+                 typeof(YearValidation),
             };
 
             foreach (var type in validatorTypes)
