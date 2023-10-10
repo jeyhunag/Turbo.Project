@@ -3,6 +3,32 @@
     ViewData["Title"] = "Details";
 }
 
+
+
+
+@functions {
+
+    //Valyuta Hesablama
+
+    public (float, string) ConvertCurrency(float price, string currency) {
+        // Əsas valyuta dəyərləri
+        float USD = 1.70f;
+        float EUR = 1.79f;
+        float AZN = 1.0f;
+
+        if (currency == "USD") {
+            return (price * USD, "AZN");
+        } else if (currency == "EUR") {
+            return (price * EUR, "AZN");
+        } else if (currency == "AZN") {
+            return (price / USD, "USD");
+        }
+        
+        return (0f, "UNKNOWN");
+    }
+}
+
+
 @section css{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -134,8 +160,6 @@
                 <div class="description-content">
                     <p>
                         @Model.Description <br>
-                        @* Orada qulluq olunub <br>
-                        Obyektle barter olunur (mərkəzi yerlərdə)<br> *@
                     </p>
                 </div>
             </article>
@@ -217,10 +241,15 @@
         <article class="product-sidebar-container">
             <div>
                 <div class="product-price">
-                    <div id="usd">@Model.Price USD</div>
-                    <div>190 400 AZN</div>
+                    <div id="usd">@Model.Price @Model.Valyuta</div>
+                    @{
+                        float actualPrice = Model.Price.HasValue ? Model.Price.Value : 0f;
+                        var converted = ConvertCurrency(actualPrice, Model.Valyuta);
+                    }
+                    <div>@converted.Item1 @converted.Item2</div>
                     <hr>
                 </div>
+
                 <div class="owner-logo-wrapper">
                     <div class="product-owner-info">
                         <div class="product-info-name">Ibrahim</div>
