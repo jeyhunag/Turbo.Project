@@ -2,6 +2,7 @@
 using Turbo.BLL.Services.Interfaces;
 using Turbo.DAL.Data;
 using Turbo.DAL.Dto;
+using Turbo.DAL.ViewModel;
 
 namespace Turbo.WEBUI.Controllers
 {
@@ -42,7 +43,7 @@ namespace Turbo.WEBUI.Controllers
                 MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync(),
                 ModelCategoryDtos = await _service.GetModelCategoriesAsync(),
                 YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync(),
-                VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync(),
+                //VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync(),
                 NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync(),
             };
             return View(model);
@@ -107,7 +108,7 @@ namespace Turbo.WEBUI.Controllers
             product.MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync();
             product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
             product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
-            product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+            //product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
             product.NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync();
             return View(product);
 
@@ -162,6 +163,7 @@ namespace Turbo.WEBUI.Controllers
             {
                 return NotFound();
             }
+
             product.BanTypeCategoryDtos = await _service.GetBanTypeCategoriesAsync();
             product.CityCategoryDtos = await _service.GetCityCategoriesAsync();
             product.ColorCategoryDtos = await _service.GetColorCategoriesAsync();
@@ -174,7 +176,7 @@ namespace Turbo.WEBUI.Controllers
             product.MarketAssembledCategoryDtos = await _service.GetMarketAssembledCategoriesAsync();
             product.ModelCategoryDtos = await _service.GetModelCategoriesAsync();
             product.YearCategoryDtos = await _service.GeTYearCapacityCategoriesAsync();
-            product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
+            //product.VehicleSupplyCategoryDtos = await _service.GetVehicleSupplyCategoriesAsync();
             product.NumberOfSeatsCategoryDtos = await _service.GeTNumberOfSeatsCategoriesAsync();
 
 

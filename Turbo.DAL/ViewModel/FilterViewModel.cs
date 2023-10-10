@@ -23,8 +23,7 @@ namespace Turbo.DAL.ViewModel
         public IEnumerable<MarketAssembledCategory> MarketAssembleds { get; set; }
         public IEnumerable<YearCategory> Years { get; set; }
         public IEnumerable<HowManyOwnerCategory> HowManyOwners { get; set; }
-        public IEnumerable<CurrencyCategory> CurrencyCategories { get; set; }
-        public IEnumerable<VehicleSupplyCategory> VehicleSupplyCategories { get; set; }
+        //public IEnumerable<VehicleSupplyCategory>? VehicleSupply { get; set; }
 
          public int MarKaId { get; set; }
          public int ModelId { get; set; }
@@ -39,8 +38,7 @@ namespace Turbo.DAL.ViewModel
          public int MarkedId { get; set; }
          public int YearId { get; set; }
          public int HowManyOwnerId { get; set; }
-         //public int VehicleSupplyId { get; set; }
-         //public int CurrencyId { get; set; }
+         //public int? VehicleSupplyId { get; set; }
 
 
         public bool IsCredit { get; set; }

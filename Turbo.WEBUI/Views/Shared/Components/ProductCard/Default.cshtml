@@ -2,7 +2,7 @@
 
 @foreach (var item in Model)
 {
-    <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">
+    <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
         <i class="fa-regular fa-heart heart-icon"></i>
         <i class="fa-solid fa-v check-icon"></i>
         <span class="salon-label" style="color: white;">salon</span>

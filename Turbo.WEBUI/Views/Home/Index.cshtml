@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Newtonsoft.Json;
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -12,6 +13,7 @@
         </div>
         <div class="car_announcements">
             @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"]})
+
         </div>
 
 </section>
@@ -21,7 +23,7 @@
             <h4>Son Elanlar</h4>
         </div>
         <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"]} )
+            @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"]})
         </div>
 
 </section>

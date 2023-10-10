@@ -18,6 +18,7 @@ namespace Turbo.WEBUI.ViewComponents
             var modell = db.Products.
                    Where(p => filter.MarKaId <= 0 || p.MarkaCategoryId == filter.MarKaId)
                   .Where(p => filter.ModelId <= 0 || p.ModelCategoryId == filter.ModelId)
+                  //.Where(p => filter.VehicleSupplyId <= 0 || p.VehicleSupplyCategoryId == filter.VehicleSupplyId)
                   .Where(p => filter.BanTypeId <= 0 || p.BanTypeCategoryId == filter.BanTypeId)
                   .Where(p => filter.NumberOfId <= 0 || p.NumberOfSeatsCategoryId == filter.NumberOfId)
                   .Where(p => filter.CityId <= 0 || p.CityCategoryId == filter.CityId)
@@ -45,8 +46,9 @@ namespace Turbo.WEBUI.ViewComponents
                   .Where(p => filter.minMarch <= 0 || p.March <= filter.maxMarch)
                   .Where(p => filter.maxMarch <= 0 || p.March <= filter.maxMarch)
                   .Where(p => string.IsNullOrEmpty(filter.Valyuta) || p.Valyuta == filter.Valyuta)
-                  .Include(p => p.MarkaCategory).
-                  Include(p => p.ModelCategory).Include(p => p.YearCategory).
+                  .Include(p => p.MarkaCategory)
+                  .Include(p => p.ModelCategory)
+                  .Include(p => p.YearCategory).
                   Include(p => p.EngineCapacityCategory).Include(p => p.CityCategory).ToList();
             
             return View(modell);

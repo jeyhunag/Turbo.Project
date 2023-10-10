@@ -10,7 +10,6 @@ namespace Turbo.DAL.Dto
 {
     public class ProductDto: BaseDto
     {
-
         public int? Phone { get; set; }
         public int? March { get; set; }
         public float? Price { get; set; }
@@ -59,8 +58,8 @@ namespace Turbo.DAL.Dto
         public string? MarketName { get; set; }
         public int ModelCategoryId { get; set; }
         public string? ModelName { get; set; }
-        public int VehicleSupplyCategoryId { get; set; }
-        public string? VehicleName { get; set; }
+        //public  List<int> VehicleSupplyCategoryId { get; set; }
+        //public string? VehicleName { get; set; }
         public int YearCategoryId { get; set; }
         public string? YearName { get; set; }
 
@@ -76,7 +75,7 @@ namespace Turbo.DAL.Dto
         public List<MarkaCategoryDto>? MarkaCategoryDtos { get; set; }
         public List<MarketAssembledCategoryDto>? MarketAssembledCategoryDtos { get; set; }
         public List<ModelCategoryDto>? ModelCategoryDtos { get; set; }
-        public List<VehicleSupplyCategoryDto>? VehicleSupplyCategoryDtos { get; set; }
+        //public List<VehicleSupplyCategoryDto>? VehicleSupplyCategoryDtos { get; set; }
         public List<YearCategoryDto>? YearCategoryDtos { get; set; }
 
     }
