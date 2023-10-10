@@ -23,6 +23,18 @@ namespace Turbo.DAL.Repostory
             return _dbContext.Products.Any(p => p.AdvertisementNumber == advertisementNumber);
         }
 
+        public async Task<Product> GetProductWithViewCountAsync(int productId)
+        {
+            return await _dbContext.Products.FirstOrDefaultAsync(p => p.Id == productId);
+        }
+
+        public async Task UpdateProductAsync(Product product)
+        {
+            _dbContext.Entry(product).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+        }
+
+
         public async Task<List<Product>> GetByCategoryIdAsync(int id)
         {
             IQueryable<Product> product = _dbContext.Products.Where(p => p.BanTypeCategoryId == id &&
@@ -71,6 +83,7 @@ namespace Turbo.DAL.Repostory
                                         Description = m.Description,
                                         Valyuta = m.Valyuta,
                                         VINCod = m.VINCod,
+                                        ViewCount = m.ViewCount,
                                         Email = m.Email,
                                         New = m.New,
                                         PINPassword = m.PINPassword,

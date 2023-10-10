@@ -12,7 +12,7 @@ using Turbo.DAL.DbContext;
 namespace Turbo.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231010110330_init8")]
+    [Migration("20231010170342_init8")]
     partial class init8
     {
         /// <inheritdoc />
@@ -129,21 +129,6 @@ namespace Turbo.DAL.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("ProductVehicleSupplyCategory", b =>
-                {
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VehicleSupplyCategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProductsId", "VehicleSupplyCategoryId");
-
-                    b.HasIndex("VehicleSupplyCategoryId");
-
-                    b.ToTable("ProductVehicleSupplyCategory");
                 });
 
             modelBuilder.Entity("Turbo.DAL.Data.AppRole", b =>
@@ -676,7 +661,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<string>("Valyuta")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VehicleSupplyCategoryId")
+                    b.Property<int?>("ViewCount")
                         .HasColumnType("int");
 
                     b.Property<int>("YearCategoryId")
@@ -742,35 +727,6 @@ namespace Turbo.DAL.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductImages");
-                });
-
-            modelBuilder.Entity("Turbo.DAL.Data.VehicleSupplyCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("InsertDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsVehicle")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VehicleSupplyCategories");
                 });
 
             modelBuilder.Entity("Turbo.DAL.Data.YearCategory", b =>
@@ -846,21 +802,6 @@ namespace Turbo.DAL.Migrations
                     b.HasOne("Turbo.DAL.Data.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProductVehicleSupplyCategory", b =>
-                {
-                    b.HasOne("Turbo.DAL.Data.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Turbo.DAL.Data.VehicleSupplyCategory", null)
-                        .WithMany()
-                        .HasForeignKey("VehicleSupplyCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

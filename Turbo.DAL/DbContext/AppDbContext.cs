@@ -31,7 +31,7 @@ namespace Turbo.DAL.DbContext
         public DbSet<MarkaCategory> MarkaCategories { get; set; }
         public DbSet<MarketAssembledCategory> MarketAssembleds { get; set; }
         public DbSet<ModelCategory> ModelCategories { get; set; }
-        public DbSet<VehicleSupplyCategory> VehicleSupplyCategories { get; set; }
+        //public DbSet<VehicleSupplyCategory> VehicleSupplyCategories { get; set; }
         public DbSet<YearCategory> YearCategories { get; set; }
         public DbSet<ProductImages> ProductImages { get; set; }
 

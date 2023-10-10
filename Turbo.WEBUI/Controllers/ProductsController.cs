@@ -164,6 +164,8 @@ namespace Turbo.WEBUI.Controllers
                 return NotFound();
             }
 
+            await _service.IncreaseViewCountAsync(id.Value);
+
             product.BanTypeCategoryDtos = await _service.GetBanTypeCategoriesAsync();
             product.CityCategoryDtos = await _service.GetCityCategoriesAsync();
             product.ColorCategoryDtos = await _service.GetColorCategoriesAsync();

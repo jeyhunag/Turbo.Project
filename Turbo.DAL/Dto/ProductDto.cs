@@ -23,7 +23,7 @@ namespace Turbo.DAL.Dto
         public string? New { get; set; }
         public string? PINPassword { get; set; }
         public string? AdvertisementNumber { get; set; }
-
+        public int? ViewCount { get; set; } = 0;
 
         public bool IsCredit { get; set; }
         public bool IsBarter { get; set; }

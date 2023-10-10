@@ -193,5 +193,17 @@ namespace Turbo.BLL.Services
 
             return number;
         }
+
+        public async Task IncreaseViewCountAsync(int productId)
+        {
+            var product = await productRepository.GetProductWithViewCountAsync(productId);
+            if (product != null)
+            {
+                product.ViewCount++;
+                await productRepository.UpdateProductAsync(product);
+            }
+        }
+
+
     }
 }
