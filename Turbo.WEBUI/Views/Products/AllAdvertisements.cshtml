@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "AllAdvertisements";
 }
 
 <section class="main_search">
@@ -18,20 +18,11 @@
 <section class="recent_announcements">
     <div class="announcements">
         <div class="vıp_title">
-            <h4>Son Elanlar</h4>
+            <h4>Elanlar</h4>
         </div>
         <div class="car_announcements">
             @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"]})
         </div>
-        </div>
-</section>
-<section class="premium_announcements">
-    <div class="announcements">
-        <div class="vıp_title">
-            <h4>Premium Elanlar</h4>
-        </div>
-        <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {filter=new FilterViewModel{Type="Premium"}})
-        </div>
     </div>
 </section>
+

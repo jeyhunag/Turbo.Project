@@ -25,7 +25,7 @@ namespace Turbo.DAL.ViewModel
         public IEnumerable<HowManyOwnerCategory> HowManyOwners { get; set; }
         //public IEnumerable<VehicleSupplyCategory>? VehicleSupply { get; set; }
 
-         public int MarKaId { get; set; }
+        public int MarKaId { get; set; }
          public int ModelId { get; set; }
          public int BanTypeId { get; set; }
          public int NumberOfId { get; set; }

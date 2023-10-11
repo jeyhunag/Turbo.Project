@@ -21,8 +21,14 @@ namespace Turbo.WEBUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var movie = await _service.GetListAsync();
-            return View(movie);
+            var product = await _service.GetListAsync();
+            return View(product);
+        }
+
+        public async Task<IActionResult> AllAdvertisements(FilterViewModel vm)
+        {
+            TempData["Filter"] = vm;
+            return View();
         }
 
 
