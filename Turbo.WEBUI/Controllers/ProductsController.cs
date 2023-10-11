@@ -239,6 +239,18 @@ namespace Turbo.WEBUI.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
+        [HttpPost]
+        public async Task<IActionResult> MakeVip(int id)
+        {
+                await _service.MakeVipAsync(id);
+                return RedirectToAction("Index", "Home", new { id = id }); 
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> MakePremium(int id)
+        {
+                await _service.MakePremiumAsync(id);
+                return RedirectToAction("Index", "Home", new { id = id });
+        }
     }
 }

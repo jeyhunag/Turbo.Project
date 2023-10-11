@@ -55,7 +55,7 @@ namespace Turbo.DAL.ViewModel
         public int maxEngine { get; set; }
         public string? March { get; set; }
 
-
+        public string Type { get; set; }
         public float? Price { get; set; }
         public float minPrice { get; set; }
         public float maxPrice { get; set; }

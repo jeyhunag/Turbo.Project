@@ -292,7 +292,9 @@
 .fa-up-long {
     color: #61B269;
 }
-
+.forward{
+    cursor:pointer;
+}
 .forward>div>.fa-v {
     color: #DF4B25;
     font-weight: bolder;

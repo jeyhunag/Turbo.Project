@@ -28,6 +28,8 @@ namespace Turbo.BLL.Services.Interfaces
         public Task<ProductDto> GetDetailByIdAsync(int id);
         public string GenerateUniqueAdvertisementNumber();
         public Task IncreaseViewCountAsync(int productId);
+        public Task MakeVipAsync(int productId);
+        Task MakePremiumAsync(int productId);
 
     }
 }

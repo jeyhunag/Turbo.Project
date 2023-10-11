@@ -46,6 +46,7 @@ namespace Turbo.WEBUI.ViewComponents
                   .Where(p => filter.minMarch <= 0 || p.March <= filter.maxMarch)
                   .Where(p => filter.maxMarch <= 0 || p.March <= filter.maxMarch)
                   .Where(p => string.IsNullOrEmpty(filter.Valyuta) || p.Valyuta == filter.Valyuta)
+                   .Where(p => (filter.Type == "Vip" && p.IsVip) || (filter.Type == "Premium" && p.IsPremium) || string.IsNullOrEmpty(filter.Type))
                   .Include(p => p.MarkaCategory)
                   .Include(p => p.ModelCategory)
                   .Include(p => p.YearCategory).

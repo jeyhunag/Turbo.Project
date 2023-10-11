@@ -193,7 +193,6 @@ namespace Turbo.BLL.Services
 
             return number;
         }
-
         public async Task IncreaseViewCountAsync(int productId)
         {
             var product = await productRepository.GetProductWithViewCountAsync(productId);
@@ -203,7 +202,29 @@ namespace Turbo.BLL.Services
                 await productRepository.UpdateProductAsync(product);
             }
         }
+        public async Task MakeVipAsync(int productId)
+        {
+            var product = await productRepository.GetProductWithViewCountAsync(productId);
+            if (product == null)
+            {
+                throw new Exception("Product not found.");
+            }
 
+            product.IsVip = true;
+            await productRepository.UpdateProductAsync(product);
+        }
+
+        public async Task MakePremiumAsync(int productId)
+        {
+            var product = await productRepository.GetProductWithViewCountAsync(productId);
+            if (product == null)
+            {
+                throw new Exception("Product not found.");
+            }
+
+            product.IsPremium = true; 
+            await productRepository.UpdateProductAsync(product);
+        }
 
     }
 }

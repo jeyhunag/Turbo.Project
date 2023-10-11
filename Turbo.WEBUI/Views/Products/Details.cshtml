@@ -284,27 +284,33 @@
                     <div><i class="fa-solid fa-up-long"></i></div>
                 </a>
 
-                <a class="forward">
-                    <div id="text-wrapper">
-                        <div id="for">VIP et</div>
-                        <div class="price-services">
-                            <span>15</span>
-                            <span>AZN-dən</span>
+                <form method="post" asp-controller="Products" asp-action="MakeVip" id="makeVipForm">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <a class="forward" href="javascript:void(0);" onclick="submitForm();">
+                        <div id="text-wrapper">
+                            <div id="for">VIP et</div>
+                            <div class="price-services">
+                                <span>15</span>
+                                <span>AZN-dən</span>
+                            </div>
                         </div>
-                    </div>
-                    <div><i class="fa-solid fa-v"></i></div>
-                </a>
+                        <div><i class="fa-solid fa-v"></i></div>
+                    </a>
+                </form>
 
-                <a class="forward">
-                    <div id="text-wrapper">
-                        <div id="for">Premium</div>
-                        <div class="price-services">
-                            <span>5</span>
-                            <span>AZN-dən</span>
+                <form method="post" asp-controller="Products" asp-action="MakePremium" id="makePremiumForm">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <a class="forward" href="javascript:void(0);" onclick="submitPremiumForm();">
+                        <div id="text-wrapper">
+                            <div id="for">Premium</div>
+                            <div class="price-services">
+                                <span>5</span>
+                                <span>AZN-dən</span>
+                            </div>
                         </div>
-                    </div>
-                    <div><i class="fa-solid fa-crown"></i></div>
-                </a>
+                        <div><i class="fa-solid fa-crown"></i></div>
+                    </a>
+                </form>
             </div>
 
         </article>
@@ -371,6 +377,15 @@
              });
         });
 
+        // Vip Submit
+        function submitVipForm() {
+            $("#makeVipForm").submit();
+        }
+
+        //Premium Submit
+        function submitPremiumForm() {
+            $("#makePremiumForm").submit();
+        }
 
 
     </script>

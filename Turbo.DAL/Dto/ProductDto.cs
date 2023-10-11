@@ -32,6 +32,8 @@ namespace Turbo.DAL.Dto
         public bool IsHis { get; set; }
         public bool IsColor { get; set; }
         public bool IsAccident { get; set; }
+        public bool IsVip { get; set; }
+        public bool IsPremium { get; set; }
         public ICollection<ProductImages>? ProductImages { get; set; }
 
         public int BanTypeCategoryId { get; set; }

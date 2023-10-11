@@ -12,7 +12,7 @@ using Turbo.DAL.DbContext;
 namespace Turbo.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231010170342_init8")]
+    [Migration("20231011124702_init8")]
     partial class init8
     {
         /// <inheritdoc />
@@ -620,6 +620,12 @@ namespace Turbo.DAL.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsMarch")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPremium")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsVip")
                         .HasColumnType("bit");
 
                     b.Property<int?>("March")
