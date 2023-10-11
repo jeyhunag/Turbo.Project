@@ -78,5 +78,13 @@ namespace Turbo.DAL.Dto
         //public List<VehicleSupplyCategoryDto>? VehicleSupplyCategoryDtos { get; set; }
         public List<YearCategoryDto>? YearCategoryDtos { get; set; }
 
+
+
+        public static string GeneratePIN()
+        {
+            Random generator = new Random();
+            return generator.Next(10000, 99999).ToString();
+        }
+
     }
 }

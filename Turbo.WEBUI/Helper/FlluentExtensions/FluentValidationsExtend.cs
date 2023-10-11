@@ -1,5 +1,6 @@
 ﻿using FluentValidation.AspNetCore;
 using FluentValidation;
+using Turbo.BLL.Validations;
 
 namespace Turbo.WEBUI.Helper.FlluentExtensions
 {
@@ -9,11 +10,29 @@ namespace Turbo.WEBUI.Helper.FlluentExtensions
         {
             services.AddFluentValidationAutoValidation();
             services.AddFluentValidationClientsideAdapters();
-            //services.AddValidatorsFromAssembly(typeof(CountryCategoryValidation).Assembly);
-            //services.AddValidatorsFromAssembly(typeof(GenresCategoryValidator).Assembly);
-            //services.AddValidatorsFromAssembly(typeof(LanguageCategoryValidation).Assembly);
-            //services.AddValidatorsFromAssembly(typeof(AboutValidation).Assembly);
-            //services.AddValidatorsFromAssembly(typeof(MovieValidation).Assembly);
+
+            var validatorTypes = new[]
+            {
+                typeof(CityValidation),
+               typeof(BanTypeValidation),
+               typeof(ColorValidation),
+               typeof(EngineCapacityValidation),
+               typeof(FuelTypeValidation),
+               typeof(GearBoxValidation),
+               typeof(GearValidation),
+               typeof(HowManyOwnerValidation),
+               typeof(MarkaValidation),
+               typeof(MarketAssembledValidation),
+               typeof(ModelValidation),
+               typeof(VehicleSupplyValidation),
+                 typeof(YearValidation),
+                 //typeof(ProductValidation),
+            };
+
+            foreach (var type in validatorTypes)
+            {
+                services.AddValidatorsFromAssembly(type.Assembly);
+            }
 
             return services;
         }

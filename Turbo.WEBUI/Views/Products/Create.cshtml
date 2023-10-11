@@ -21,8 +21,9 @@
     </div>
     <div class="product-form">
         <form asp-action="Create" method="post" enctype="multipart/form-data">
+          
             <div class="form-group">
-                <label for="Marka" aria-hidden="true">Marka</label>
+                <label for="Marka">Marka</label>
                 <select id="marka" asp-for="MarkaCategoryId" asp-items="@(new SelectList(Model.MarkaCategoryDtos, nameof(MarkaCategoryDto.Id), nameof(MarkaCategoryDto.Name)))">
                     <option selected disabled>Secin</option>
                 </select>

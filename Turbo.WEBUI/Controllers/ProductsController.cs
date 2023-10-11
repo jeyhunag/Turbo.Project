@@ -72,8 +72,13 @@ namespace Turbo.WEBUI.Controllers
                         }
                     }
                 }
+
+                product.PINPassword = ProductDto.GeneratePIN();
+
                 product.AdvertisementNumber = _service.GenerateUniqueAdvertisementNumber();
+
                 product.ProductImages = imagesList;
+
                 await _service.AddAsync(product);
                 return RedirectToAction("Index", "Home");
             }
@@ -116,7 +121,7 @@ namespace Turbo.WEBUI.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, ProductDto product, List<IFormFile> imageFiles)
+        public async Task<IActionResult> Edit(int id, ProductDto product, List<IFormFile> imageFiles, string inputPIN)
         {
             if (id != product.Id)
             {
@@ -141,6 +146,7 @@ namespace Turbo.WEBUI.Controllers
                         }
                     }
                 }
+
 
                 product.ProductImages = imagesList;
                 _service.Update(product);
@@ -186,16 +192,53 @@ namespace Turbo.WEBUI.Controllers
         }
 
 
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id, string inputPIN)
         {
             var product = await _service.GetByIdAsync(id);
             if (product == null)
             {
                 return NotFound();
             }
+
             _service.Delete(id);
             return RedirectToAction("Index", "Home");
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyPIN(int id, string inputPIN)
+        {
+            var product = await _service.GetByIdAsync(id);
+
+            if (product == null)
+                return NotFound();
+
+            if (product.PINPassword == inputPIN)
+                return RedirectToAction("Edit", new { id = id });
+
+            TempData["ErrorMsg"] = "Daxil edilən PIN şifrə doğru deyil.";
+            return RedirectToAction("Details", new { id = id });
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyDeletePIN(int id, string inputPIN)
+        {
+            var product = await _service.GetByIdAsync(id);
+
+            if (product == null)
+                return NotFound();
+
+            if (product.PINPassword == inputPIN)
+            {
+                _service.Delete(id);
+                return RedirectToAction("Index", "Home");
+            }
+
+            TempData["ErrorMsg"] = "Daxil edilən PIN şifrə doğru deyil.";
+            return RedirectToAction("Details", new { id = id });
+        }
+
 
     }
 }
