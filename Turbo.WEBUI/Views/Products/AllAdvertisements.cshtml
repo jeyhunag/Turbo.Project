@@ -11,7 +11,8 @@
             <h4>VIP ELANLAR</h4>
         </div>
         <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {filter=new FilterViewModel{Type="Vip"}})
+            @await Component.InvokeAsync("ProductCard", new {filter=new FilterViewModel{Type="Vip"/* , CurrentPage = Model.CurrentPage */}})
+
         </div>
     </div>
 </section>
@@ -22,7 +23,14 @@
         </div>
         <div class="car_announcements">
             @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"]})
+
+           @*  @await Component.InvokeAsync("Pagination", new {filter = Model.Filter}); *@
+
         </div>
     </div>
 </section>
+@* <h2>Simple Pagination</h2>
+@await Component.InvokeAsync("Pagination", new { currentPage = Model.CurrentPage, totalPages = Model.TotalPages }) *@
+
+
 

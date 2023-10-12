@@ -1,0 +1,57 @@
+﻿@model PaginatedProductsViewModel
+
+@section css{
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+    </style>
+}
+
+<div class="pagination">
+    <a href="@Url.Action("AllAdvertisements", "Products", new { page = 1 })">&laquo;</a>
+    @for (int i = 1; i <= Model.TotalPages; i++)
+    {
+        if (i == Model.CurrentPage)
+        {
+            <span>@i</span>
+        }
+        else
+        {
+            <a href="@Url.Action("AllAdvertisements", "Products", new { page = i })">@i</a>
+        }
+    }
+    <a href="@Url.Action("AllAdvertisements", "Products", new { page = Model.TotalPages })">&raquo;</a>
+</div>
+
+
+@foreach (var item in Model.Products)
+{
+    <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
+        <i class="fa-regular fa-heart heart-icon"></i>
+        <i class="fa-solid fa-v check-icon"></i>
+        <span class="salon-label" style="color: white;">salon</span>
+        <div class="rotate-wrapper">
+            <i class="fa-solid fa-rotate-right rotate-icon"></i>
+            <div class="rotate-tooltip">barter mümkündür</div>
+        </div>
+        <img src="~/@item.Image" alt="car">
+        <h4>@item.Price @item.Valyuta</h4>
+        <p>@item.MarketName @item.ModelName</p>
+        <div class="details">
+            <p>@item.YearName</p>
+            <p>@item.EngineName L</p>
+            <p>@item.March km</p>
+        </div>
+        <span>@item.CityName</span>
+        <span>29.08.2023</span>
+        <span>14:00</span>
+    </a>
+}

@@ -48,6 +48,8 @@ namespace Turbo.DAL.ViewModel
         public bool IsHis { get; set; }
         public bool IsColor { get; set; }
         public bool IsAccident { get; set; }
+        public bool IsVip { get; set; }
+        public bool IsPremium { get; set; }
         public string? Valyuta { get; set; }
 
         public int? EnginePower { get; set; }
@@ -65,6 +67,11 @@ namespace Turbo.DAL.ViewModel
         public int maxEngineCapacity { get; set; }
         public int minMarch { get; set; }
         public int maxMarch { get; set; }
+
+
+        //Pagination
+        public int CurrentPage { get; set; } = 1;
+        public int PageSize { get; set; } = 5;
 
     }
 }

@@ -17,6 +17,7 @@ namespace Turbo.WEBUI.Controllers
         public IActionResult Index(FilterViewModel vm )
         {
             TempData["Filter"] = vm;
+
             return View();
         }
 

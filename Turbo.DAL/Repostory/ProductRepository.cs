@@ -22,6 +22,10 @@ namespace Turbo.DAL.Repostory
         {
             return _dbContext.Products.Any(p => p.AdvertisementNumber == advertisementNumber);
         }
+        public async Task<int> GetProductCountByDateAsync(DateTime date)
+        {
+            return await _dbContext.Products.CountAsync(p => p.InsertDate.Date == date.Date);
+        }
 
         public async Task<Product> GetProductWithViewCountAsync(int productId)
         {

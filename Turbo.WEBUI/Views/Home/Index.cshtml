@@ -11,7 +11,7 @@
             <h4>VIP ELANLAR</h4>
         </div>
         <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {filter=new FilterViewModel{Type="Vip"}})
+            @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"], istype=true, type="Vip" })
         </div>
     </div>
 </section>
@@ -31,7 +31,7 @@
             <h4>Premium Elanlar</h4>
         </div>
         <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {filter=new FilterViewModel{Type="Premium"}})
+            @await Component.InvokeAsync("ProductCard", new {filter=TempData["Filter"], istype=true, type="Premium" })
         </div>
     </div>
 </section>

@@ -4,12 +4,18 @@
 {
     <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
         <i class="fa-regular fa-heart heart-icon"></i>
-        <i class="fa-solid fa-v check-icon"></i>
-        <span class="salon-label" style="color: white;">salon</span>
-        <div class="rotate-wrapper">
-            <i class="fa-solid fa-rotate-right rotate-icon"></i>
-            <div class="rotate-tooltip">barter mümkündür</div>
-        </div>
+        @if (item.IsVip)
+        {
+            <i class="fa-solid fa-v check-icon"></i>
+        }
+@*         <span class="salon-label" style="color: white;">salon</span>
+ *@        @if (item.IsBarter)
+        {
+            <div class="rotate-wrapper">
+                <i class="fa-solid fa-rotate-right rotate-icon"></i>
+                <div class="rotate-tooltip">barter mümkündür</div>
+            </div>
+        }
         <img src="~/@item.Image" alt="car">
         <h4>@item.Price @item.Valyuta</h4>
         <p>@item.MarkaCategory.Name @item.ModelCategory.Name</p>
@@ -19,7 +25,7 @@
             <p>@item.March km</p>
         </div>
         <span>@item.CityCategory.Name</span>
-        <span>29.08.2023</span>
-        <span>14:00</span>
+        <span>@item.InsertDate.ToString("dd.MM.yyyy")</span>
+        <span>@item.InsertDate.ToString("HH:mm")</span>
     </a>
 }

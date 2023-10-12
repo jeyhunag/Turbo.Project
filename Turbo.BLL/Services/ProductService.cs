@@ -226,5 +226,10 @@ namespace Turbo.BLL.Services
             await productRepository.UpdateProductAsync(product);
         }
 
+        public async Task<int> GetTodayProductCountAsync()
+        {
+            return await productRepository.GetProductCountByDateAsync(DateTime.Now);
+        }
+
     }
 }

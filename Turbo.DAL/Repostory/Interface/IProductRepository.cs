@@ -15,6 +15,8 @@ namespace Turbo.DAL.Repostory.Interface
         bool CheckIfAdvertisementNumberExists(string advertisementNumber);
         Task<Product> GetProductWithViewCountAsync(int productId);
         Task UpdateProductAsync(Product product);
+        Task<int> GetProductCountByDateAsync(DateTime date);
+
 
     }
 }

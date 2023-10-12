@@ -30,6 +30,8 @@ namespace Turbo.BLL.Services.Interfaces
         public Task IncreaseViewCountAsync(int productId);
         public Task MakeVipAsync(int productId);
         Task MakePremiumAsync(int productId);
+        Task<int> GetTodayProductCountAsync();
+
 
     }
 }
