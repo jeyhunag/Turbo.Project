@@ -35,11 +35,13 @@ namespace Turbo.WEBUI
                 cfg.ModelBinderProviders.Insert(0, new BooleanBinderProvider());
             });
 
+            builder.Services.AddMemoryCache();
+
             //Fluent Validations Extension
-            builder.Services.AddFluentServices();
+            // builder.Services.AddFluentServices();
 
             //Identity AppRole,AppUser Security 
-           // builder.Services.AddIdentityServices();
+            // builder.Services.AddIdentityServices();
 
 
             //Importand Logger Extensions

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $(".container input[type='checkbox']").change(function () {
         if ($(this).prop("checked")) {
             $(".container input[type='checkbox']").not(this).prop("checked", false);
@@ -58,3 +58,7 @@ function readURLS(input) {
 }
 
 
+function removeImage(element) {
+    $(element).siblings("img").remove(); 
+    $(element).siblings("input").val("");  
+}

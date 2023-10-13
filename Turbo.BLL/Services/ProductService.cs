@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Turbo.BLL.Services
 {
     public class ProductService : GenericService<ProductDto, Product>, IProductService
     {
+        private readonly IMemoryCache _cache;
+
         private readonly IProductRepository productRepository;
         private readonly IGenericRepository<BanTypeCategory> banTypeRepository;
         private readonly IGenericRepository<CityCategory> cityRepository;
@@ -32,7 +35,7 @@ namespace Turbo.BLL.Services
         private readonly IGenericRepository<FuelTypeCategory> fuelTypeRepository;
         private readonly IGenericRepository<NumberOfSeatsCategory> numberOfSeatsRepository;
 
-        public ProductService(IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
+        public ProductService(IMemoryCache cache,IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
             IProductRepository _productRepository,
             IGenericRepository<BanTypeCategory> _BanTypeRepository,
             IGenericRepository<CityCategory> _CityRepository,
@@ -64,6 +67,7 @@ namespace Turbo.BLL.Services
             this.modelRepository = _ModelRepository;
             this.vehicleSupplyRepository = _VehicleSupplyRepository;
             this.yearRepository = _YearRepository;
+            this._cache = cache;
         }
 
 
@@ -91,9 +95,24 @@ namespace Turbo.BLL.Services
 
         public async Task<ProductDto> GetDetailByIdAsync(int id)
         {
-            var product = await productRepository.GetDetailByIdAsync(id);
-            return product;
+            var cacheKey = $"Product_{id}";
+            if (!_cache.TryGetValue(cacheKey, out ProductDto productDto))
+            {
+                var product = await productRepository.GetDetailByIdAsync(id);
+                productDto = _mapper.Map<ProductDto>(product);
+
+                var cacheEntryOptions = new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(12),
+                    Priority = CacheItemPriority.Normal
+                };
+
+                _cache.Set(cacheKey, productDto, cacheEntryOptions);
+            }
+
+            return productDto;
         }
+
 
         public async Task<List<EngineCapacityCategoryDto>> GetEngineCapacityCategoriesAsync()
         {

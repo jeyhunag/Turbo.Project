@@ -13,20 +13,7 @@ namespace Turbo.WEBUI.Helper.FlluentExtensions
 
             var validatorTypes = new[]
             {
-                typeof(CityValidation),
-               typeof(BanTypeValidation),
-               typeof(ColorValidation),
-               typeof(EngineCapacityValidation),
-               typeof(FuelTypeValidation),
-               typeof(GearBoxValidation),
-               typeof(GearValidation),
-               typeof(HowManyOwnerValidation),
-               typeof(MarkaValidation),
-               typeof(MarketAssembledValidation),
-               typeof(ModelValidation),
-               typeof(VehicleSupplyValidation),
-                 typeof(YearValidation),
-                 //typeof(ProductValidation),
+                 typeof(ProductValidation),
             };
 
             foreach (var type in validatorTypes)

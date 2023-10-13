@@ -13,7 +13,7 @@ namespace Turbo.WEBUI.ViewComponents
         {
             this.db = db;
         }
-        public async Task<IViewComponentResult> InvokeAsync(FilterViewModel filter, bool istype, string type)
+        public async Task<IViewComponentResult> InvokeAsync(FilterViewModel filter, bool istype = false, string type = "")
         {
 
             var modell = db.Products.
@@ -47,7 +47,7 @@ namespace Turbo.WEBUI.ViewComponents
                       .Where(p => filter.minMarch <= 0 || p.March <= filter.maxMarch)
                       .Where(p => filter.maxMarch <= 0 || p.March <= filter.maxMarch)
                       .Where(p => string.IsNullOrEmpty(filter.Valyuta) || p.Valyuta == filter.Valyuta)
-                       .Where(p => (type == "Vip" && p.IsVip==istype) || (type == "Premium" && p.IsPremium== istype) || string.IsNullOrEmpty(filter.Type))
+                      .Where(p => (type == "Vip" && p.IsVip == istype) || (type == "Premium" && p.IsPremium == istype) || string.IsNullOrEmpty(type))
                       .Include(p => p.MarkaCategory)
                       .Include(p => p.ModelCategory)
                       .Include(p => p.YearCategory).

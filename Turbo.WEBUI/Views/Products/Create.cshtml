@@ -23,7 +23,7 @@
         <form asp-action="Create" method="post" enctype="multipart/form-data">
           
             <div class="form-group">
-                <label for="Marka">Marka</label>
+                <label for="marka">Marka</label>
                 <select id="marka" asp-for="MarkaCategoryId" asp-items="@(new SelectList(Model.MarkaCategoryDtos, nameof(MarkaCategoryDto.Id), nameof(MarkaCategoryDto.Name)))">
                     <option selected disabled>Secin</option>
                 </select>
@@ -76,6 +76,7 @@
                 </label>
 
                 <input asp-for="March" type="number" name="March" id="Yürüş">
+                <span asp-validation-for="March" style="color:red;"></span>
             </div>
 
 
@@ -111,11 +112,13 @@
                 }
 
                 <input asp-for="Price" type="number" name="Price" id="Qiymət">
+                <span asp-validation-for="Price" style="color:red;"></span>
             </div>
 
             <div class="form-group ">
                 <label asp-for="EnginePower" for="Mühərrik">Mühərrikin gücü, a.g.</label>
                 <input asp-for="EnginePower" type="number" id="engine-power">
+                <span asp-validation-for="EnginePower" style="color:red;"></span>
             </div>
 
             <div class="form-group">
@@ -172,13 +175,16 @@
                     @for (int i = 0; i < Model.NumberOfSeatsCategoryDtos.Count; i++)
                     {
                         <label class="container">
-                            <input type="radio" name="NumberOfSeatsCategoryId" value="@Model.NumberOfSeatsCategoryDtos[i].Id">
+                            <input type="radio" name="NumberOfSeatsCategoryId"
+                                   value="@Model.NumberOfSeatsCategoryDtos[i].Id"
+                            @(Model.NumberOfSeatsCategoryDtos[i].Name == "Qeyd olunmasın" ? "checked" : "")>
                             <span class="checkmark"></span>
                             @Html.DisplayFor(modelItem => Model.NumberOfSeatsCategoryDtos[i].Name)
                         </label>
                     }
                 </div>
             </div>
+
             <div class="kredit-checbox">
                 <label class="container">
                     <input asp-for="IsCredit" type="checkbox">
@@ -196,11 +202,13 @@
                 <div class=" vin-group">
                     <label asp-for="VINCod" for="vin-kod">VIN-kod</label>
                     <input asp-for="VINCod" type="text" name="VINCod" id="vin-kod">
+                    <span asp-validation-for="VINCod" style="color:red;"></span>
                     <a href="#">VIN-kodu haradan tapmaq olar?</a>
                 </div>
             </div>
             <div class="additional-info">
                 <div class="additional">
+                    <span asp-validation-for="Description" style="color:red;"></span>
                     <label asp-for="Description" for="info">Əlavə məlumat</label>
                     <textarea asp-for="Description" name="Description" id="info" cols="130" rows="8"></textarea>
                 </div>
@@ -231,12 +239,16 @@
                     <div class="image-form">
                         <label for="image-1" class="image-1" style="background: url(/img/car1.svg);"></label>
                         <input id="image-1" type="file" asp-for="Image" name="imageFiles" class="custom-file-input">
+                        <div class="close-icon" onclick="removeImage(this)">&#10005;</div>
                         <label for="image-2" class="image-2" style="background: url(/img/car2.svg);"></label>
                         <input id="image-2" type="file" asp-for="Image" name="imageFiles" class="custom-file-input">
+                        <div class="close-icon" onclick="removeImage(this)">&#10005;</div>
                         <label for="image-3" class="image-3" style="background: url(/img/car3.svg);"></label>
                         <input id="image-3" type="file" asp-for="Image" name="imageFiles" class="custom-file-input">
-                    </div>
+                        <div class="close-icon" onclick="removeImage(this)">&#10005;</div>
 
+                    </div>
+                    <span asp-validation-for="Image" class="text-danger"></span>
 
                     <div class="for-plus">
                         <label for="plus" class="plus-button"><span><i class="fa-solid fa-plus"></i></span></label>
@@ -253,6 +265,7 @@
                 <div class="contact">
                     <label asp-for="Name" for="Adınız" id="star">Adınız</label>
                     <input asp-for="Name" type="text" id="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
                 <div class="contact">
                     <label for="City" id="star">Şəhər</label>
@@ -267,6 +280,7 @@
                 <div class="contact">
                     <label asp-for="Phone" for="phone" id="phone">Telefon nömrəsi </label>
                     <input asp-for="Phone" type="number" id="phone-contact" placeholder="(000)000-00-00">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
                 <button type="submit" value="Create" id="sbm">Davam Et</button>
                 <span>
@@ -277,8 +291,6 @@
             </div>
         </form>
     </div>
-
-
 
 </section>
 
