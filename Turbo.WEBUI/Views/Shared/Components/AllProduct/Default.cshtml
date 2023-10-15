@@ -1,15 +1,15 @@
-﻿@model List<Product>
+﻿@model PagedViewModel<Product>
 
-@foreach (var item in Model)
+@foreach (var item in Model.Items)
 {
-     <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
+    <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
         <i class="fa-regular fa-heart heart-icon"></i>
         @if (item.IsVip)
         {
             <i class="fa-solid fa-v check-icon"></i>
         }
-@*         <span class="salon-label" style="color: white;">salon</span>
- *@        @if (item.IsBarter)
+        @*         <span class="salon-label" style="color: white;">salon</span>
+    *@        @if (item.IsBarter)
         {
             <div class="rotate-wrapper">
                 <i class="fa-solid fa-rotate-right rotate-icon"></i>
@@ -29,6 +29,13 @@
         <span>@item.InsertDate.ToString("HH:mm")</span>
     </a>
 }
+
+@* All Product views olan Vip Pagination gizletmek*@
+
+@if(string.IsNullOrWhiteSpace(ViewBag.Vip)){
+    @Model.GetPagenation(Url, "AllAdvertisements")
+}
+
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="

@@ -25,14 +25,13 @@ namespace Turbo.WEBUI.Controllers
             return View(product);
         }
 
-        public async Task<IActionResult> AllAdvertisements(FilterViewModel vm)
+        public async Task<IActionResult> AllAdvertisements(FilterViewModel vm, int pageIndex = 1, int pagSize = 10)
         {
-            TempData["Filter"] = vm;
+            ViewBag.Index=pageIndex;
+            ViewBag.PagSize=pagSize;
+            ViewBag.Filter = vm;
             return View();
         }
-
-
-
 
         [HttpGet]
         public async Task<IActionResult> Create()

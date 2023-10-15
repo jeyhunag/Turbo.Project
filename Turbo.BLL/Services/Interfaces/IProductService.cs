@@ -32,6 +32,5 @@ namespace Turbo.BLL.Services.Interfaces
         Task MakePremiumAsync(int productId);
         Task<int> GetTodayProductCountAsync();
 
-
     }
 }

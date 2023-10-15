@@ -10,6 +10,7 @@ namespace Turbo.DAL.Dto
 {
     public class ProductDto: BaseDto
     {
+        public DateTime InsertDate { get; set; } = DateTime.Now;
         public int? Phone { get; set; }
         public int? March { get; set; }
         public float? Price { get; set; }
@@ -79,8 +80,6 @@ namespace Turbo.DAL.Dto
         public List<ModelCategoryDto>? ModelCategoryDtos { get; set; }
         //public List<VehicleSupplyCategoryDto>? VehicleSupplyCategoryDtos { get; set; }
         public List<YearCategoryDto>? YearCategoryDtos { get; set; }
-
-
 
         public static string GeneratePIN()
         {

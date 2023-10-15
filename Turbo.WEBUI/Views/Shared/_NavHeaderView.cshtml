@@ -16,7 +16,7 @@
             </div>
             <a href="">Yardım</a>
             <a href="">RU</a>
-            <a href=""><i class="fa-solid fa-heart"></i>Seçilmişlər</a>
+            <a asp-controller="Favorites" asp-action="Index"><i class="fa-solid fa-heart"></i>Seçilmişlər</a>
             <a href="#" id="openModalBtn"><i class="fa-solid fa-user"></i>Giriş</a>
 
             <!-- Modal Giris -->
@@ -93,11 +93,8 @@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-
+            crossorigin="anonymous" referrerpolicy="no-referrer">
     </script>
-
-
+    <script src="~/js/favorites.js" asp-append-version="true"></script>
 
 }

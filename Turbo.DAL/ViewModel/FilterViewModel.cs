@@ -68,10 +68,5 @@ namespace Turbo.DAL.ViewModel
         public int minMarch { get; set; }
         public int maxMarch { get; set; }
 
-
-        //Pagination
-        public int CurrentPage { get; set; } = 1;
-        public int PageSize { get; set; } = 5;
-
     }
 }

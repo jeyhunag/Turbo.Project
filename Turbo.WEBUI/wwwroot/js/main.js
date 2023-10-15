@@ -105,11 +105,11 @@ $(document).ready(function () {
 
 
 // card love icon color deyismek
-$(document).ready(function () {
-    $(".heart-icon").on("click", function () {
-        $(this).toggleClass("active");
-    });
-});
+//$(document).ready(function () {
+//    $(".heart-icon").on("click", function () {
+//        $(this).toggleClass("active");
+//    });
+//});
 
 $(document).ready(function () {
 

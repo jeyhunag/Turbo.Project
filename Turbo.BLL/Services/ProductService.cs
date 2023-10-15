@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Turbo.BLL.Exceptions;
 using Turbo.BLL.Services.Interfaces;
 using Turbo.DAL.Data;
 using Turbo.DAL.Dto;
@@ -18,6 +19,7 @@ namespace Turbo.BLL.Services
     public class ProductService : GenericService<ProductDto, Product>, IProductService
     {
         private readonly IMemoryCache _cache;
+        private readonly ILogger<ProductService> _logger;
 
         private readonly IProductRepository productRepository;
         private readonly IGenericRepository<BanTypeCategory> banTypeRepository;
@@ -35,7 +37,7 @@ namespace Turbo.BLL.Services
         private readonly IGenericRepository<FuelTypeCategory> fuelTypeRepository;
         private readonly IGenericRepository<NumberOfSeatsCategory> numberOfSeatsRepository;
 
-        public ProductService(IMemoryCache cache,IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
+        public ProductService(IMemoryCache cache, IGenericRepository<Product> genericRepository, IMapper mapper, ILogger<GenericService<ProductDto, Product>> logger,
             IProductRepository _productRepository,
             IGenericRepository<BanTypeCategory> _BanTypeRepository,
             IGenericRepository<CityCategory> _CityRepository,
@@ -74,23 +76,49 @@ namespace Turbo.BLL.Services
 
         public async Task<List<BanTypeCategoryDto>> GetBanTypeCategoriesAsync()
         {
-            var Categories = await banTypeRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<BanTypeCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await banTypeRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<BanTypeCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Ban növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<CityCategoryDto>> GetCityCategoriesAsync()
         {
-            var Categories = await cityRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<CityCategoryDto>>(Categories);
-            return categoryDtos;
+
+            try
+            {
+                var Categories = await cityRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<CityCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Şəhər kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<ColorCategoryDto>> GetColorCategoriesAsync()
         {
-            var Categories = await colorRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<ColorCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await colorRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<ColorCategoryDto>>(Categories);
+                return categoryDtos;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Rəng kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<ProductDto> GetDetailByIdAsync(int id)
@@ -116,87 +144,184 @@ namespace Turbo.BLL.Services
 
         public async Task<List<EngineCapacityCategoryDto>> GetEngineCapacityCategoriesAsync()
         {
-            var Categories = await engineCapacityRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<EngineCapacityCategoryDto>>(Categories);
-            return categoryDtos;
+
+            try
+            {
+                var Categories = await engineCapacityRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<EngineCapacityCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Mühərrik hecimi kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<FuelTypeCategoryDto>> GetFuelTypeCategoriesAsync()
         {
-            var Categories = await fuelTypeRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<FuelTypeCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await fuelTypeRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<FuelTypeCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Yanacaq növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<GearBoxCategoryDto>> GetGearBoxCategoriesAsync()
-        {
-            var Categories = await gearBoxRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<GearBoxCategoryDto>>(Categories);
-            return categoryDtos;
+        {       
+            try
+            {
+                var Categories = await gearBoxRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<GearBoxCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Sürət qutusu kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<GearCategoryDto>> GetGearCategoriesAsync()
         {
-            var Categories = await gearRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<GearCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await gearRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<GearCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Sürət kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<HowManyOwnerCategoryDto>> GetHowManyOwnerCategoriesAsync()
         {
-            var Categories = await howManyOwnerRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<HowManyOwnerCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await howManyOwnerRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<HowManyOwnerCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Neçənci sahibisiniz kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<MarkaCategoryDto>> GetMarkaCategoriesAsync()
         {
-            var Categories = await markaRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<MarkaCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await markaRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<MarkaCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Marka kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<MarketAssembledCategoryDto>> GetMarketAssembledCategoriesAsync()
         {
-            var Categories = await marketAssembledRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<MarketAssembledCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await marketAssembledRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<MarketAssembledCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Hansı bazar üçün kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<ModelCategoryDto>> GetModelCategoriesAsync()
         {
-            var Categories = await modelRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<ModelCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await modelRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<ModelCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Model kateqoriyalarını almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<ProductDto>> GetByCategoryIdAsync(int id)
         {
-            var product = await productRepository.GetByCategoryIdAsync(id);
-            var productDtos = _mapper.Map<List<ProductDto>>(product);
+            try
+            {
+                var product = await productRepository.GetByCategoryIdAsync(id);
+                var productDtos = _mapper.Map<List<ProductDto>>(product);
 
-            return productDtos;
+                return productDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Kateqoriyaları almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<VehicleSupplyCategoryDto>> GetVehicleSupplyCategoriesAsync()
         {
-            var Categories = await vehicleSupplyRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<VehicleSupplyCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await vehicleSupplyRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<VehicleSupplyCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("vehicle supply kateqoriyaları almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<YearCategoryDto>> GeTYearCapacityCategoriesAsync()
         {
-            var Categories = await yearRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<YearCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await yearRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<YearCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("il kateqoriyaları almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public async Task<List<NumberOfSeatsCategoryDto>> GeTNumberOfSeatsCategoriesAsync()
         {
-            var Categories = await numberOfSeatsRepository.GetListAsync();
-            var categoryDtos = _mapper.Map<List<NumberOfSeatsCategoryDto>>(Categories);
-            return categoryDtos;
+            try
+            {
+                var Categories = await numberOfSeatsRepository.GetListAsync();
+                var categoryDtos = _mapper.Map<List<NumberOfSeatsCategoryDto>>(Categories);
+                return categoryDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
+                throw new BLLGetException("Oturacaqların sayı kateqoriyaları almağa çalışarkən xəta yarandı.");
+            }
         }
 
         public string GenerateUniqueAdvertisementNumber()
@@ -241,7 +366,7 @@ namespace Turbo.BLL.Services
                 throw new Exception("Product not found.");
             }
 
-            product.IsPremium = true; 
+            product.IsPremium = true;
             await productRepository.UpdateProductAsync(product);
         }
 
