@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Turbo.DAL.Data;
 using Turbo.DAL.DbContext;
 using Turbo.DAL.ViewModel;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -16,18 +17,20 @@ namespace Turbo.WEBUI.ViewComponents
             this.db = db;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(FilterViewModel filter = null, List<int> productIds = null, bool istype = false, string type = "")
+        public async Task<IViewComponentResult> InvokeAsync(FilterViewModel filter = null, List<int> productIds = null, bool istype = false, string type = "", bool isFavoritesPage = false)
         {
-            productIds ??= new List<int>();
             filter ??= new FilterViewModel();
             var productsQuery = db.Products.AsQueryable();
 
-            if (productIds.Count > 0)
+            if (isFavoritesPage)
             {
+                if (productIds == null || productIds.Count == 0)
+                {
+                    return View(new List<Product>());
+                }
                 productsQuery = productsQuery.Where(p => productIds.Contains(p.Id));
             }
 
-            // Digər filterlər
             var modell = productsQuery
                                        .Where(p => filter.MarKaId <= 0 || p.MarkaCategoryId == filter.MarKaId)
                                   .Where(p => filter.ModelId <= 0 || p.ModelCategoryId == filter.ModelId)

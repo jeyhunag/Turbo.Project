@@ -2,14 +2,28 @@
     ViewData["Title"] = "Index";
     
 }
-
+@section css{
+    <style>
+        .heart-icon.favorite {
+            color: red;
+        }
+    </style>
+}
 <section class="recent_announcements">
     <div class="announcements">
         <div class="vıp_title">
             <h4>SEÇİLMİŞ ELANLAR</h4>
         </div>
         <div class="car_announcements">
-            @await Component.InvokeAsync("ProductCard", new {productIds = Model })
+            @await Component.InvokeAsync("ProductCard", new { productIds = Model, isFavoritesPage = true })
         </div>
     </div>
 </section>
+
+@section Scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+}

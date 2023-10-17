@@ -103,7 +103,7 @@ $(document).ready(function () {
     });
 });
 
-
+//Məlsulun Seçilmişlərə əlavə edilməsi silinməsi.
 $(document).ready(function () {
     $(".heart-icon").on("click", function (e) {
         e.preventDefault();
@@ -111,26 +111,33 @@ $(document).ready(function () {
         var isFavorite = $(this).hasClass("active");
 
         if (isFavorite) {
-            $(this).removeClass("active");
+            $(this).removeClass("active favorite"); 
             removeFromFavorites(productId);
         } else {
-            $(this).addClass("active");
+            $(this).addClass("active favorite"); 
             addToFavorites(productId);
         }
     });
+
+    function addToFavorites(productId) {
+        $.post("/Favorites/AddToFavorites", { productId: productId }, function () {
+            // Məhsulu favoritlərə əlavə edərkən, sadəcə heart-icon-u işarələyirik
+            $(".card[data-product-id='" + productId + "'] .heart-icon").addClass("active favorite");
+        });
+    }
+
+    function removeFromFavorites(productId) {
+        $.post("/Favorites/RemoveFromFavorites", { productId: productId }, function () {
+            // Məhsulu favoritlərdən silərkən, heart-icon-u deaktiv edirik və məhsulu silirik
+            $(".card[data-product-id='" + productId + "'] .heart-icon").removeClass("active favorite");
+            $(".card[data-product-id='" + productId + "']").remove();
+        });
+    }
 });
 
-function addToFavorites(productId) {
-    $.post("/Favorites/AddToFavorites", { productId: productId }, function () {
-        $(".card[data-product-id='" + productId + "'] .heart-icon").addClass("favorite");
-    });
-}
 
-function removeFromFavorites(productId) {
-    $.post("/Favorites/RemoveFromFavorites", { productId: productId }, function () {
-        $(".card[data-product-id='" + productId + "'] .heart-icon").removeClass("favorite");
-    });
-}
+
+
 $(document).ready(function () {
 
     // giris modalının açılması
