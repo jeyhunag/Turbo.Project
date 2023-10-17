@@ -2,8 +2,9 @@
 
 @foreach (var item in Model)
 {
-     <a class="card" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
-        <i class="fa-regular fa-heart heart-icon"></i>
+    <a class="card" data-product-id="@item.Id" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id" target="_blank">
+        <i class="fa-regular fa-heart heart-icon @(Model != null && Model.Any(m => m.Id == item.Id) ? "favorite" : "") "></i>
+
         @if (item.IsVip)
         {
             <i class="fa-solid fa-v check-icon"></i>
@@ -29,10 +30,4 @@
         <span>@item.InsertDate.ToString("HH:mm")</span>
     </a>
 }
-@section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
 
-}

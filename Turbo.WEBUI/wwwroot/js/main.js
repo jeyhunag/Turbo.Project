@@ -104,13 +104,33 @@ $(document).ready(function () {
 });
 
 
-// card love icon color deyismek
-//$(document).ready(function () {
-//    $(".heart-icon").on("click", function () {
-//        $(this).toggleClass("active");
-//    });
-//});
+$(document).ready(function () {
+    $(".heart-icon").on("click", function (e) {
+        e.preventDefault();
+        var productId = $(this).closest(".card").data("product-id");
+        var isFavorite = $(this).hasClass("active");
 
+        if (isFavorite) {
+            $(this).removeClass("active");
+            removeFromFavorites(productId);
+        } else {
+            $(this).addClass("active");
+            addToFavorites(productId);
+        }
+    });
+});
+
+function addToFavorites(productId) {
+    $.post("/Favorites/AddToFavorites", { productId: productId }, function () {
+        $(".card[data-product-id='" + productId + "'] .heart-icon").addClass("favorite");
+    });
+}
+
+function removeFromFavorites(productId) {
+    $.post("/Favorites/RemoveFromFavorites", { productId: productId }, function () {
+        $(".card[data-product-id='" + productId + "'] .heart-icon").removeClass("favorite");
+    });
+}
 $(document).ready(function () {
 
     // giris modalının açılması

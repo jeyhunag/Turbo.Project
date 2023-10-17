@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Turbo.DAL.Data;
 using Turbo.DAL.DbContext;
 using Turbo.DAL.ViewModel;
 
@@ -27,11 +28,10 @@ namespace Turbo.WEBUI.Controllers
             {
                 productIds = JsonConvert.DeserializeObject<List<int>>(favoriteProducts);
             }
-
-            var favoriteItems = _context.Products.Where(p => productIds.Contains(p.Id)).ToList();
-            ViewBag.FavoriteItems = favoriteItems;
-            return View(favoriteItems);
+            return View(productIds);
         }
+
+
 
         [HttpPost]
         public IActionResult AddToFavorites(int productId)

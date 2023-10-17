@@ -510,13 +510,14 @@ a {
     font-size: 26px;
     background-color: transparent;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* color üçün keçidi əlavə edin */
     box-sizing: border-box;
 }
 
     .heart-icon.active {
         color: #EB4E27;
     }
+
 
 .salon-label {
     position: absolute;

@@ -1,8 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Index";
+    
 }
-<div>
-    @await Component.InvokeAsync("ProductCard", (List<Product>)ViewBag.FavoriteItems)
-</div>
 
-
+<section class="recent_announcements">
+    <div class="announcements">
+        <div class="vıp_title">
+            <h4>SEÇİLMİŞ ELANLAR</h4>
+        </div>
+        <div class="car_announcements">
+            @await Component.InvokeAsync("ProductCard", new {productIds = Model })
+        </div>
+    </div>
+</section>

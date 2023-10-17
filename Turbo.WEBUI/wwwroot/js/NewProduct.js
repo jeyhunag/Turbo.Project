@@ -18,44 +18,37 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         let reader = new FileReader();
         reader.onload = function (e) {
-            const image = $("<img>").addClass("new-car").attr("src", e.target.result);
-            $(input).prev().html(image);
+            const imageUrl = e.target.result;
+            $(input).prev().css("background-image", `url(${imageUrl})`).html("");
             count++;
         }
         reader.readAsDataURL(input.files[0]);
     }
 }
 
+
 $('#plus').on('change', function () {
     readURLS(this);
 });
-
 function readURLS(input) {
-    if (input.files && input.files[0]) {
+    const files = input.files;
+    for (let i = 0; i < files.length; i++) {
         let reader = new FileReader();
-
         reader.onload = function (e) {
             count++;
-            if (count === 1) {
-                const image = $("<img>").addClass("new-car").attr("src", e.target.result);
-                $(".image-1").append(image);
-            } else if (count === 2) {
-                const image = $("<img>").addClass("new-car").attr("src", e.target.result);
-                $(".image-2").append(image);
-            } else if (count === 3) {
-                const image = $("<img>").addClass("new-car").attr("src", e.target.result);
-                $(".image-3").append(image);
-            } else if (count > 3) {
+            if (count <= 3) {
+                $(`.image-${count}`).css("background-image", `url(${e.target.result})`).html("");
+            } else {
                 $(".new-description").hide();
                 const image = $("<img>").addClass("new-car").attr("src", e.target.result);
                 const label = $("<label>").attr("for", `image-${count}`).append(image);
                 $('.image-form').append(label);
             }
         }
-
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(files[i]);
     }
 }
+
 
 
 function removeImage(element) {
