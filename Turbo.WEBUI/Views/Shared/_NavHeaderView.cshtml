@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="header_top_nav">
+    <div class="header_top_nav" id="myTopnav">
         <nav class="navbar">
             <a asp-controller="Home" asp-action="Index" class="logo">
                 Turbo.az
@@ -86,7 +86,9 @@
             </ul>
             <a class="add-ad-btn" asp-controller="Products" asp-action="Create"><i class="fa-solid fa-plus"></i>Yeni Elan</a>
         </nav>
-
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 </header>
 

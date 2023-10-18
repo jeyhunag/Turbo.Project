@@ -1,0 +1,405 @@
+﻿
+
+/* Header üçün Responsive */
+@media (max-width: 768px) {
+    .header_bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header_bar_left,
+    .header_bar_right {
+        margin: 5px 0;
+    }
+
+    .header_top_nav {
+        padding: 4px 15px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        padding: 21px 0;
+    }
+
+    .icon {
+        position: absolute;
+    }
+
+    .icon {
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .navbar .nav-links {
+        flex-direction: column;
+        margin: 10px 0;
+    }
+
+        .navbar .nav-links li {
+            margin: 20px 0;
+        }
+
+    .dropdown-content {
+        width: 100%;
+    }
+
+    .header_top_nav {
+        position: relative;
+    }
+
+        .header_top_nav .nav-links,
+        .header_top_nav .logo,
+        .header_top_nav .add-ad-btn,
+        .header_top_nav .dropdown {
+            display: none;
+        }
+
+    .icon {
+        display: block;
+        font-size: 28px;
+    }
+
+    .header_top_nav.responsive {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar > .logo {
+        display: block;
+    }
+
+    .navbar > .add-ad-btn {
+        display: block;
+        margin-left: 10px;
+    }
+
+    .header_top_nav.responsive .nav-links,
+    .header_top_nav.responsive .dropdown {
+        display: block;
+        text-align: center;
+    }
+
+
+
+    .navbar .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header_bar {
+        padding: 10px;
+    }
+
+    .header_bar_phone {
+        display: none;
+    }
+
+    .header_top_nav {
+        padding: 2px 10px;
+    }
+
+    .navbar .logo {
+        font-size: 20px;
+    }
+
+    .add-ad-btn {
+        padding: 8px 6px;
+        font-size: 12px;
+    }
+}
+
+/* Footer üçün Responsive */
+
+@media only screen and (max-width: 768px) {
+
+    .footer_top,
+    .footer_menu {
+        padding: 15px 20px;
+    }
+
+    .footer_contacts {
+        display: flex;
+        align-items: flex-start;
+    }
+
+        .footer_contacts a {
+            padding-right: 5px;
+        }
+
+    .main_category {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer_menu {
+        padding: 15px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main_category a {
+        width: 48%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-category a {
+        display: inline-flex;
+    }
+
+    .footer_information {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .footer_info_desc p:first-child {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer_info_desc a {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .main_category {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer_menu {
+        padding-left: 66px;
+    }
+
+    .footer_Advertising {
+        display: none;
+    }
+
+    .footer_contacts {
+        font-size: 10px;
+    }
+
+        .footer_contacts > a {
+            padding-bottom: 10px;
+        }
+
+    .main_category a {
+        width: 48%;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-category a {
+        display: inline-flex;
+        margin: 5px 10px;
+    }
+
+    .footer_information {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .footer_info_desc p:first-child {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer_info_desc a,
+    .footer_info_desc p {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 10px;
+    }
+}
+
+
+
+
+/* Mobil telefonlar üçün */
+@media (max-width: 425px) and (min-width: 320px) {
+    .main_search {
+        padding: 10px 5px;
+    }
+    .custom-dropdown, .custom-dropdown-how-many {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+        .custom-dropdown select,
+        .custom-dropdown-val select,
+        .custom-dropdown-how-many select {
+            padding: 10px 10px 10px 3px;
+            font-size: 14px;
+            width: 258px;
+            height:51px;
+        }
+    .price, .power-maks, .march-maks {
+        width: 260px !important;
+        margin-left: 24px;
+        height: 55px;
+    }
+    .price input,
+    .march-maks input,
+    .power-maks input {
+        width: 100%;
+        padding: 10px 10px;
+        margin: 5px 0;
+    }
+    .input-group{
+        display:flex;
+        width:100%;
+        justify-content:center;
+        align-items:center;
+        margin:15px 0;
+    }
+    .valyuta {
+        font-size:11px !important;
+        border-radius:5px !important;
+        margin-left:27px !important;
+        border:none !important;
+    }
+    .input-group span {
+        padding: 8px 10px;
+    }
+ 
+    .floor-1, .floor-2, .floor-3, .floor-4, .floor-5 {
+        flex-direction: column;
+        align-items: start;
+    }
+    .floor-6 >.kredit-barter{
+        display:none !important;
+    }
+    .floor-5 > .input-group > label,
+    .floor-7 > .kredit-barter > input {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+    .search-count{
+        display:none;
+
+    }
+    .main-search-footer-right{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .main-search-footer-right > div > button {
+        font-size: 10px;
+        padding: 8px 8px;
+    }
+    .toggle-filters{
+        font-size:13px;
+        margin: 0 0;
+    }
+}
+
+/* Tablet üçün */
+@media (max-width: 768px) and (min-width: 577px) {
+    .main_search {
+        padding: 12px 15px;
+    }
+
+    .custom-dropdown select,
+    .custom-dropdown-val select,
+    .custom-dropdown-how-many select {
+        padding: 11px 20px 11px 3px;
+        font-size: 14px;
+    }
+
+    .price input,
+    .march-maks input,
+    .power-maks input {
+        padding: 10px 10px;
+        margin: 5px 0;
+    }
+
+    .input-group span {
+        padding: 8px 12px;
+    }
+}
+/* Böyük Ekranlar üçün (> 1200px) */
+@media (min-width: 1201px) {
+    .main_search {
+        padding: 20px 200px;
+    }
+
+    .custom-dropdown select,
+    .custom-dropdown-val select,
+    .custom-dropdown-how-many select {
+        padding: 15px 160px 15px 5px;
+        font-size: 16px;
+    }
+
+    .price input,
+    .march-maks input,
+    .power-maks input {
+        padding: 15px 10px;
+        width: 150px;
+    }
+
+    .input-group span {
+        padding: 12px 18px;
+    }
+
+    .main-search-footer-right > div > button {
+        padding: 16px 50px;
+    }
+}
+
+/* Orta ölçülü ekranlar üçün (769px - 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+
+    .main_search {
+        padding: 15px 100px;
+    }
+
+    .custom-dropdown select,
+    .custom-dropdown-val select,
+    .custom-dropdown-how-many select {
+        padding: 13px 130px 13px 4px;
+        font-size: 14px;
+    }
+
+    .price input,
+    .march-maks input,
+    .power-maks input {
+        padding: 13px 8px;
+        width: 140px;
+    }
+
+    .input-group span {
+        padding: 10px 15px;
+    }
+
+    .main-search-footer-right > div > button {
+        padding: 14px 40px;
+    }
+
+    /* Bu ölçüdə olan ekranlar üçün digər əlavə stil dəyişikliklərinizi buraya əlavə edə bilərsiniz */
+}

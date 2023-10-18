@@ -29,6 +29,16 @@ a {
     color: #8E94AB;
 }
 
+.icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 15px;
+}
+
 .link_bar a:not(:last-child) {
     margin-right: 10px;
 }

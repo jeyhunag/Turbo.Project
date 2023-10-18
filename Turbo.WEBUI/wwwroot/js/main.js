@@ -1,4 +1,12 @@
-
+//Header menu icon 
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "header_top_nav") {
+        x.className += " responsive";
+    } else {
+        x.className = "header_top_nav";
+    }
+}
 //Select list Sıfırla click edildikdə sıfırla sözü yerinə Default  söz yazdırmaq.
 $(document).ready(function () {
     $('.dynamic-label').on('focus', function () {
@@ -14,6 +22,8 @@ $(document).ready(function () {
         }
     });
 });
+
+
 
 //Sifirla icon deyisilmesi
 $(document).ready(function () {
