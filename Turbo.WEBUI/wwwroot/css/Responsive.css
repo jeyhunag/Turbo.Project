@@ -37,9 +37,11 @@
         flex-direction: column;
         margin: 10px 0;
     }
-    .header_bar_phone{
-        display:none;
+
+    .header_bar_phone {
+        display: none;
     }
+
     .navbar .nav-links li {
         margin: 20px 0;
     }
@@ -243,6 +245,7 @@
     .main_search {
         padding: 10px 5px;
     }
+
     .custom-dropdown, .custom-dropdown-how-many {
         display: flex;
         width: 100%;
@@ -257,71 +260,81 @@
             padding: 10px 10px 10px 3px;
             font-size: 14px;
             width: 258px;
-            height:51px;
+            height: 51px;
         }
+
     .price, .power-maks, .march-maks {
         width: 260px !important;
         margin-left: 24px;
         height: 55px;
     }
-    .price input,
-    .march-maks input,
-    .power-maks input {
+
+        .price input,
+        .march-maks input,
+        .power-maks input {
+            width: 100%;
+            padding: 10px 10px;
+            margin: 5px 0;
+        }
+
+    .input-group {
+        display: flex;
         width: 100%;
-        padding: 10px 10px;
-        margin: 5px 0;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0;
     }
-    .input-group{
-        display:flex;
-        width:100%;
-        justify-content:center;
-        align-items:center;
-        margin:15px 0;
-    }
+
     .valyuta {
-        font-size:11px !important;
-        border-radius:5px !important;
-        margin-left:27px !important;
-        border:none !important;
+        font-size: 11px !important;
+        border-radius: 5px !important;
+        margin-left: 27px !important;
+        border: none !important;
     }
+
     .input-group span {
         padding: 8px 10px;
     }
- 
+
     .floor-1, .floor-2, .floor-3, .floor-4, .floor-5 {
         flex-direction: column;
         align-items: start;
     }
-    .floor-6 >.kredit-barter{
-        display:none !important;
+
+    .floor-6 > .kredit-barter {
+        display: none !important;
     }
+
     .floor-5 > .input-group > label,
     .floor-7 > .kredit-barter > input {
         display: block;
         margin-right: 0;
         margin-bottom: 5px;
     }
-    .search-count{
-        display:none;
 
+    .search-count {
+        display: none;
     }
-    .main-search-footer-right{
+
+    .main-search-footer-right {
         display: flex;
         width: 100%;
         justify-content: center;
         align-items: center;
     }
-    .main-search-footer-right > div > button {
-        font-size: 10px;
-        padding: 8px 8px;
-    }
-    .toggle-filters{
-        font-size:13px;
+
+        .main-search-footer-right > div > button {
+            font-size: 10px;
+            padding: 8px 8px;
+        }
+
+    .toggle-filters {
+        font-size: 13px;
         margin: 0 0;
     }
 
-    .footer_main{
-        display:none;
+    .footer_main {
+        display: none;
     }
 
     .vıp_announcements,
@@ -332,9 +345,9 @@
 
     .card {
         width: 100% !important;
-        display:block;
-        align-items:center;
-        justify-content:center;
+        display: block;
+        align-items: center;
+        justify-content: center;
     }
 
     .check-icon {
@@ -363,23 +376,27 @@
     .main_search {
         padding: 12px 15px;
     }
+
     .custom-dropdown {
         display: flex;
         margin: 5px 0;
     }
-    .custom-dropdown select,
-    .custom-dropdown-val select,
-    .custom-dropdown-how-many select {
-        padding: 11px 20px 11px 3px;
-        font-size: 14px;
-        width:243px;
-        height:43px;
-    }
+
+        .custom-dropdown select,
+        .custom-dropdown-val select,
+        .custom-dropdown-how-many select {
+            padding: 11px 20px 11px 3px;
+            font-size: 14px;
+            width: 243px;
+            height: 43px;
+        }
+
     .valyuta {
         border-radius: 5px !important;
         border: none !important;
-        margin-right:10px;
+        margin-right: 10px;
     }
+
     .price input,
     .march-maks input,
     .power-maks input {
@@ -390,13 +407,16 @@
     .input-group span {
         padding: 8px 12px;
     }
+
     .price, .power-maks, .march-maks {
-        margin-right:31px;
-        width:18rem;
+        margin-right: 31px;
+        width: 18rem;
     }
-    .floor-5{
-        margin-top:15px !important;
+
+    .floor-5 {
+        margin-top: 15px !important;
     }
+
     .floor-1, .floor-2, .floor-3, .floor-4, .floor-5 {
         display: flex;
         width: 100%;
@@ -421,8 +441,8 @@
         padding: 15px 61px;
     }
 
-    .card{
-        width:32% !important;
+    .card {
+        width: 32% !important;
     }
 
     .check-icon {
@@ -461,27 +481,29 @@
         margin: 5px 0;
     }
 
-    .custom-dropdown select,
-    .custom-dropdown-val select,
-    .custom-dropdown-how-many select {
-        padding: 13px 130px 13px 4px;
-        font-size: 14px;
-        width:274px;
-        height:43px;
-    }
+        .custom-dropdown select,
+        .custom-dropdown-val select,
+        .custom-dropdown-how-many select {
+            padding: 13px 130px 13px 4px;
+            font-size: 14px;
+            width: 274px;
+            height: 43px;
+        }
 
     .valyuta {
         border-radius: 5px !important;
         border: none !important;
         margin-right: 10px;
-        height:44px;
-        font-size:14px;
-        margin-top:4px;
+        height: 44px;
+        font-size: 14px;
+        margin-top: 4px;
     }
-    .kredit-barter{
-        height:45px;
-        margin-top:4px;
+
+    .kredit-barter {
+        height: 45px;
+        margin-top: 4px;
     }
+
     .price input,
     .march-maks input,
     .power-maks input {
@@ -527,39 +549,44 @@
     .header_bar {
         padding: 15px 101px;
     }
+
     .header_top_nav {
         padding: 4px 101px;
     }
 
-    .vıp_announcements, 
+    .vıp_announcements,
     .recent_announcements,
     .premium_announcements {
         padding: 15px 95px;
     }
-    .check-icon{
-        margin-bottom:-12px;
+
+    .check-icon {
+        margin-bottom: -12px;
     }
+
     .card > p {
         font-size: 14px;
     }
-    .card > .details{
-        font-size:14px;
-        padding:0 0 0 0;
 
-    }
-
-    .card > h4{
-        font-size:16px;
-    }
-    .card > span{
+    .card > .details {
         font-size: 14px;
-        padding:3px 0;
-        margin:0 2px;
+        padding: 0 0 0 0;
+    }
+
+    .card > h4 {
+        font-size: 16px;
+    }
+
+    .card > span {
+        font-size: 14px;
+        padding: 3px 0;
+        margin: 0 2px;
     }
 
     .footer_top, .footer_menu {
         padding: 15px 93px;
     }
+
     .footer_information, .footer_main {
         padding: 24px 81px;
     }
@@ -577,10 +604,12 @@
         padding: 15px 160px 15px 5px;
         font-size: 16px;
     }
-    .valyuta{
-        border-radius:5px;
-        border:none;
+
+    .valyuta {
+        border-radius: 5px;
+        border: none;
     }
+
     .price input,
     .march-maks input,
     .power-maks input {
@@ -597,8 +626,335 @@
     }
 
     .floor-2 {
-       
     }
 }
 
 
+/* Mobil telefonlar üçün */
+@media (max-width: 425px) and (min-width: 320px) {
+    .new-product {
+        padding: 0 0;
+    }
+    .new-prouduct-not > ul > li{
+        font-size:10px;
+    }
+    .form-group {
+        display: block;
+        width: 100%;
+    }
+    .form-group > label {
+        font-size: 14px;
+        margin-left:14px;
+    }
+
+    .form-group > select {
+        height: 38px;
+        width: 100%;
+        margin-top:7px;
+    }
+    .form-group-checbox > label{
+        margin-right:20px;
+        font-size:16px;
+        margin-left:10px;
+    }
+    #Yürüş {
+        border: 1px solid #aeaeae;
+        margin-left: 59px;
+        height: 37px;
+    }
+    #Qiymət {
+        border: 1px solid #aeaeae;
+        width:149px;
+        height: 37px;
+    }
+    #engine-power {
+        width: 100%;
+        border: 1px solid #aeaeae !important;
+        height: 34px;
+        margin-top: 7px;
+    }
+
+    .product-form-checbox {
+        font-size: 3px;
+        flex-wrap: nowrap;
+        margin-left:14px;
+    }
+    .checbox-inline > .container:nth-child(2) {
+        margin-left: 7px;
+    }
+
+    .container input{
+        transform:scale(1.2);
+        margin-left:0;
+    }
+
+    #mobile-res {
+        margin-left: -47px;
+        margin-top: -17px;
+    }
+
+    .product-form-checbox > label,
+    .checbox-inline > label,
+    .kredit-checbox,
+    .barter-checbox,
+    .vin-group > label,
+    .additional > label,
+    .contact > label {
+        font-size: 12px !important;
+    }
+
+        .label-container {
+            font-size: 10px;
+        }
+    .label-container > span {
+        display: none;
+    }
+    .form-group-checbox > label {
+        font-size: 11px;
+    }
+
+    .form-group-checbox label:first-child {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+
+    #vin-kod {
+        border: 1px solid #aeaeae;
+        height: 37px !important;
+        width: 259px;
+        margin-top: 5px;
+        display: flex;
+        margin-left:19px;
+    }
+
+    .vin-group > label{
+        margin-left:19px;
+    }
+    .additional {
+        width: 100%;
+        display: block;
+    }
+    .additional > label{
+        width:100%;
+        display:block;
+        margin: 0 0 19px 5px;
+    }
+    .additional > textarea {
+        width: 100%;
+        display: block;
+        margin: 0 0 0 0 !important;
+    }
+
+    .additional-info > span{
+        margin-left:21px;
+    }
+    .new-description {
+        width: 43%;
+    }
+
+    .contact {
+        width:100%;
+        display:block;
+        margin:3px 0;
+    }
+
+        .contact > label {
+            font-size: 14px;
+            margin-left: -15rem;
+        }
+
+        .contact > input,
+        .contact > select {
+            border: 1px solid #aeaeae;
+            height: 38px;
+            width: 100%;
+            margin:7px 0 0 0;
+            display:block;
+        }
+
+    #phone-contact {
+        margin-left: 0;
+    }
+
+    .new-contact > button {
+        margin-left: 72%;
+    }
+}
+
+/* Tablet üçün */
+@media (max-width: 768px) and (min-width: 426px) {
+    .new-product {
+        padding: 0 3px;
+    }
+
+    .form-group > label {
+        font-size: 12px;
+    }
+
+    .form-group > select {
+        height: 34px;
+        width: 235px;
+    }
+
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 234px !important;
+        border: 1px solid #aeaeae !important;
+        height: 34px !important;
+    }
+
+    .product-form-checbox {
+        font-size: 10px;
+        flex-wrap: nowrap;
+    }
+
+
+        .product-form-checbox > label,
+        .checbox-inline > label,
+        .kredit-checbox,
+        .barter-checbox,
+        .vin-group > label,
+        .additional > label,
+        .contact > label {
+            font-size: 12px !important;
+        }
+
+    .form-group-checbox > label {
+        font-size: 11px;
+    }
+
+    .form-group-checbox label:first-child {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+
+    .vin-group > input {
+        border: 1px solid #aeaeae;
+        height: 37px !important;
+        margin-left:61px;
+    }
+
+    .new-description {
+        width: 43%;
+    }
+    .contact{
+        margin:9px 0 0 0;
+    }
+    .contact > input,
+    .contact > select {
+        border: 1px solid #aeaeae;
+        height: 34px;
+        width: 234px;
+    }
+
+    #phone-contact {
+        margin-left: 30px;
+    }
+
+    .new-contact > button {
+        margin-left: 26%;
+    }
+}
+
+/* Orta ölçülü ekranlar üçün (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .new-product {
+        padding: 15px 98px;
+    }
+
+    .form-group > label {
+        font-size: 14px;
+    }
+
+    .form-group > select {
+        height: 39px;
+        width: 244px;
+    }
+
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 243px !important;
+        border: 1px solid #aeaeae !important;
+        height: 39px !important;
+    }
+
+    .product-form-checbox {
+        font-size: 13px;
+        flex-wrap: nowrap;
+    }
+
+    .checbox-inline > label,
+    .kredit-checbox,
+    .barter-checbox,
+    .vin-group > label,
+    .additional > label,
+    .contact > label {
+        font-size: 15px !important;
+    }
+
+    .form-group-checbox > label {
+        font-size: 13px;
+    }
+
+    .vin-group > label {
+        margin-right: 7px;
+    }
+
+    .vin-group > input {
+        border: 1px solid #aeaeae;
+        height: 37px;
+    }
+
+    .new-description {
+        width: 41%;
+    }
+
+    .contact > input,
+    .contact > select {
+        border: 1px solid #aeaeae;
+        height: 38px;
+        width: 264px;
+    }
+
+    #phone-contact {
+        margin-left: 17px;
+    }
+
+    .new-contact > button {
+        margin-left: 27%;
+    }
+}
+
+/* Böyük Ekranlar üçün (> 1200px) */
+@media (min-width: 1201px) {
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 246px !important;
+        border: 1px solid #aeaeae !important;
+        height: 39px !important;
+    }
+
+    .vin-group > input {
+        border: 1px solid #aeaeae;
+        height: 37px;
+    }
+
+    #info {
+        width: 100%;
+    }
+
+    .contact > input,
+    .contact > select {
+        border: 1px solid #aeaeae;
+        height: 38px;
+        width: 264px;
+    }
+
+    #phone-contact {
+        margin-left: 10px;
+    }
+
+    .new-contact > button {
+        margin-left: 15.5%;
+    }
+}
