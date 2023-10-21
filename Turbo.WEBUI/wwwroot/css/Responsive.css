@@ -630,6 +630,8 @@
 }
 
 
+/* Create üçün Responsive */
+
 /* Mobil telefonlar üçün */
 @media (max-width: 425px) and (min-width: 320px) {
     .new-product {
@@ -956,5 +958,264 @@
 
     .new-contact > button {
         margin-left: 15.5%;
+    }
+}
+
+
+/* Details üçün Responsive */
+
+/* Mobil telefonlar üçün */
+@media (max-width: 425px) and (min-width: 320px) {
+    .product-container {
+        padding: 0 14px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+    }
+
+    .product-title,
+    .product-heading-right > a {
+        font-size: 15px;
+    }
+
+    .product-heading-right a i {
+        font-size: 18px;
+    }
+    .fotorama__wrap--toggle-arrows {
+        margin-left: 53px;
+    }
+
+    .product-foto {
+        width: 100% !important;
+        height: 100% !important;
+        left: 0px !important;
+        top: 0 !important;
+    }
+    .fotorama__nav {
+        margin-left: -103px;
+        margin-top: 4px;
+    }
+
+    .fotorama {
+        min-width: 1px;
+        overflow: hidden;
+        margin-left: -67px;
+        margin-top: 8px;
+        width: 116%;
+        height: 100%;
+    }
+
+    .header-text-content ul li {
+        font-size: 14px;
+        padding-right: 46px;
+    }
+    .text-content {
+        font-size: 9px;
+    }
+
+    .description-content p {
+        line-height: 1.5;
+        font-size: 9px;
+    }
+
+    .text-end-left a, 
+    .text-end-right > span {
+        font-size: 14px;
+    }
+
+    .body-text-content {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .product-properties {
+        width: 100%;
+        padding: 15px 0;
+    }
+    .product-sidebar-container {
+        width: 100%;
+        height: 261px;
+        position: static;
+        margin-top:-27px;
+    }
+
+    #usd {
+        font-weight: bolder;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+
+    #val {
+        font-size: 14px;
+    }
+
+    .product-sidebar-button a {
+        padding: 11px 51px;
+        font-size: 17px;
+    }
+
+    .product-button-phone a {
+        padding: 0 56px;
+        font-size: 17px;
+    }
+
+    .forward-vip-pre a {
+        padding: 12px 12px;
+        font-size: 16px;
+    }
+
+    .check-icon {
+        position: absolute;
+        bottom: 74px;
+        right: 10px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+        margin-top: 73px;
+    }
+
+    .advertisements-title > h3,
+    .advertisements-title a {
+        font-size: 14px;
+    }
+}
+
+/* Tablet üçün */
+@media (max-width: 768px) and (min-width: 426px) {
+    .product-container {
+        padding: 0 14px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+    }
+    .product-title{
+        font-size:18px;
+    }
+    .product-heading-right > a{
+        font-size:18px;
+    }
+    .fotorama__wrap--toggle-arrows {
+        margin-left: 53px;
+    }
+    .fotorama__stage__frame {
+        width: 100%;
+        height: 296px;
+        left: 59.3338px;
+        top: 0px;
+    }
+
+    .product-foto{
+        margin-left:-59px;
+    }
+    .text-content {
+        font-size: 11px;
+    }
+
+    .product-sidebar-container {
+        width: 29%;
+        height: 261px;
+        padding: 10px;
+        margin: 10px;
+        top: 25%;
+        right: 0;
+    }
+
+    #usd {
+        font-weight: bolder;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+
+    #val {
+        font-size: 14px;
+    }
+
+    .product-sidebar-button a {
+        padding: 11px 51px;
+        font-size: 13px;
+    }
+
+    .product-button-phone a {
+        padding: 0 56px;
+        font-size: 13px;
+    }
+
+    .forward-vip-pre a {
+        padding: 7px 3px;
+        margin-top: 6px;
+        font-size: 0;
+    }
+
+    .check-icon {
+        position: absolute;
+        bottom: 74px;
+        right: 10px;
+    }
+}
+
+/* Orta ölçülü ekranlar üçün (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-container {
+        padding: 15px 103px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 82px;
+    }
+
+    .fotorama__stage__frame {
+        width: 440.332px;
+        height: 296px;
+        left: 59.3338px;
+        top: 0px;
+    }
+
+    .text-content {
+        font-size: 12px;
+    }
+
+    .product-sidebar-container {
+        width: 23%;
+        height: 261px;
+        padding: 10px;
+        margin: 10px;
+        top: 32%;
+        right: 9%;
+    }
+
+    #usd {
+        font-weight: bolder;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+
+    #val {
+        font-size: 14px;
+    }
+
+    .product-sidebar-button a{
+        padding:11px 51px;
+        font-size:14px;
+    }
+
+    .product-button-phone a {
+        padding: 0 56px;
+        font-size: 14px;
+    }
+
+    .forward-vip-pre a {
+        padding: 7px 5px;
+        margin-top: 6px;
+        font-size: 0;
+    }
+
+    .check-icon {
+        position: absolute;
+        bottom: 74px;
+        right: 10px;
     }
 }

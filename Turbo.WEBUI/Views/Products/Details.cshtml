@@ -32,6 +32,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <link rel="stylesheet" href="~/css/ProductCart.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/Responsive.css" asp-append-version="true">
 }
 
 
@@ -172,24 +173,7 @@
                 </div>
             </article>
             <hr>
-            <article class="product-footer-text">
-                <div class="footer-text">
-                    <ul>
-                        <li>Yüngül lehimli disklər</li>
-                        <li>Yağış sensoru</li>
-                        <li>ABS</li>
-                        <li>Lyuk</li>
-                        <li>Ksenon lampalar</li>
-                        <li>Yan pərdələr</li>
-                        <li>Oturacaqların ventilyasiyası</li>
-                        <li>Lyuk</li>
-                        <li>Ksenon lampalar</li>
-                        <li>Yan pərdələr</li>
-                        <li>Oturacaqların ventilyasiyası</li>
-                    </ul>
-                </div>
-            </article>
-            <hr>
+
             <div class="footer-text-end">
                 <div class="text-end-left">
                     <a id="correct">Düzəliş et</a>
@@ -254,7 +238,7 @@
                         float actualPrice = Model.Price.HasValue ? Model.Price.Value : 0f;
                         var converted = ConvertCurrency(actualPrice, Model.Valyuta);
                     }
-                    <div>@converted.Item1 @converted.Item2</div>
+                    <div id="val">@converted.Item1 @converted.Item2</div>
                     <hr>
                 </div>
 
@@ -270,7 +254,7 @@
                 </div>
                 <div class="product-button-phone">
                     <a href="#">
-                        Nömrəni göstər <br>
+                        Əlaqə Nömrəsi <br>
                         <i class="fa-solid fa-phone"></i>
                         @Model.Phone
                     </a>
