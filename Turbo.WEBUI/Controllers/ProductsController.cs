@@ -135,9 +135,15 @@ namespace Turbo.WEBUI.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
+                var existingProduct = await _service.GetByIdAsync(id);
+
+                product.PINPassword = existingProduct.PINPassword;
+                product.AdvertisementNumber = existingProduct.AdvertisementNumber;
+
                 List<ProductImages> imagesList = new List<ProductImages>();
+
 
                 if (imageFiles != null && imageFiles.Count > 0)
                 {
@@ -153,7 +159,10 @@ namespace Turbo.WEBUI.Controllers
                         }
                     }
                 }
-
+                else
+                {
+                    imagesList = existingProduct.ProductImages.ToList();
+                }
 
                 product.ProductImages = imagesList;
                 _service.Update(product);

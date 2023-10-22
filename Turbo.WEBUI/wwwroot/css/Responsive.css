@@ -238,8 +238,6 @@
 }
 
 
-/* Filter üçün Responsive */
-
 /* Mobil telefonlar üçün */
 @media (max-width: 425px) and (min-width: 320px) {
     .main_search {
@@ -369,6 +367,290 @@
         padding: 3px 4px;
         margin: 0 2px;
     }
+
+    .new-product {
+        padding: 0 0;
+    }
+
+    .new-prouduct-not > ul > li {
+        font-size: 10px;
+    }
+
+    .form-group {
+        display: block;
+        width: 100%;
+    }
+
+        .form-group > label {
+            font-size: 14px;
+            margin-left: 14px;
+        }
+
+        .form-group > select {
+            height: 38px;
+            width: 100%;
+            margin-top: 7px;
+        }
+
+    .form-group-checbox > label {
+        margin-right: 20px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    #Yürüş {
+        border: 1px solid #aeaeae;
+        margin-left: 59px;
+        height: 37px;
+    }
+
+    #Qiymət {
+        border: 1px solid #aeaeae;
+        width: 149px;
+        height: 37px;
+    }
+
+    #engine-power {
+        width: 100%;
+        border: 1px solid #aeaeae !important;
+        height: 34px;
+        margin-top: 7px;
+    }
+
+    .product-form-checbox {
+        font-size: 3px;
+        flex-wrap: nowrap;
+        margin-left: 14px;
+    }
+
+    .checbox-inline > .container:nth-child(2) {
+        margin-left: 7px;
+    }
+
+    .container input {
+        transform: scale(1.2);
+        margin-left: 0;
+    }
+
+    #mobile-res {
+        margin-left: -47px;
+        margin-top: -17px;
+    }
+
+    .product-form-checbox > label,
+    .checbox-inline > label,
+    .kredit-checbox,
+    .barter-checbox,
+    .vin-group > label,
+    .additional > label,
+    .contact > label {
+        font-size: 12px !important;
+    }
+
+    .label-container {
+        font-size: 10px;
+    }
+
+        .label-container > span {
+            display: none;
+        }
+
+    .form-group-checbox > label {
+        font-size: 11px;
+    }
+
+    .form-group-checbox label:first-child {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+
+    #vin-kod {
+        border: 1px solid #aeaeae;
+        height: 37px !important;
+        width: 259px;
+        margin-top: 5px;
+        display: flex;
+        margin-left: 19px;
+    }
+
+    .vin-group > label {
+        margin-left: 19px;
+    }
+
+    .additional {
+        width: 100%;
+        display: block;
+    }
+
+        .additional > label {
+            width: 100%;
+            display: block;
+            margin: 0 0 19px 5px;
+        }
+
+        .additional > textarea {
+            width: 100%;
+            display: block;
+            margin: 0 0 0 0 !important;
+        }
+
+    .additional-info > span {
+        margin-left: 21px;
+    }
+
+    .new-description {
+        width: 43%;
+    }
+
+    .contact {
+        width: 100%;
+        display: block;
+        margin: 3px 0;
+    }
+
+        .contact > label {
+            font-size: 14px;
+            margin-left: -15rem;
+        }
+
+        .contact > input,
+        .contact > select {
+            border: 1px solid #aeaeae;
+            height: 38px;
+            width: 100%;
+            margin: 7px 0 0 0;
+            display: block;
+        }
+
+    #phone-contact {
+        margin-left: 0;
+    }
+
+    .new-contact > button {
+        margin-left: 72%;
+    }
+
+    .product-container {
+        padding: 0 14px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+    }
+
+    .product-title,
+    .product-heading-right > a {
+        font-size: 15px;
+    }
+
+    .product-heading-right a i {
+        font-size: 18px;
+    }
+
+    .fotorama__wrap--toggle-arrows {
+        margin-left: 53px;
+    }
+
+    .product-foto {
+        width: 100% !important;
+        height: 100% !important;
+        left: 0px !important;
+        top: 0 !important;
+    }
+
+    .fotorama__nav {
+        margin-left: -103px;
+        margin-top: 4px;
+    }
+
+    .fotorama {
+        min-width: 1px;
+        overflow: hidden;
+        margin-left: -67px;
+        margin-top: 8px;
+        width: 116%;
+        height: 100%;
+    }
+
+    .header-text-content ul li {
+        font-size: 14px;
+        padding-right: 46px;
+    }
+
+    .text-content {
+        font-size: 9px;
+    }
+
+    .description-content p {
+        line-height: 1.5;
+        font-size: 9px;
+    }
+
+    .text-end-left a,
+    .text-end-right > span {
+        font-size: 14px;
+    }
+
+    .body-text-content {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .product-properties {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .product-sidebar-container {
+        width: 100%;
+        height: 261px;
+        position: static;
+        margin-top: -27px;
+    }
+
+    #usd {
+        font-weight: bolder;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+
+    #val {
+        font-size: 14px;
+    }
+
+    .product-sidebar-button a {
+        padding: 11px 51px;
+        font-size: 17px;
+    }
+
+    .product-button-phone a {
+        padding: 0 56px;
+        font-size: 17px;
+    }
+
+    .forward-vip-pre a {
+        padding: 12px 12px;
+        font-size: 16px;
+    }
+
+    .check-icon {
+        position: absolute;
+        bottom: 74px;
+        right: 10px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+        margin-top: 73px;
+    }
+
+    .advertisements-title > h3,
+    .advertisements-title a {
+        font-size: 14px;
+    }
 }
 
 /* Tablet üçün */
@@ -466,6 +748,156 @@
         font-size: 14px;
         padding: 3px 0;
         margin: 0 2px;
+    }
+
+    .new-product {
+        padding: 0 3px;
+    }
+
+    .form-group > label {
+        font-size: 12px;
+    }
+
+    .form-group > select {
+        height: 34px;
+        width: 235px;
+    }
+
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 234px !important;
+        border: 1px solid #aeaeae !important;
+        height: 34px !important;
+    }
+
+    .product-form-checbox {
+        font-size: 10px;
+        flex-wrap: nowrap;
+    }
+
+
+        .product-form-checbox > label,
+        .checbox-inline > label,
+        .kredit-checbox,
+        .barter-checbox,
+        .vin-group > label,
+        .additional > label,
+        .contact > label {
+            font-size: 12px !important;
+        }
+
+    .form-group-checbox > label {
+        font-size: 11px;
+    }
+
+    .form-group-checbox label:first-child {
+        margin-right: 10px;
+        font-size: 13px;
+    }
+
+
+    .vin-group > input {
+        border: 1px solid #aeaeae;
+        height: 37px !important;
+        margin-left: 61px;
+    }
+
+    .new-description {
+        width: 43%;
+    }
+
+    .contact {
+        margin: 9px 0 0 0;
+    }
+
+        .contact > input,
+        .contact > select {
+            border: 1px solid #aeaeae;
+            height: 34px;
+            width: 234px;
+        }
+
+    #phone-contact {
+        margin-left: 30px;
+    }
+
+    .new-contact > button {
+        margin-left: 26%;
+    }
+
+    .product-container {
+        padding: 0 14px;
+    }
+
+    .product-embed-and-related {
+        padding: 15px 15px;
+    }
+
+    .product-title {
+        font-size: 18px;
+    }
+
+    .product-heading-right > a {
+        font-size: 18px;
+    }
+
+    .fotorama__wrap--toggle-arrows {
+        margin-left: 53px;
+    }
+
+    .fotorama__stage__frame {
+        width: 100%;
+        height: 296px;
+        left: 59.3338px;
+        top: 0px;
+    }
+
+    .product-foto {
+        margin-left: -59px;
+    }
+
+    .text-content {
+        font-size: 11px;
+    }
+
+    .product-sidebar-container {
+        width: 29%;
+        height: 261px;
+        padding: 10px;
+        margin: 10px;
+        top: 25%;
+        right: 0;
+    }
+
+    #usd {
+        font-weight: bolder;
+        font-size: 18px;
+        padding-bottom: 4px;
+    }
+
+    #val {
+        font-size: 14px;
+    }
+
+    .product-sidebar-button a {
+        padding: 11px 51px;
+        font-size: 13px;
+    }
+
+    .product-button-phone a {
+        padding: 0 56px;
+        font-size: 13px;
+    }
+
+    .forward-vip-pre a {
+        padding: 7px 3px;
+        margin-top: 6px;
+        font-size: 0;
+    }
+
+    .check-icon {
+        position: absolute;
+        bottom: 74px;
+        right: 10px;
     }
 }
 
@@ -590,277 +1022,6 @@
     .footer_information, .footer_main {
         padding: 24px 81px;
     }
-}
-
-/* Böyük Ekranlar üçün (> 1200px) */
-@media (min-width: 1201px) {
-    .main_search {
-        padding: 20px 168px;
-    }
-
-    .custom-dropdown select,
-    .custom-dropdown-val select,
-    .custom-dropdown-how-many select {
-        padding: 15px 160px 15px 5px;
-        font-size: 16px;
-    }
-
-    .valyuta {
-        border-radius: 5px;
-        border: none;
-    }
-
-    .price input,
-    .march-maks input,
-    .power-maks input {
-        padding: 15px 10px;
-        width: 150px;
-    }
-
-    .input-group span {
-        padding: 12px 18px;
-    }
-
-    .main-search-footer-right > div > button {
-        padding: 16px 50px;
-    }
-
-    .floor-2 {
-    }
-}
-
-
-/* Create üçün Responsive */
-
-/* Mobil telefonlar üçün */
-@media (max-width: 425px) and (min-width: 320px) {
-    .new-product {
-        padding: 0 0;
-    }
-    .new-prouduct-not > ul > li{
-        font-size:10px;
-    }
-    .form-group {
-        display: block;
-        width: 100%;
-    }
-    .form-group > label {
-        font-size: 14px;
-        margin-left:14px;
-    }
-
-    .form-group > select {
-        height: 38px;
-        width: 100%;
-        margin-top:7px;
-    }
-    .form-group-checbox > label{
-        margin-right:20px;
-        font-size:16px;
-        margin-left:10px;
-    }
-    #Yürüş {
-        border: 1px solid #aeaeae;
-        margin-left: 59px;
-        height: 37px;
-    }
-    #Qiymət {
-        border: 1px solid #aeaeae;
-        width:149px;
-        height: 37px;
-    }
-    #engine-power {
-        width: 100%;
-        border: 1px solid #aeaeae !important;
-        height: 34px;
-        margin-top: 7px;
-    }
-
-    .product-form-checbox {
-        font-size: 3px;
-        flex-wrap: nowrap;
-        margin-left:14px;
-    }
-    .checbox-inline > .container:nth-child(2) {
-        margin-left: 7px;
-    }
-
-    .container input{
-        transform:scale(1.2);
-        margin-left:0;
-    }
-
-    #mobile-res {
-        margin-left: -47px;
-        margin-top: -17px;
-    }
-
-    .product-form-checbox > label,
-    .checbox-inline > label,
-    .kredit-checbox,
-    .barter-checbox,
-    .vin-group > label,
-    .additional > label,
-    .contact > label {
-        font-size: 12px !important;
-    }
-
-        .label-container {
-            font-size: 10px;
-        }
-    .label-container > span {
-        display: none;
-    }
-    .form-group-checbox > label {
-        font-size: 11px;
-    }
-
-    .form-group-checbox label:first-child {
-        margin-right: 10px;
-        font-size: 13px;
-    }
-
-
-    #vin-kod {
-        border: 1px solid #aeaeae;
-        height: 37px !important;
-        width: 259px;
-        margin-top: 5px;
-        display: flex;
-        margin-left:19px;
-    }
-
-    .vin-group > label{
-        margin-left:19px;
-    }
-    .additional {
-        width: 100%;
-        display: block;
-    }
-    .additional > label{
-        width:100%;
-        display:block;
-        margin: 0 0 19px 5px;
-    }
-    .additional > textarea {
-        width: 100%;
-        display: block;
-        margin: 0 0 0 0 !important;
-    }
-
-    .additional-info > span{
-        margin-left:21px;
-    }
-    .new-description {
-        width: 43%;
-    }
-
-    .contact {
-        width:100%;
-        display:block;
-        margin:3px 0;
-    }
-
-        .contact > label {
-            font-size: 14px;
-            margin-left: -15rem;
-        }
-
-        .contact > input,
-        .contact > select {
-            border: 1px solid #aeaeae;
-            height: 38px;
-            width: 100%;
-            margin:7px 0 0 0;
-            display:block;
-        }
-
-    #phone-contact {
-        margin-left: 0;
-    }
-
-    .new-contact > button {
-        margin-left: 72%;
-    }
-}
-
-/* Tablet üçün */
-@media (max-width: 768px) and (min-width: 426px) {
-    .new-product {
-        padding: 0 3px;
-    }
-
-    .form-group > label {
-        font-size: 12px;
-    }
-
-    .form-group > select {
-        height: 34px;
-        width: 235px;
-    }
-
-    .form-group-checbox input[type="number"], #engine-power {
-        width: 234px !important;
-        border: 1px solid #aeaeae !important;
-        height: 34px !important;
-    }
-
-    .product-form-checbox {
-        font-size: 10px;
-        flex-wrap: nowrap;
-    }
-
-
-        .product-form-checbox > label,
-        .checbox-inline > label,
-        .kredit-checbox,
-        .barter-checbox,
-        .vin-group > label,
-        .additional > label,
-        .contact > label {
-            font-size: 12px !important;
-        }
-
-    .form-group-checbox > label {
-        font-size: 11px;
-    }
-
-    .form-group-checbox label:first-child {
-        margin-right: 10px;
-        font-size: 13px;
-    }
-
-
-    .vin-group > input {
-        border: 1px solid #aeaeae;
-        height: 37px !important;
-        margin-left:61px;
-    }
-
-    .new-description {
-        width: 43%;
-    }
-    .contact{
-        margin:9px 0 0 0;
-    }
-    .contact > input,
-    .contact > select {
-        border: 1px solid #aeaeae;
-        height: 34px;
-        width: 234px;
-    }
-
-    #phone-contact {
-        margin-left: 30px;
-    }
-
-    .new-contact > button {
-        margin-left: 26%;
-    }
-}
-
-/* Orta ölçülü ekranlar üçün (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
 
     .new-product {
         padding: 15px 98px;
@@ -926,239 +1087,7 @@
     .new-contact > button {
         margin-left: 27%;
     }
-}
 
-/* Böyük Ekranlar üçün (> 1200px) */
-@media (min-width: 1201px) {
-    .form-group-checbox input[type="number"], #engine-power {
-        width: 246px !important;
-        border: 1px solid #aeaeae !important;
-        height: 39px !important;
-    }
-
-    .vin-group > input {
-        border: 1px solid #aeaeae;
-        height: 37px;
-    }
-
-    #info {
-        width: 100%;
-    }
-
-    .contact > input,
-    .contact > select {
-        border: 1px solid #aeaeae;
-        height: 38px;
-        width: 264px;
-    }
-
-    #phone-contact {
-        margin-left: 10px;
-    }
-
-    .new-contact > button {
-        margin-left: 15.5%;
-    }
-}
-
-
-/* Details üçün Responsive */
-
-/* Mobil telefonlar üçün */
-@media (max-width: 425px) and (min-width: 320px) {
-    .product-container {
-        padding: 0 14px;
-    }
-
-    .product-embed-and-related {
-        padding: 15px 15px;
-    }
-
-    .product-title,
-    .product-heading-right > a {
-        font-size: 15px;
-    }
-
-    .product-heading-right a i {
-        font-size: 18px;
-    }
-    .fotorama__wrap--toggle-arrows {
-        margin-left: 53px;
-    }
-
-    .product-foto {
-        width: 100% !important;
-        height: 100% !important;
-        left: 0px !important;
-        top: 0 !important;
-    }
-    .fotorama__nav {
-        margin-left: -103px;
-        margin-top: 4px;
-    }
-
-    .fotorama {
-        min-width: 1px;
-        overflow: hidden;
-        margin-left: -67px;
-        margin-top: 8px;
-        width: 116%;
-        height: 100%;
-    }
-
-    .header-text-content ul li {
-        font-size: 14px;
-        padding-right: 46px;
-    }
-    .text-content {
-        font-size: 9px;
-    }
-
-    .description-content p {
-        line-height: 1.5;
-        font-size: 9px;
-    }
-
-    .text-end-left a, 
-    .text-end-right > span {
-        font-size: 14px;
-    }
-
-    .body-text-content {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-    .product-properties {
-        width: 100%;
-        padding: 15px 0;
-    }
-    .product-sidebar-container {
-        width: 100%;
-        height: 261px;
-        position: static;
-        margin-top:-27px;
-    }
-
-    #usd {
-        font-weight: bolder;
-        font-size: 18px;
-        padding-bottom: 4px;
-    }
-
-    #val {
-        font-size: 14px;
-    }
-
-    .product-sidebar-button a {
-        padding: 11px 51px;
-        font-size: 17px;
-    }
-
-    .product-button-phone a {
-        padding: 0 56px;
-        font-size: 17px;
-    }
-
-    .forward-vip-pre a {
-        padding: 12px 12px;
-        font-size: 16px;
-    }
-
-    .check-icon {
-        position: absolute;
-        bottom: 74px;
-        right: 10px;
-    }
-
-    .product-embed-and-related {
-        padding: 15px 15px;
-        margin-top: 73px;
-    }
-
-    .advertisements-title > h3,
-    .advertisements-title a {
-        font-size: 14px;
-    }
-}
-
-/* Tablet üçün */
-@media (max-width: 768px) and (min-width: 426px) {
-    .product-container {
-        padding: 0 14px;
-    }
-
-    .product-embed-and-related {
-        padding: 15px 15px;
-    }
-    .product-title{
-        font-size:18px;
-    }
-    .product-heading-right > a{
-        font-size:18px;
-    }
-    .fotorama__wrap--toggle-arrows {
-        margin-left: 53px;
-    }
-    .fotorama__stage__frame {
-        width: 100%;
-        height: 296px;
-        left: 59.3338px;
-        top: 0px;
-    }
-
-    .product-foto{
-        margin-left:-59px;
-    }
-    .text-content {
-        font-size: 11px;
-    }
-
-    .product-sidebar-container {
-        width: 29%;
-        height: 261px;
-        padding: 10px;
-        margin: 10px;
-        top: 25%;
-        right: 0;
-    }
-
-    #usd {
-        font-weight: bolder;
-        font-size: 18px;
-        padding-bottom: 4px;
-    }
-
-    #val {
-        font-size: 14px;
-    }
-
-    .product-sidebar-button a {
-        padding: 11px 51px;
-        font-size: 13px;
-    }
-
-    .product-button-phone a {
-        padding: 0 56px;
-        font-size: 13px;
-    }
-
-    .forward-vip-pre a {
-        padding: 7px 3px;
-        margin-top: 6px;
-        font-size: 0;
-    }
-
-    .check-icon {
-        position: absolute;
-        bottom: 74px;
-        right: 10px;
-    }
-}
-
-/* Orta ölçülü ekranlar üçün (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
     .product-container {
         padding: 15px 103px;
     }
@@ -1197,9 +1126,9 @@
         font-size: 14px;
     }
 
-    .product-sidebar-button a{
-        padding:11px 51px;
-        font-size:14px;
+    .product-sidebar-button a {
+        padding: 11px 51px;
+        font-size: 14px;
     }
 
     .product-button-phone a {
@@ -1217,5 +1146,70 @@
         position: absolute;
         bottom: 74px;
         right: 10px;
+    }
+}
+
+/* Böyük Ekranlar üçün (> 1200px) */
+@media (min-width: 1201px) {
+    .main_search {
+        padding: 20px 168px;
+    }
+
+    .custom-dropdown select,
+    .custom-dropdown-val select,
+    .custom-dropdown-how-many select {
+        padding: 15px 160px 15px 5px;
+        font-size: 16px;
+    }
+
+    .valyuta {
+        border-radius: 5px;
+        border: none;
+    }
+
+    .price input,
+    .march-maks input,
+    .power-maks input {
+        padding: 15px 10px;
+        width: 150px;
+    }
+
+    .input-group span {
+        padding: 12px 18px;
+    }
+
+    .main-search-footer-right > div > button {
+        padding: 16px 50px;
+    }
+
+
+    .form-group-checbox input[type="number"], #engine-power {
+        width: 246px !important;
+        border: 1px solid #aeaeae !important;
+        height: 39px !important;
+    }
+
+    .vin-group > input {
+        border: 1px solid #aeaeae;
+        height: 37px;
+    }
+
+    #info {
+        width: 100%;
+    }
+
+    .contact > input,
+    .contact > select {
+        border: 1px solid #aeaeae;
+        height: 38px;
+        width: 264px;
+    }
+
+    #phone-contact {
+        margin-left: 10px;
+    }
+
+    .new-contact > button {
+        margin-left: 15.5%;
     }
 }

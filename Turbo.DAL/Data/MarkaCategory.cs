@@ -11,6 +11,5 @@ namespace Turbo.DAL.Data
     {
         public string Name { get; set; }
         public virtual ICollection<Product>? Products { get; set; }
-        public virtual ICollection<ModelCategory>? Modelss { get; set; }
     }
 }

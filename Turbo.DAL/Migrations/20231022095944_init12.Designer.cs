@@ -12,8 +12,8 @@ using Turbo.DAL.DbContext;
 namespace Turbo.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231013115600_init11")]
-    partial class init11
+    [Migration("20231022095944_init12")]
+    partial class init12
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -502,9 +502,6 @@ namespace Turbo.DAL.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("MarkaCategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -513,8 +510,6 @@ namespace Turbo.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MarkaCategoryId");
 
                     b.ToTable("ModelCategories");
                 });
@@ -667,7 +662,7 @@ namespace Turbo.DAL.Migrations
                     b.Property<string>("Valyuta")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ViewCount")
+                    b.Property<int>("ViewCount")
                         .HasColumnType("int");
 
                     b.Property<int>("YearCategoryId")
@@ -810,15 +805,6 @@ namespace Turbo.DAL.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Turbo.DAL.Data.ModelCategory", b =>
-                {
-                    b.HasOne("Turbo.DAL.Data.MarkaCategory", "Marka")
-                        .WithMany("Modelss")
-                        .HasForeignKey("MarkaCategoryId");
-
-                    b.Navigation("Marka");
                 });
 
             modelBuilder.Entity("Turbo.DAL.Data.Product", b =>
@@ -981,8 +967,6 @@ namespace Turbo.DAL.Migrations
 
             modelBuilder.Entity("Turbo.DAL.Data.MarkaCategory", b =>
                 {
-                    b.Navigation("Modelss");
-
                     b.Navigation("Products");
                 });
 
