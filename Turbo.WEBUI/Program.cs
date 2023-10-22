@@ -38,7 +38,7 @@ namespace Turbo.WEBUI
             builder.Services.AddMemoryCache();
 
             //Fluent Validations Extension
-            // builder.Services.AddFluentServices();
+            builder.Services.AddFluentServices();
 
             //Identity AppRole,AppUser Security 
             // builder.Services.AddIdentityServices();

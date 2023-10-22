@@ -119,31 +119,63 @@ $(document).ready(function () {
         e.preventDefault();
         var productId = $(this).closest(".card").data("product-id");
         var isFavorite = $(this).hasClass("active");
+        var isFavoritesPage = $(this).closest('.recent_announcements').length > 0;
 
         if (isFavorite) {
-            $(this).removeClass("active favorite"); 
-            removeFromFavorites(productId);
+            $(this).removeClass("active favorite");
+            removeFromFavorites(productId, isFavoritesPage);  
         } else {
-            $(this).addClass("active favorite"); 
+            $(this).addClass("active favorite");
             addToFavorites(productId);
         }
     });
 
     function addToFavorites(productId) {
         $.post("/Favorites/AddToFavorites", { productId: productId }, function () {
-            // Məhsulu favoritlərə əlavə edərkən, sadəcə heart-icon-u işarələyirik
             $(".card[data-product-id='" + productId + "'] .heart-icon").addClass("active favorite");
         });
     }
 
-    function removeFromFavorites(productId) {
-        $.post("/Favorites/RemoveFromFavorites", { productId: productId }, function () {
-            // Məhsulu favoritlərdən silərkən, heart-icon-u deaktiv edirik və məhsulu silirik
-            $(".card[data-product-id='" + productId + "'] .heart-icon").removeClass("active favorite");
-            $(".card[data-product-id='" + productId + "']").remove();
+    function getFavoritesFromCookie() {
+        var favoriteProducts = $.cookie("FavoriteProducts");
+        if (favoriteProducts) {
+            return JSON.parse(favoriteProducts);
+        }
+        return [];
+    }
+
+    function setFavoritesToCookie(favorites) {
+        $.cookie("FavoriteProducts", JSON.stringify(favorites), { expires: 30 });
+    }
+
+
+    function removeFromFavorites(productId, isFavoritesPage) {
+        $.post("/Favorites/RemoveFromFavorites", { productId: productId }, function (data) {
+            if (data.success) {
+                $(".card[data-product-id='" + productId + "'] .heart-icon").removeClass("active favorite");
+
+                if (isFavoritesPage) {
+                    $(".card[data-product-id='" + productId + "']").fadeOut(300, function () {
+                        $(this).remove();
+                    });
+                }
+
+                var favoriteProducts = getFavoritesFromCookie();
+                var index = favoriteProducts.indexOf(productId);
+                if (index > -1) {
+                    favoriteProducts.splice(index, 1);
+                    setFavoritesToCookie(favoriteProducts);
+                }
+            } else {
+                alert("Bir problem yarandı. Zəhmət olmasa təkrar cəhd edin.");
+            }
         });
     }
+
+
 });
+
+
 
 
 

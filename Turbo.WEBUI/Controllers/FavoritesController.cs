@@ -68,7 +68,7 @@ namespace Turbo.WEBUI.Controllers
             var favoriteProducts = Request.Cookies["FavoriteProducts"];
             if (string.IsNullOrEmpty(favoriteProducts))
             {
-                return RedirectToAction("Index");
+                return Json(new { success = false });
             }
 
             var productIds = JsonConvert.DeserializeObject<List<int>>(favoriteProducts);
@@ -80,7 +80,8 @@ namespace Turbo.WEBUI.Controllers
             };
             Response.Cookies.Append("FavoriteProducts", JsonConvert.SerializeObject(productIds), options);
 
-            return RedirectToAction("Index");
+            return Json(new { success = true });
         }
+
     }
 }
