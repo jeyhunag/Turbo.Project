@@ -21,6 +21,7 @@ namespace Turbo.BLL.Services
         private readonly IMemoryCache _cache;
         private readonly ILogger<ProductService> _logger;
 
+
         private readonly IProductRepository productRepository;
         private readonly IGenericRepository<BanTypeCategory> banTypeRepository;
         private readonly IGenericRepository<CityCategory> cityRepository;
@@ -85,7 +86,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Ban növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Ban növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -101,7 +102,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Şəhər kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Şəhər kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -117,7 +118,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Rəng kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Rəng kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -154,7 +155,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Mühərrik hecimi kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Mühərrik hecimi kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -169,7 +170,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Yanacaq növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Yanacaq növü kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -184,7 +185,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Sürət qutusu kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Sürət qutusu kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -199,7 +200,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Sürət kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Sürət kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -214,7 +215,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Neçənci sahibisiniz kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Neçənci sahibisiniz kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -229,7 +230,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Marka kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Marka kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -244,7 +245,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Hansı bazar üçün kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Hansı bazar üçün kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -259,7 +260,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Model kateqoriyalarını almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Model kateqoriyalarını almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -275,7 +276,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Kateqoriyaları almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Kateqoriyaları almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -290,7 +291,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("vehicle supply kateqoriyaları almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("vehicle supply kateqoriyaları almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -305,7 +306,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("il kateqoriyaları almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("il kateqoriyaları almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -320,7 +321,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Xəta baş verdi: Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Oturacaqların sayı kateqoriyaları almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Oturacaqların sayı kateqoriyaları almağa çalışarkən xəta yarandı.");
             }
         }
 

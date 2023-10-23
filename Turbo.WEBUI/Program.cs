@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using Turbo.BLL.Mapping;
 using Turbo.BLL.Services.Interfaces;
@@ -10,6 +10,7 @@ using Turbo.WEBUI.Helper.ServicesExtensions;
 using Serilog;
 using Turbo.WEBUI.Helper.IdentityExtensions;
 using Turbo.WEBUI.Provider;
+using Turbo.DAL.Data;
 
 namespace Turbo.WEBUI
 {

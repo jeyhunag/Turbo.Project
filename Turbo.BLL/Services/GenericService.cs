@@ -35,7 +35,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLAddException("Elavə edillərkən xəta yarandı.");
+                throw new BllAddException("Elavə edillərkən xəta yarandı.");
             }
         }
 
@@ -51,7 +51,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($" Id ilə elementi silərkən xəta baş verdi {id}. Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLDeleteException($"Id {id} ilə obyekt silinərkən xəta yarandı.");
+                throw new BllDeleteException($"Id {id} ilə obyekt silinərkən xəta yarandı.");
             }
         }
 
@@ -68,7 +68,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"ID ilə elementi silərkən xəta baş verdi {id}. Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException($"Id axtarılarkən {id} əlavə edillərkən xəta yarandı.");
+                throw new BllGetException($"Id axtarılarkən {id} əlavə edillərkən xəta yarandı.");
             }
 
         }
@@ -86,7 +86,7 @@ namespace Turbo.BLL.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Elementləri əldə edərkən xəta baş verdi. Message: {ex.Message} | StackTrace: {ex.StackTrace}");
-                throw new BLLGetException("Siyahı almağa çalışarkən xəta yarandı.");
+                throw new BllGetException("Siyahı almağa çalışarkən xəta yarandı.");
             }
         }
 
@@ -106,7 +106,7 @@ namespace Turbo.BLL.Services
             {
                 _logger.LogError(ex.Message);
                 _logger.LogError(ex.StackTrace);
-                throw new BLLUpdateException("Update edillərkən xəta yarandı.");
+                throw new BllUpdateException("Update edillərkən xəta yarandı.");
             }
         }
     }

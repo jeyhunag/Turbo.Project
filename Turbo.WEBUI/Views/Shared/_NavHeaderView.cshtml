@@ -40,7 +40,8 @@
                         <label for="phone">Telefon nömrəsi</label><br>
                         <input type="tel" id="phone" name="phone" value="(0" required>
                     </form>
-                    <a class="button-phone" id="openModalPhone-message">SMS-kod göndərilsin</a>
+                    <div id="recaptcha-container"></div>
+                    <a onclick="startRecaptchaVerification()" class="button-phone" id="openModalPhone-message">SMS-kod göndərilsin</a>
                 </div>
             </div>
             <!-- Modal SMS Message -->
@@ -54,7 +55,7 @@
                         <label for="sms">SMS-kod</label><br>
                         <input type="number" id="sms" name="sms" required>
                     </form>
-                    <a class="sms-code">SMS-kod yenidən göndərilsin</a>
+                    <a class="sms-code" onclick="verifyCode()">SMS-kod yenidən göndərilsin</a>
                 </div>
             </div>
         </div>
@@ -91,12 +92,3 @@
         </a>
     </div>
 </header>
-
-@section Scripts{
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-    </script>
-    <script src="~/js/favorites.js" asp-append-version="true"></script>
-
-}

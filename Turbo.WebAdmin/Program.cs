@@ -28,10 +28,6 @@ namespace Turbo.WebAdmin
             //Fluent Validations Extension
             builder.Services.AddFluentServices();
 
-            //Identity AppRole,AppUser Security 
-            //builder.Services.AddIdentityServices();
-
-
             //Importand Logger Extensions
             builder.Services.AddImpotandLogServices();
 

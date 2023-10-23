@@ -177,9 +177,6 @@ $(document).ready(function () {
 
 
 
-
-
-
 $(document).ready(function () {
 
     // giris modalının açılması
@@ -239,7 +236,18 @@ $(document).ready(function () {
             $('.button-phone').addClass('deactivated');
         }
     });
+
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible',
+        'callback': function (response) {
+            sendVerificationCode();
+        }
+    });
+
 });
+
+
+
 
 
 
