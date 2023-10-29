@@ -20,72 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics-compat.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>
-
-    <script>
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyDJlK2upMsG-c_qXbRFYPL9AnD090cRIyk",
-            authDomain: "turbo-cfb8d.firebaseapp.com",
-            projectId: "turbo-cfb8d",
-            storageBucket: "turbo-cfb8d.appspot.com",
-            messagingSenderId: "603661730738",
-            appId: "1:603661730738:web:a212786b3d09fdb52ddaab",
-            measurementId: "G-E3HSNFGCZ5"
-        };
-
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const analytics = firebase.analytics(app);
-
-        let confirmationResult;
-
-        function sendVerificationCode() {
-            const phoneNumberRaw = document.getElementById('phone').value;
-            const phoneNumber = '+994' + phoneNumberRaw.replace(/\D/g, "");
-
-            const appVerifier = window.recaptchaVerifier;
-            firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
-                .then((result) => {
-                    confirmationResult = result;
-                    alert('Təsdiq kodu göndərildi.');
-                })
-                .catch((error) => {
-                    alert('Xəta baş verdi: ' + error.message);
-                });
-        }
-
-
-
-
-        function verifyCode() {
-            const code = document.getElementById('sms').value;
-
-            confirmationResult.confirm(code)
-                .then((result) => {
-                    const user = result.user;
-                    alert('Uğurla təsdiq edildi.');
-                })
-                .catch((error) => {
-                    alert('Xəta baş verdi: ' + error.message);
-                });
-        }
-
-        function startRecaptchaVerification() {
-            window.recaptchaVerifier.verify().then(function () {
-                sendVerificationCode();
-            });
-        }
-
-
-    </script>
-
-
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
