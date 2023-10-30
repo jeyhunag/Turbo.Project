@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turbo.DAL.Dto
 {
-    public class BaseDto
+    public abstract class BaseDto
     {
         public int Id { get; set; }
     }
